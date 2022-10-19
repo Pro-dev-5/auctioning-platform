@@ -1,0 +1,10 @@
+.jewel{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+hr{
+    margin-left: 50px;
+    margin-right: 750px;
+    background-image: linear-gradient(to right, black, gold);
+    height: 2px;
+}
