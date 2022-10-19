@@ -1,10 +1,18 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import '../App.css'
-import Item from './Item'
 import Jewellery from './Jewellery'
-import SellerLogin from './SellerLoginForm'
+
+import Item from './Item'
+
+import Home from './Home'
+import Navbar from './NavBar'
+
+import Item from './Item'
+
 import BuyerLogin from './BuyerLoginForm'
-import 
+import BuyerSignup from './BuyerSignUpForm'
+import SellerLogin from './SellerLoginForm'
+import SellerSignup from './SellerSignUpForm'
 
 
 function App() {
@@ -28,22 +36,20 @@ function App() {
 
 
 
-     {/* <BrowserRouter>
+    <BrowserRouter>
      <div>
         <Routes>
-            <Route  path="/" element={<page1 />} />
-            <Route  path="/" element={<page2 />} />
-            <Route  path="/" element={<page3 />} />
-            <Route  path="/" element={<page4/>} />
-        </Routes>
-        <Routes>
-        <Route  path="/" element={<page1 />} />
-            <Route  path="/" element={<page2 />} />
-            <Route  path="/" element={<page3 />} />
-            <Route  path="/" element={<page4/>} />
+            <Route  path="/home" element={<Home />} />
+            <Route  path="/navbar" element={<Navbar />} />
+            <Route  path="/jewellery" element={<Jewellery />} />
+            <Route  path="/item" element={<Item/>} />
+            <Route  path="/buyerlogin" element={<BuyerLogin />} />
+            <Route  path="/buyersignup" element={<BuyerSignup />} />
+            <Route  path="/sellerlogin" element={<SellerLogin />} />
+            <Route  path="/sellersignup" element={<SellerSignup/>} />
         </Routes>
       </div>
-     </BrowserRouter> */}
+     </BrowserRouter>
 
     </div>
   )
