@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import '../App.css'
+import Home from './Home'
+import NavBar from './NavBar'
 
 
 function App() {
@@ -9,7 +11,8 @@ function App() {
 
         {/* Import start your pages below for testing */}
 
-
+      {/* <Home /> */}
+      <NavBar />
 
 
 
@@ -19,8 +22,8 @@ function App() {
 
         
 
-     {/* <BrowserRouter>
-     <div>
+    {/* <BrowserRouter>
+    <div>
         <Routes>
             <Route  path="/" element={<page1 />} />
             <Route  path="/" element={<page2 />} />
