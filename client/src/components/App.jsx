@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import '../App.css'
-// import Item from './Item'
+import Jewellery from './Jewellery'
+import Item from './Item'
 
 
 function App() {
@@ -10,7 +11,11 @@ function App() {
 
         {/* Import start your pages below for testing */}
 
-       
+
+
+
+
+
 
 
 
@@ -40,5 +45,3 @@ function App() {
     </div>
   )
 }
-
-export default App
