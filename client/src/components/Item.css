@@ -1,0 +1,34 @@
+.header1 {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+  }
+
+.body1{
+    display: block;
+    align-items: left;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding: 40px;
+}
+
+.body2{
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.parent {
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+  .child {
+    display: inline-block;
+    padding: 4rem 7rem;
+    vertical-align: middle;
+  }
+  
+  
