@@ -7,7 +7,6 @@ import Item from './Item'
 import Home from './Home'
 import Navbar from './NavBar'
 
-import Item from './Item'
 
 import BuyerLogin from './BuyerLoginForm'
 import BuyerSignup from './BuyerSignUpForm'
