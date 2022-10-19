@@ -1,8 +1,19 @@
-// import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import '../App.css'
 import Item from './Item'
 import Jewellery from './Jewellery'
 
+import Jewellery from './Jewellery'
+
+import Item from './Item'
+
+import Home from './Home'
+
+import BuyerLogin from './BuyerLoginForm'
+import BuyerSignup from './BuyerSignUpForm'
+import SellerLogin from './SellerLoginForm'
+import SellerSignup from './SellerSignUpForm'
+import NavBar from './NavBar'
 
 
 function App() {
@@ -26,22 +37,18 @@ function App() {
 
 
 
-     {/* <BrowserRouter>
-     <div>
+    <BrowserRouter>
+      <NavBar/>
         <Routes>
-            <Route  path="/" element={<page1 />} />
-            <Route  path="/" element={<page2 />} />
-            <Route  path="/" element={<page3 />} />
-            <Route  path="/" element={<page4/>} />
+            <Route  path="/home" element={<Home />} />
+            <Route  path="/jewellery" element={<Jewellery />} />
+            <Route  path="/item" element={<Item/>} />
+            <Route  path="/buyerlogin" element={<BuyerLogin />} />
+            <Route  path="/buyersignup" element={<BuyerSignup />} />
+            <Route  path="/sellerlogin" element={<SellerLogin />} />
+            <Route  path="/sellersignup" element={<SellerSignup/>} />
         </Routes>
-        <Routes>
-        <Route  path="/" element={<page1 />} />
-            <Route  path="/" element={<page2 />} />
-            <Route  path="/" element={<page3 />} />
-            <Route  path="/" element={<page4/>} />
-        </Routes>
-      </div>
-     </BrowserRouter> */}
+     </BrowserRouter>
 
     </div>
   )
