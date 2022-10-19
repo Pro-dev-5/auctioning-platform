@@ -12,16 +12,7 @@
     "antd": "^4.23.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "react-router-dom": "^6.4.2"
-=======
-		"react-router-dom": "^6.4.2",
-		"antd": "^4.23.6"
->>>>>>> 97690fb8f4919238026ca95e4885cb602a880942
-=======
 		"react-router-dom": "^6.4.2"
->>>>>>> 66e4d90b877fb9026702f21fd8b7305e14c675d6
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
