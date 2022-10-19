@@ -1,6 +1,6 @@
 import React from 'react'
 import { Breadcrumb, Layout, Menu } from 'antd'
-import './Nav.css'
+import '../styles/Nav.css'
 
 
 const { Header, Content, Footer } = Layout;

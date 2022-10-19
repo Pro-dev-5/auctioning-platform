@@ -1,5 +1,5 @@
 import React from 'react'
-import './Jewellery.css'
+import '../styles/Jewellery.css'
 // import { card } from 'antd'
 
 function Jewellery() {

@@ -1,6 +1,6 @@
 import { Image, Button, Descriptions, PageHeader, Radio , Statistic, Tag, Tabs } from 'antd';
 import React, { useState } from 'react';
-import './Item.css'
+import '../styles/Item.css'
 const { TabPane } = Tabs;
 const renderContent = (column = 2) => (
     <Descriptions size="small" column={column}>

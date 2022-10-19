@@ -5,13 +5,12 @@ import Jewellery from './Jewellery'
 import Item from './Item'
 
 import Home from './Home'
-import Navbar from './NavBar'
-
 
 import BuyerLogin from './BuyerLoginForm'
 import BuyerSignup from './BuyerSignUpForm'
 import SellerLogin from './SellerLoginForm'
 import SellerSignup from './SellerSignUpForm'
+import NavBar from './NavBar'
 
 
 function App() {
@@ -36,10 +35,9 @@ function App() {
 
 
     <BrowserRouter>
-     <div>
+      <NavBar/>
         <Routes>
             <Route  path="/home" element={<Home />} />
-            <Route  path="/navbar" element={<Navbar />} />
             <Route  path="/jewellery" element={<Jewellery />} />
             <Route  path="/item" element={<Item/>} />
             <Route  path="/buyerlogin" element={<BuyerLogin />} />
@@ -47,7 +45,6 @@ function App() {
             <Route  path="/sellerlogin" element={<SellerLogin />} />
             <Route  path="/sellersignup" element={<SellerSignup/>} />
         </Routes>
-      </div>
      </BrowserRouter>
 
     </div>
