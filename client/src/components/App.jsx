@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import '../App.css'
+import Item from './Item'
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 
         {/* Import start your pages below for testing */}
 
-
+        <Item />
 
 
 
@@ -17,7 +18,7 @@ function App() {
 
         {/* End import of pages  */}
 
-        
+
 
      {/* <BrowserRouter>
      <div>
