@@ -1,6 +1,6 @@
 // import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import '../App.css'
-// import Jewelery from './Jewelery'
+import Jewellery from './Jewellery'
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div>
 
         {/* Import start your pages below for testing */}
-        <Jewelery/>
+        <Jewellery/>
 
 
 
