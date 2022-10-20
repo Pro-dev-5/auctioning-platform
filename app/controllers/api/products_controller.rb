@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Api::ProductsController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_prod_not_found
 	def index
 		render json: Product.all, status: :ok
@@ -12,6 +12,6 @@ class ProductsController < ApplicationController
 	private
 
 	def render_prod_not_found
-		render json: {error: "Product not found"}, status: :not_found
+		render json: {errors: ["Product not found"]}, status: :not_found
 	end
 end

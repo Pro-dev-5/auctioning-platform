@@ -1,8 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+<<<<<<< HEAD
 import '../App.less'
 import Jewellery from './Jewellery'
 
+=======
+import '../App.css'
+>>>>>>> a3d75e482cba3e30504d027dafe82bcc3080f612
 import Item from './Item'
+import Jewellery from './Jewellery'
 
 import Home from './Home'
 
