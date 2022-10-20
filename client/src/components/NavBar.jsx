@@ -1,5 +1,5 @@
 import React from 'react'
-import { Breadcrumb, Layout, Menu } from 'antd'
+import { Button, Layout, Menu } from 'antd'
 import '../styles/Nav.css'
 
 
@@ -9,19 +9,20 @@ function NavBar() {
     return (
         <div>
             <Layout className="layout">
-                <Header>
-                <div className="logo" />
+                <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between' }}>
+                {/* <div className="logo" /> */}
+                <div style={{ color: '#251E8C' }}>Logo</div>
                 <Menu
                     theme="dark"
                     mode="horizontal"
-                    defaultSelectedKeys={['2']}
-                    items={new Array(15).fill(null).map((_, index) => {
-                    const key = index + 1;
-                    return {
-                        key,
-                        label: `nav ${key}`,
-                    };
-                    })}
+                    items = {
+                        [
+                            { label: 'Jewels', key: 'jewels' },
+                            { label: 'Arts', key: 'arts' },
+                            { label: 'Ceramics', key: 'ceramics' },
+                            { label: 'Vehicles', key: 'vehicles' },
+                        ]
+                    }
                 />
                 </Header>
                 <Content
@@ -29,6 +30,9 @@ function NavBar() {
                     padding: '0 50px',
                 }}
                 >
+                <div className="site-layout-content">Content
+                <Button type="primary">Hello</Button>
+                </div>
                 <Breadcrumb
                     style={{
                     margin: '16px 0',

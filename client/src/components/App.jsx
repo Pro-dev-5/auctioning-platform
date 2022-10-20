@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import '../App.css'
+import '../App.less'
 import Item from './Item'
 import Jewellery from './Jewellery'
-
 import Home from './Home'
+// import Jewellery from './Jewellery'
+
 
 import BuyerLogin from './BuyerLoginForm'
 import BuyerSignup from './BuyerSignUpForm'
