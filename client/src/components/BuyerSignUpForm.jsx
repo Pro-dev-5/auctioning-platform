@@ -10,7 +10,7 @@ import React from 'react';
    
     return (
       <Form
-        {...formItemLayout}
+        // {...formItemLayout}
         form={form}
         name="register"
         onFinish={onFinish}
@@ -97,13 +97,13 @@ import React from 'react';
                 value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
             },
           ]}
-          {...tailFormItemLayout}
+          // {...tailFormItemLayout}
         >
           <Checkbox>
             I have read the <a href="">agreement</a>
           </Checkbox>
         </Form.Item>
-        <Form.Item {...tailFormItemLayout}>
+        <Form.Item >
           <Button type="primary" htmlType="submit">
             Register
           </Button>

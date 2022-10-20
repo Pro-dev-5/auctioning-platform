@@ -33,6 +33,16 @@ function NavBar() {
                 <div className="site-layout-content">Content
                 <Button type="primary">Hello</Button>
                 </div>
+                <Breadcrumb
+                    style={{
+                    margin: '16px 0',
+                    }}
+                >
+                    <Breadcrumb.Item>Home</Breadcrumb.Item>
+                    <Breadcrumb.Item>List</Breadcrumb.Item>
+                    <Breadcrumb.Item>App</Breadcrumb.Item>                  
+                </Breadcrumb>
+                <div className="site-layout-content">Content</div>
                 </Content>
                 <Footer
                 style={{
