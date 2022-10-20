@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :buyers
+  resources :bids
 	namespace :api do
   	resources :categories, only: [:index]
   	resources :sellers, only: [:index, :show]
