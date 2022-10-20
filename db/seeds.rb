@@ -9,14 +9,17 @@
 cat = %w!jewellery art ceramics!
 location = %w!Nairobi Nakuru Mombasa Eldoret Thika Kiambu!
 
+puts 'Seeding Categories...'
 for i in cat
 	Category.create(name: i)
 end
 
+puts 'seeding Sellers...'
 for i in 1..5
 	Seller.create(name: Faker::Name.name, email: "example@gmail.com", password: "#{i}")
 end
 
+puts 'Seeding products...'
 for i in 1..18
 	Product.create(
 		name: Faker::Commerce.product_name,
@@ -28,3 +31,5 @@ for i in 1..18
 		category_id: rand(1..3)
 	)
 end
+
+puts '...done seeding'
