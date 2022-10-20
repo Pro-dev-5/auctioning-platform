@@ -12,6 +12,6 @@ class Api::ProductsController < ApplicationController
 	private
 
 	def render_prod_not_found
-		render json: {error: "Product not found"}, status: :not_found
+		render json: {errors: ["Product not found"]}, status: :not_found
 	end
 end
