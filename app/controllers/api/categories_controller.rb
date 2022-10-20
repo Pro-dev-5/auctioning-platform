@@ -10,6 +10,6 @@ class Api::CategoriesController < ApplicationController
 	end
 
 	def render_cat_not_found
-		render json: {error: "Category not found"}
+		render json: {errors: ["Category not found"]}
 	end
 end
