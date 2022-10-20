@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
 
 .site-layout-content {
-    min-height: 280px;
+    height: auto;
     padding: 24px;
 }
 .ant-row-rtl #components-layout-demo-top .logo {
@@ -22,7 +22,7 @@
     margin-right: 8px;
 }
 
-.logo {
+.logo, h1 {
     font-family: 'Averia Serif Libre';
     font-size: x-large;
     font-weight: 500;
