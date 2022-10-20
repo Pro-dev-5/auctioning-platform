@@ -1,7 +1,5 @@
 import React from 'react'
 import '../styles/Jewellery.css'
-// import { card } from 'antd'
-import './Jewellery.css'
 import { Card } from 'antd'
 
 function Jewellery() {

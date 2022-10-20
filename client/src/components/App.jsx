@@ -3,10 +3,6 @@ import '../App.css'
 import Item from './Item'
 import Jewellery from './Jewellery'
 
-import Jewellery from './Jewellery'
-
-import Item from './Item'
-
 import Home from './Home'
 
 import BuyerLogin from './BuyerLoginForm'
