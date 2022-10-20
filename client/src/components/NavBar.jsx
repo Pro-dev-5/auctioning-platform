@@ -50,10 +50,13 @@ function NavBar() {
                 </Header>
                 <Content
                 style={{
-                    padding: '0 50px',
+                    padding: '0 28px',
                 }}
                 >
-                <div className="site-layout-content">Content</div>
+                <div className="site-layout-content" style={{ position: 'relative' }}>
+                    <h1 className="">Categories</h1>
+                    <div style={{ height: '6px', backgroundColor: '#ECC13B', width: '80px', position: 'absolute', top: '60px', left: '60px'}}></div>
+                </div>
                 </Content>
                 <Footer
                 style={{
