@@ -17,6 +17,23 @@
     margin: 16px 0 16px 24px;
 }
 
+.top-header {
+    padding: 4px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header div span {
+    margin-right: 8px;
+}
+
+.logo {
+    font-family: 'Averia Serif Libre';
+    font-size: x-large;
+    font-weight: 500;
+}
+
 .menu-fonts {
     font-family: 'Averia Serif Libre';
     font-size: large;
@@ -31,7 +48,7 @@
 .for {
     position: absolute;
     left: -22px;
-    top: 0px;
+    top: 4px;
     writing-mode: vertical-rl;
     transform: rotate(210deg);
     font-size: xx-small;
