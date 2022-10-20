@@ -6,14 +6,16 @@ import { Card } from "antd";
 const { Meta } = Card;
 
 function Jewellery() {
+const [products, setProducts] = useState([]);
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/products")
-    .then(res => res.json())
-    .then((data)=> setProducts(data))
-  },[])
+useEffect(() => {
+  fetch("/api/products")
+    .then((r) => r.json())
+    .then((data) => {
+      console.log(data);
+      setProducts(data);
+    });
+}, []);
 
 
   return (
