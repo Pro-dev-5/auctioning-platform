@@ -11,16 +11,22 @@ function NavBar() {
             <Layout className="layout">
                 <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between' }}>
                 {/* <div className="logo" /> */}
-                <div style={{ color: '#251E8C' }}>Logo</div>
-                <Menu
+                <a href='/'>
+                    <div className='menu-fonts' style={{ color: '#251E8C', padding: '0 20px' }}>
+                        <span>Bidding</span>
+                        <span className='for-container'>
+                            <small className='for'>FOR</small>
+                        </span>
+                        <span>Stuffs</span>
+                    </div>
+                </a>
+                <Menu className='menu-fonts'
                     theme="dark"
                     mode="horizontal"
                     items = {
                         [
-                            { label: 'Jewels', key: 'jewels' },
-                            { label: 'Arts', key: 'arts' },
-                            { label: 'Ceramics', key: 'ceramics' },
-                            { label: 'Vehicles', key: 'vehicles' },
+                            { label: 'About', key: 'about' },
+                            { label: 'Contact Us', key: 'contact' },
                         ]
                     }
                 />
@@ -30,18 +36,6 @@ function NavBar() {
                     padding: '0 50px',
                 }}
                 >
-                <div className="site-layout-content">Content
-                <Button type="primary">Hello</Button>
-                </div>
-                <Breadcrumb
-                    style={{
-                    margin: '16px 0',
-                    }}
-                >
-                    <Breadcrumb.Item>Home</Breadcrumb.Item>
-                    <Breadcrumb.Item>List</Breadcrumb.Item>
-                    <Breadcrumb.Item>App</Breadcrumb.Item>                  
-                </Breadcrumb>
                 <div className="site-layout-content">Content</div>
                 </Content>
                 <Footer
@@ -49,7 +43,7 @@ function NavBar() {
                     textAlign: 'center',
                 }}
                 >
-                Ant Design ©2018 Created by Ant UED
+                    ©2022 Bidding For Stuffs, All Rights Reserved.
                 </Footer>
             </Layout>
         </div>
