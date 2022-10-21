@@ -10,6 +10,14 @@
     margin: 16px 0 16px 24px;
 }
 
+/* .hover-link:hover {
+    border-bottom: solid 4px #fff;
+}
+
+.hover-links:hover {
+    color: #A4856D;
+} */
+
 .top-header {
     padding: 4px 40px;
     display: flex;
