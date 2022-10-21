@@ -1,4 +1,6 @@
 import { Button, Checkbox, Form, Input } from 'antd';
+//  import  '/src/styles/BuyerLoginForm.css';
+import 'antd/dist/antd.css';
 import React from 'react';
 const BuyerLoginForm = () => {
   const onFinish = (values) => {
