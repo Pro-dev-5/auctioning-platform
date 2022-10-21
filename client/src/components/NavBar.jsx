@@ -46,6 +46,10 @@ function NavBar() {
                 }
             />
             </Header>
+            <div style={{ height: '100%' }}>
+                <div className='hero-img'>
+                </div>
+            </div>
         </div>
     )
 }
