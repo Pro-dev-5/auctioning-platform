@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&display=swap');
+
 .site-layout-content {
     min-height: 280px;
     padding: 24px;
@@ -13,4 +15,43 @@
 .ant-row-rtl #components-layout-demo-top .logo {
     float: right;
     margin: 16px 0 16px 24px;
+}
+
+.top-header {
+    padding: 4px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header div span {
+    margin-right: 8px;
+}
+
+.logo {
+    font-family: 'Averia Serif Libre';
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.menu-fonts {
+    font-family: 'Averia Serif Libre';
+    font-size: large;
+    font-weight: 500;
+}
+
+.for-container {
+    position: relative;
+    padding: 0 10px;
+}
+
+.for {
+    position: absolute;
+    left: -22px;
+    top: 4px;
+    writing-mode: vertical-rl;
+    transform: rotate(210deg);
+    font-size: xx-small;
+    color: #fff;
+    font-weight: 900;
 }

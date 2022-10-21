@@ -14,3 +14,6 @@ hr{
     height: 2px;
     margin-right: 1700px;
 }
+Row{
+    display: flex;
+}

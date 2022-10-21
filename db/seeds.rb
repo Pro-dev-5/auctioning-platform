@@ -32,4 +32,19 @@ for i in 1..18
 	)
 end
 
+puts 'Seeding buyers...'
+for i in 1..10
+	Buyer.create(name: Faker::Name.first_name, email: "buyer@example.com", password: "#{i}")
+end
+
+puts "Seeding bids..."
+for i in 1..20
+	Bid.create(
+		buyer_id: rand(1..10),
+		product_id: rand(1..18),
+		start_price: rand(50...100),
+		current_bid: rand(100..150)
+	)
+end
+
 puts '...done seeding'

@@ -1,26 +1,49 @@
 import React from 'react'
-import { Button, Layout, Menu } from 'antd'
+import { Input, Space, Layout, Menu } from 'antd'
 import '../styles/Nav.css'
+import { Link } from 'react-router-dom';
+// import { AudioOutlined } from '@ant-design/icons';
 
 
 const { Header, Content, Footer } = Layout;
+const { Search } = Input;
+const onSearch = (value) => console.log(value);
 
 function NavBar() {
     return (
         <div>
             <Layout className="layout">
+                <div className='top-header'>
+                    <div>
+                        <span>Hi!</span>
+                        <span><Link to="">Login</Link></span>
+                        <span>Or</span>
+                        <span><Link to="">Register</Link></span>
+                    </div>
+                    <div>
+                        <Space direction='vertical'>
+                            <Search placeholder="input search text" onSearch={onSearch} enterButton />
+                        </Space>
+                    </div>
+                </div>
                 <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between' }}>
                 {/* <div className="logo" /> */}
-                <div style={{ color: '#251E8C' }}>Logo</div>
-                <Menu
+                <Link to="/">
+                    <div className='logo' style={{ color: '#251E8C', padding: '0px' }}>
+                        <span>Bidding</span>
+                        <span className='for-container'>
+                            <small className='for'>FOR</small>
+                        </span>
+                        <span>Stuffs</span>
+                    </div>
+                </Link>
+                <Menu className='menu-fonts'
                     theme="dark"
                     mode="horizontal"
                     items = {
                         [
-                            { label: 'Jewels', key: 'jewels' },
-                            { label: 'Arts', key: 'arts' },
-                            { label: 'Ceramics', key: 'ceramics' },
-                            { label: 'Vehicles', key: 'vehicles' },
+                            { label: 'About', key: 'about' },
+                            { label: 'Contact Us', key: 'contact' },
                         ]
                     }
                 />
@@ -30,18 +53,6 @@ function NavBar() {
                     padding: '0 50px',
                 }}
                 >
-                <div className="site-layout-content">Content
-                <Button type="primary">Hello</Button>
-                </div>
-                <Breadcrumb
-                    style={{
-                    margin: '16px 0',
-                    }}
-                >
-                    <Breadcrumb.Item>Home</Breadcrumb.Item>
-                    <Breadcrumb.Item>List</Breadcrumb.Item>
-                    <Breadcrumb.Item>App</Breadcrumb.Item>                  
-                </Breadcrumb>
                 <div className="site-layout-content">Content</div>
                 </Content>
                 <Footer
@@ -49,7 +60,7 @@ function NavBar() {
                     textAlign: 'center',
                 }}
                 >
-                Ant Design ©2018 Created by Ant UED
+                    ©2022 Bidding For Stuffs, All Rights Reserved.
                 </Footer>
             </Layout>
         </div>

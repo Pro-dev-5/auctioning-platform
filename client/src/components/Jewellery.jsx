@@ -8,6 +8,7 @@ const { Meta } = Card;
 function Jewellery() {
 const [products, setProducts] = useState([]);
 
+
 useEffect(() => {
   fetch("/api/products")
     .then((r) => r.json())
@@ -16,7 +17,6 @@ useEffect(() => {
       setProducts(data);
     });
 }, []);
-
 
   return (
     <div>
