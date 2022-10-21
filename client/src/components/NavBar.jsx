@@ -1,8 +1,7 @@
 import React from 'react'
-import { Input, Space, Layout, Menu} from 'antd'
+import { Input, Space, Layout, Menu, Anchor} from 'antd'
 import '../styles/Nav.css'
-import { Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom'
 
 const { Header, Content, Footer } = Layout;
 const { Search } = Input;
@@ -25,7 +24,7 @@ function NavBar() {
                         </Space>
                     </div>
                 </div>
-                <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between' }}>
+                <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between', marginLeft: '-12px', marginRight: '-8px' }}>
                 {/* <div className="logo" /> */}
                 <Link to="/">
                     <div className='logo' style={{ color: '#251E8C', padding: '0px' }}>
@@ -36,16 +35,33 @@ function NavBar() {
                         <span>Stuffs</span>
                     </div>
                 </Link>
-                <Menu className='menu-fonts'
+                {/* <Menu className='menu-fonts'
                     theme="dark"
                     mode="horizontal"
                     items = {
                         [
                             { label: 'About', key: 'about' },
-                            { label: 'Contact Us', key: 'contact' },
+                        { label: 'Contact Us', key: 'contact' },
                         ]
                     }
-                />
+                /> */}
+                <Menu className='menu-fonts' style={{ display: 'flex', alignItems: 'center', backgroundColor: '#ECC13B' }}>
+                    <div>
+                        <Menu.Item className='hover-link' style={{ color: '#251E8C' }}>
+                            <a href="/">Home</a>
+                        </Menu.Item>
+                    </div>
+                    <div>
+                        <Menu.Item className='hover-link' style={{ color: '#251E8C' }}>
+                            <a href='#about'>About</a>
+                        </Menu.Item>
+                    </div>
+                    <div>
+                        <Menu.Item className='hover-link' style={{ color: '#251E8C' }}>
+                            <a href='#contact'>Contact</a>
+                        </Menu.Item>
+                    </div>
+                </Menu>
                 </Header>
             </div>
             <div style={{ height: '100%', marginTop: '102px' }}>
