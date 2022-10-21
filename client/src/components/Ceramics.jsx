@@ -7,8 +7,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import '../styles/ArtPage.css'
 
 function Jewellery({ url }) {
-	const [jewellery, setJewellery] = useState([])
-  console.log(url)
+	const [ceramics, setCeramics] = useState([])
 	useEffect(()=>{
 		fetch(`${url}/products`)
 		.then(res=>{
@@ -23,7 +22,7 @@ function Jewellery({ url }) {
 	return (
 		<div className="art-img">
 			{
-				(Array.isArray(jewellery) ? jewellery : []).filter(item=> item.category_id === 2)
+				(Array.isArray(ceramics) ? ceramics : []).filter(item=> item.category_id === 3)
 				.map(item=>{
 					return(
 						<ArtCard item={item} key={item.id}/>
