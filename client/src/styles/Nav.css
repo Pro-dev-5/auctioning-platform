@@ -23,7 +23,7 @@
     margin-right: 8px;
 }
 
-.logo, h1 {
+.logo, h1, .divider {
     font-family: 'Averia Serif Libre';
     font-size: x-large;
     font-weight: 500;
@@ -66,5 +66,12 @@
     bottom: 0;
     left: 0;
     right: 0;
+    font-family: 'Nunito';
+}
+
+.about-text {
+    background-color: rgba(255, 255, 255, 0.63); /* Black w/opacity/see-through */
+    color: #fff;
+    padding: 20px;
     font-family: 'Nunito';
 }
