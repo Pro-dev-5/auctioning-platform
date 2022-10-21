@@ -1,0 +1,8 @@
+.art-img{
+	display: flex;
+	flex-wrap: wrap;
+}
+.card-img{
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
