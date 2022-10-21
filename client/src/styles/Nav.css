@@ -3,7 +3,7 @@
 
 .site-layout-content {
     height: auto;
-    padding: 24px;
+    padding: 30px 40px;
 }
 .ant-row-rtl #components-layout-demo-top .logo {
     float: right;
@@ -11,7 +11,7 @@
 }
 
 .top-header {
-    padding: 4px 50px;
+    padding: 4px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,4 +48,8 @@
     font-size: xx-small;
     color: #fff;
     font-weight: 900;
+}
+
+.footer {
+    font-family: 'Nunito';
 }
