@@ -9,14 +9,15 @@ function Jewellery() {
 const [products, setProducts] = useState([]);
 
 
-useEffect(() => {
-  fetch("/api/products")
-    .then((r) => r.json())
-    .then((data) => {
-      console.log(data);
-      setProducts(data);
-    });
-}, []);
+// useEffect(()=>{
+//   console.log('fetching');
+//   fetch(/api/products)
+//   .then(res=>{
+//     if(res.ok){
+//       res.json().then(console.log)
+//     }
+//   })
+// },[])
 
   return (
     <div>

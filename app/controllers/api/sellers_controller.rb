@@ -11,7 +11,8 @@ class Api::SellersController < ApplicationController
 	end
 
 	def index
-		render json: Seller.all, status: :ok
+		sel = Seller.all.includes(:products)
+		render json: sel, status: :ok
 	end
 
 	def show

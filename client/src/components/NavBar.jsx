@@ -1,8 +1,7 @@
 import React from 'react'
-import { Input, Space, Layout, Menu } from 'antd'
+import { Input, Space, Layout, Menu} from 'antd'
 import '../styles/Nav.css'
 import { Link } from 'react-router-dom';
-// import { AudioOutlined } from '@ant-design/icons';
 
 
 const { Header, Content, Footer } = Layout;
@@ -12,7 +11,7 @@ const onSearch = (value) => console.log(value);
 function NavBar() {
     return (
         <div>
-            <Layout className="layout">
+            <div style={{ position: 'fixed', width: '100%', zIndex: '10' }}>
                 <div className='top-header'>
                     <div>
                         <span>Hi!</span>
@@ -48,21 +47,11 @@ function NavBar() {
                     }
                 />
                 </Header>
-                <Content
-                style={{
-                    padding: '0 50px',
-                }}
-                >
-                <div className="site-layout-content">Content</div>
-                </Content>
-                <Footer
-                style={{
-                    textAlign: 'center',
-                }}
-                >
-                    ©2022 Bidding For Stuffs, All Rights Reserved.
-                </Footer>
-            </Layout>
+            </div>
+            <div style={{ height: '100%', marginTop: '102px' }}>
+                <div className='hero-img'>
+                </div>
+            </div>
         </div>
     )
 }
