@@ -23,10 +23,10 @@ function Jewellery({ url }) {
 	return (
 		<div className="art-img">
 			{
-				(Array.isArray(jewellery) ? jewellery : []).filter(item=> item.category_id === 2)
+				(Array.isArray(jewellery) ? jewellery : []).filter(item=> item.category_id === 1)
 				.map(item=>{
 					return(
-						<ArtCard item={item} key={item.id}/>
+						<JewelleryCard item={item} key={item.id}/>
 					)
 				})
 			}
@@ -35,7 +35,7 @@ function Jewellery({ url }) {
 	)
 }
 
-function ArtCard({ item }) {
+function JewelleryCard({ item }) {
 	return (
   <Card
 	className='card-img'
