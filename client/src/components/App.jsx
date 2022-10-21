@@ -22,7 +22,7 @@ function App() {
 		<BrowserRouter>
       <Layout className="layout"> {/* Element to revert if otherwise  */}
         <NavBar/>
-        <div className='site-layout-content'>
+        <div className='site-layout-content' style={{ position: 'absolute', top: '80%', right: '0', left: '0' }}>
           <Routes>
               <Route  path="/" element={<Home url={url}/>} />
               <Route  path="/jewellery" element={<Jewellery url={url} />} />
@@ -33,8 +33,11 @@ function App() {
               <Route  path="/sellersignup" element={<SellerSignup url={url}/>} />
               <Route  path="/art" element={<Art url={url}/>} />
           </Routes>
+          <div style={{ marginTop: '100px' }}>
+
+            <Footer/>
+          </div>
         </div>
-          <Footer/>
       </Layout>
     </BrowserRouter>
 

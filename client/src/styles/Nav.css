@@ -16,6 +16,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: 'Nunito';
+    background-color: #fff;
 }
 
 .top-header div span {
@@ -60,5 +61,10 @@
 }
 
 .footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     font-family: 'Nunito';
 }
