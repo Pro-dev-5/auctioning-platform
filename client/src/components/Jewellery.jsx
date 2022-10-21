@@ -1,58 +1,60 @@
-import React, { useState, useEffect } from "react";
-import "../styles/Jewellery.css";
-import { Row, Col } from "antd";
-import { Card } from "antd";
+import React from 'react'
+// import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { Card } from 'antd';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify'
+import '../styles/ArtPage.css'
 
-const { Meta } = Card;
+function Jewellery({ url }) {
+	const [jewellery, setJewellery] = useState([])
 
-function Jewellery() {
-const [products, setProducts] = useState([]);
-
-
-useEffect(() => {
-  fetch("/api/products")
-    .then((r) => r.json())
-    .then((data) => {
-      console.log(data);
-      setProducts(data);
-    });
-}, []);
-
-  return (
-    <div>
-      <div>
-        <h3 className="jewel">Jewellery</h3>
-        <hr id="myhr"></hr>
-      </div>
-      <div>
-      {products.map((product) => (
-         <div className="block-feature">
-         <div className="container-fluid">
-           <Row gutter={[32, 40]}>
-             <Col span={8}>
-               <Card
-                 hoverable
-                 style={{ width: 240 }}
-                 cover={
-                   <img
-                     alt="example"
-                     src={product.image}
-                   />
-                 }
-               >
-                 <Meta
-                   title="Europe Street beat"
-                   description="www.instagram.com"
-                 />
-               </Card>
-             </Col>
-           </Row>
-         </div>
-       </div>
-      ))}
-     </div>
-    </div>
-  );
+	useEffect(()=>{
+		fetch(`${url}/products`)
+		.then(res=>{
+			if(res.ok){
+				res.json().then(setJewellery)
+			}else{
+				toast('Something went wrong with your request')
+			}
+		})
+	},[])
+	return (
+		<div className="art-img">
+			{
+				(Array.isArray(jewellery) ? jewellery : []).filter(item=> item.category_id === 2)
+				.map(item=>{
+					return(
+						<ArtCard item={item} key={item.id}/>
+					)
+				})
+			}
+			<ToastContainer/>
+		</div>
+	)
 }
 
+function ArtCard({ item }) {
+	return (
+  <Card
+	className='card-img'
+    style={{
+      width: 300,
+    }}
+    cover={
+      <img
+        alt="default art image"
+        src={!item.image_1 ? "../../src/assets/artwork.jpeg" : item.image_1}
+      />
+    }
+    
+  >
+	
+		<h4>{item.name}</h4>
+		<p>Location: {item.location}</p>
+		<p>Start Price: {item.starting_price}</p>
+		<p>Time: {item.time}</p>
+  </Card>
+	)
+}
 export default Jewellery;
