@@ -33,9 +33,9 @@ const extraContent = (
         <Statistic title="Price" prefix="$" value={568.08} />
     </div>
 );
-const Content = ({ children, extra }) => (
+const Content = ({ items, extra }) => (
   <div className="content">
-    <div className="main">{children}</div>
+    <div className="main">{items}</div>
     <div className="extra">{extra}</div>
   </div>
 );
