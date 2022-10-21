@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 		delete '/sellerlogout', to: 'sessions#seller_destroy'
 		# get '/auth', to: 'auth#authorize'
 	end
+
+	# root 'fallback#index'
+	get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
