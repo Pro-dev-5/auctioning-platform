@@ -11,42 +11,27 @@ import SellerSignup from './SellerSignUpForm'
 import NavBar from './NavBar'
 import Footer from './Footer'
 import '../styles/Nav.css'
+import Art from './Art'
 // import { Footer } from 'antd/lib/layout/layout'
 
 
 function App() {
-
+	const url = "http://localhost:3000/api"
   return (
     <div>
-
-        {/* Import start your pages below for testing */}
-
-
-
-
-
-
-
-
-
-
-
-        {/* End import of pages  */}
-
-
-
-    <BrowserRouter>
+		<BrowserRouter>
       <Layout className="layout"> {/* Element to revert if otherwise  */}
         <NavBar/>
         <div className='site-layout-content'>
           <Routes>
-              <Route  path="/" element={<Home />} />
-              <Route  path="/jewellery" element={<Jewellery />} />
-              <Route  path="/item" element={<Item/>} />
-              <Route  path="/buyerlogin" element={<BuyerLogin />} />
-              <Route  path="/buyersignup" element={<BuyerSignup />} />
-              <Route  path="/sellerlogin" element={<SellerLogin />} />
-              <Route  path="/sellersignup" element={<SellerSignup/>} />
+              <Route  path="/" element={<Home url={url}/>} />
+              <Route  path="/jewellery" element={<Jewellery url={url} />} />
+              <Route  path="/item" element={<Item url={url}/>} />
+              <Route  path="/buyerlogin" element={<BuyerLogin url={url}/>} />
+              <Route  path="/buyersignup" element={<BuyerSignup url={url}/>} />
+              <Route  path="/sellerlogin" element={<SellerLogin url={url}/>} />
+              <Route  path="/sellersignup" element={<SellerSignup url={url}/>} />
+              <Route  path="/art" element={<Art url={url}/>} />
           </Routes>
         </div>
           <Footer/>
