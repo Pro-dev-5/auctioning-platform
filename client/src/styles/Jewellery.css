@@ -4,8 +4,16 @@
 }
 hr{
     margin-left: 50px;
-    margin-right: 750px;
+    margin-right: 900px;
     background-image: linear-gradient(to right, black, gold);
-    height: 3px;
+    height: 10px;
+}
 
+#myhr{
+    background-image: linear-gradient(to right, black, gold);
+    height: 2px;
+    margin-right: 1700px;
+}
+Row{
+    display: flex;
 }
