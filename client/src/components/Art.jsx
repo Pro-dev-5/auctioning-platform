@@ -18,7 +18,6 @@ function Art({ url }) {
 				toast('Something went wrong with your request')
 			}
 		})
-		.catch(err=>toast(err.message))
 	},[])
 	return (
 		<div className="art-img">
