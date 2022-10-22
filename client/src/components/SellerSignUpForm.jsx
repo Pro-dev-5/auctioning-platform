@@ -117,9 +117,9 @@ import '../styles/Nav.css'
                   ]}
                   // {...tailFormItemLayout}
                 >
-                  <Checkbox>
-                    I have read the <a href="">agreement</a>
-                  </Checkbox>
+                  <div style={{ color: '#b8b8b8' }}>
+                    Already have an account? <a href="/sellerlogin" style={{ textDecoration: 'underline' }}>Login</a>
+                  </div>
                 </Form.Item>
                 <Form.Item >
                   <Button type="primary" htmlType="submit">
