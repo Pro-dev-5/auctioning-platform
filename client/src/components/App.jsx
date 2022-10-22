@@ -32,6 +32,7 @@ function App() {
               <Route  path="/sellerlogin" element={<SellerLogin url={url}/>} />
               <Route  path="/sellersignup" element={<SellerSignup url={url}/>} />
               <Route  path="/art" element={<Art url={url}/>} />
+              <Route  path="/sellerhome" element={<SellerHome url={url}/>} />
           </Routes>
           <div style={{ marginTop: '100px' }}>
 
