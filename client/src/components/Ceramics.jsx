@@ -22,7 +22,7 @@ function Ceramics({ url }) {
 	return (
 		<div className="art-img">
 			{
-				(Array.isArray(ceramics) ? ceramics : []).filter(item=> item.category_id === 1)
+				(Array.isArray(ceramics) ? ceramics : []).filter(item=> item.category_id === 2)
 				.map(item=>{
 					return(
 						<CeramicsCard item={item} key={item.id}/>

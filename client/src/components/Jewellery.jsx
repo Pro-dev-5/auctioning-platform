@@ -23,7 +23,7 @@ function Jewellery({ url }) {
 	return (
 		<div className="art-img">
 			{
-				(Array.isArray(jewellery) ? jewellery : []).filter(item=> item.category_id === 1)
+				(Array.isArray(jewellery) ? jewellery : []).filter(item=> item.category_id === 3)
 				.map(item=>{
 					return(
 						<JewelleryCard item={item} key={item.id}/>

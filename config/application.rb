@@ -23,5 +23,13 @@ module AuctionApp
 		config.middleware.use ActionDispatch::Session::CookieStore
 		config.action_dispatch.cookies_same_site_protection = :strict
     config.api_only = true
+
+
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options], expose: :location
+      end
+    end
   end
 end
