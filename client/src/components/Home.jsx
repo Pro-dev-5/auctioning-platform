@@ -84,7 +84,7 @@ function Home() {
                         </Col>
                     </Row>
 
-                    {/* About us */}
+                    {/* About us section*/}
                     <div style={{ paddingTop: '80px' }} id="about">
                         <Divider orientation="left" className='divider' style={{ marginBottom: '80px' }}>What we do</Divider>
                         <div>
@@ -110,7 +110,7 @@ function Home() {
                         </div>
                     </div>
 
-                    {/* Contact us */}
+                    {/* Contact us section*/}
                     <div style={{ paddingTop: '80px' }} id="contact">
                         <Divider orientation="right" className='divider' style={{ marginBottom: '80px' }}>Want to keep in touch?</Divider>
                         <div>
