@@ -6,8 +6,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "../styles/ArtPage.css";
 import { Row, Col } from "antd";
 
-
-
 function Art({ url }) {
   const [art, setArt] = useState([]);
 
@@ -24,6 +22,10 @@ function Art({ url }) {
   }, []);
   return (
     <>
+      <div>
+        <h1>Art</h1>
+      </div>
+	  <hr className="myhr"></hr>
       <div className="art-img">
         {(Array.isArray(art) ? art : [])
           .filter((item) => item.category_id === 1)
@@ -39,16 +41,20 @@ function Art({ url }) {
 function ArtCard({ item }) {
   return (
     <div className="my-card">
-      <div className="container-fluid">
+      <div className="container">
         <Row gutter={[40, 40]}>
           <Col span={8}>
             <Card
               hoverable
-              style={{ width: 350 }}
+              style={{ width: 300 }}
               cover={
                 <img
                   alt=""
-                  src={!item.image_1 ? "../../src/assets/artwork.jpeg" : item.image_1}
+                  src={
+                    !item.image_1
+                      ? "../../src/assets/artwork.jpeg"
+                      : item.image_1
+                  }
                 />
               }
             >
@@ -61,10 +67,9 @@ function ArtCard({ item }) {
               </div>
             </Card>
           </Col>
-          
         </Row>
       </div>
     </div>
-  )
+  );
 }
 export default Art;
