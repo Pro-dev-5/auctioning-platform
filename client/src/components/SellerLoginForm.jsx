@@ -21,7 +21,7 @@ const SellerLoginForm = ({ url }) => {
 			}
 		})
 		.catch(err=>toast(err.message))
-  };
+	}
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
@@ -66,43 +66,21 @@ const SellerLoginForm = ({ url }) => {
               <Input.Password />
             </Form.Item>
 
-      {/* <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item> */}
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-			<ToastContainer/>
-    </Form>
-            {/* <Form.Item
+						<Form.Item
               name="remember"
               valuePropName="checked"
             >
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <Form.Item
+						<Form.Item
             >
               <Button type="" htmlType="submit" style={{ backgroundColor: '#ECC13B', color: '#fff' }}>
                 Submit
               </Button>
             </Form.Item>
-          </Form> */}
+						<ToastContainer/>
+    			</Form>
         </div>
       </Col>
     </Row>
