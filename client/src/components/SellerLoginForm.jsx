@@ -1,9 +1,25 @@
 import { Button, Checkbox, Form, Input } from 'antd';
 import 'antd/dist/antd.css';
 import React from 'react';
-const SellerLoginForm = () => {
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+
+const SellerLoginForm = ({ url }) => {
+	const navigate = useNavigate()
   const onFinish = (values) => {
-    console.log('Success:', values);
+    fetch(`${url}/sellerlogin`,{
+			method: "POST",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({name: values.username, password: values.password})
+		})
+		.then(res=>{
+			if(res.ok){
+				toast(`Success logged in as ${values.username}`)
+				navigate('/')
+			}else{
+				res.json().then(err=>toast(err.errors[0]))
+			}
+		})
   };
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
@@ -50,7 +66,7 @@ const SellerLoginForm = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item
+      {/* <Form.Item
         name="remember"
         valuePropName="checked"
         wrapperCol={{
@@ -59,7 +75,7 @@ const SellerLoginForm = () => {
         }}
       >
         <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item
         wrapperCol={{
@@ -71,6 +87,7 @@ const SellerLoginForm = () => {
           Submit
         </Button>
       </Form.Item>
+			<ToastContainer/>
     </Form>
   );
 };
