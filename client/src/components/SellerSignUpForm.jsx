@@ -1,4 +1,5 @@
-import {Button,Checkbox,Form,Input, Col, Row} from 'antd';
+import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import React from 'react';
 import '../styles/Nav.css'
 
@@ -24,6 +25,10 @@ import '../styles/Nav.css'
             </div>
           </Col>
           <Col span={6}>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+              <span style={{ marginRight: '8px' }}>Register as </span>
+              <Switch checkedChildren="Buyer" unCheckedChildren="Seller" defaultChecked />
+            </div>
             <div style={{ padding: '32px 24px', backgroundColor: '#F5F5F5' }}>
               <Form
                 // {...formItemLayout}
