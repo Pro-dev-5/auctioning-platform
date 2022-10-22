@@ -14,7 +14,7 @@ function NavBar() {
                 <div className='top-header'>
                     <div>
                         <span>Hi!</span>
-                        <span><Link to="/sellelogin">Login</Link></span>
+                        <span><Link to="/sellerlogin">Login</Link></span>
                         <span>Or</span>
                         <span><Link to="sellersignup">Register</Link></span>
                     </div>

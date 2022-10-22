@@ -122,7 +122,7 @@ import '../styles/Nav.css'
                   </div>
                 </Form.Item>
                 <Form.Item >
-                  <Button type="primary" htmlType="submit">
+                  <Button type="" htmlType="submit" style={{ backgroundColor: '#ECC13B', color: '#fff' }}>
                     Register
                   </Button>
                 </Form.Item>

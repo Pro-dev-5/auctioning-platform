@@ -6,7 +6,7 @@ const { Meta } = Card;
 
 function About() {
     return (
-    <div>
+    <div style={{ backgroundColor: '#e6e6e6' }}>
         <div>
             {/* About us section*/}
             <div style={{ paddingTop: '80px' }} id="about">
