@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 		resources :buyers, only: [:index]
   	resources :bids, only: [:index]
 		post '/sellersignup', to: 'sellers#create'
+		post '/buyersignup', to: 'buyers#create'
 		# get '/me', to: 'users#show'
 		post '/sellerlogin', to: 'sessions#seller_create'
 		delete '/sellerlogout', to: 'sessions#seller_destroy'
+		post '/buyerlogin', to: 'sessions#buyer_create'
+		delete '/buyerlogout', to: 'sessions#buyer_destroy'
 		# get '/auth', to: 'auth#authorize'
 	end
 

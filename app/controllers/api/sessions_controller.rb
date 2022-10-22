@@ -10,8 +10,23 @@ class Api::SessionsController < ApplicationController
 		end
 	end
 
+	def buyer_create
+		buyer = Buyer.find_by(name: params[:name])
+		if buyer&.authenticate(params[:password])
+			session[:buyer_id] = buyer.id
+			render json: buyer, status: :created
+		else
+			render json: {errors: ["Invalid username or password"]}, status: :unauthorized
+		end
+	end
+
 	def seller_destroy
 		session.delete :seller_id
+		head :no_content
+	end
+
+	def buyer_destroy
+		session.delete :buyer_id
 		head :no_content
 	end
 end
