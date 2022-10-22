@@ -6,9 +6,8 @@ import { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify'
 import '../styles/ArtPage.css'
 
-function Jewellery({ url }) {
-	const [jewellery, setJewellery] = useState([])
-  console.log(url)
+function Ceramics({ url }) {
+	const [ceramics, setCeramics] = useState([])
 	useEffect(()=>{
 		fetch(`${url}/products`)
 		.then(res=>{
@@ -23,10 +22,10 @@ function Jewellery({ url }) {
 	return (
 		<div className="art-img">
 			{
-				(Array.isArray(jewellery) ? jewellery : []).filter(item=> item.category_id === 1)
+				(Array.isArray(ceramics) ? ceramics : []).filter(item=> item.category_id === 1)
 				.map(item=>{
 					return(
-						<JewelleryCard item={item} key={item.id}/>
+						<CeramicsCard item={item} key={item.id}/>
 					)
 				})
 			}
@@ -35,7 +34,7 @@ function Jewellery({ url }) {
 	)
 }
 
-function JewelleryCard({ item }) {
+function CeramicsCard({ item }) {
 	return (
   <Card
 	className='card-img'
@@ -67,4 +66,4 @@ function JewelleryCard({ item }) {
   </Card>
 	)
 }
-export default Jewellery;
+export default Ceramics;
