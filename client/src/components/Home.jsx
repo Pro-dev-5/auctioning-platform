@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { Col, Row, Card, Divider } from 'antd'
 import { EditOutlined, EllipsisOutlined, SettingOutlined, PhoneOutlined } from '@ant-design/icons';
-import CategoryComponent from './CatgoryComponet';
+import CategoryComponent from './CategoryComponet';
 import About from './About';
 import Contact from './Contact';
 
