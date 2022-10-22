@@ -20,6 +20,7 @@ const SellerLoginForm = ({ url }) => {
 				res.json().then(err=>toast(err.errors[0]))
 			}
 		})
+		.catch(err=>toast(err.message))
   };
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
