@@ -1,6 +1,5 @@
 import React from 'react'
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card } from 'antd';
+import { Card } from 'antd';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify'
@@ -50,16 +49,7 @@ function ArtCard({ item }) {
     }
     
   >
-		{/* actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]} */}
-    {/* <Meta
-      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-      title="Card title"
-      description="This is the description"
-    /> */}
+	
 		<h4>{item.name}</h4>
 		<p>Location: {item.location}</p>
 		<p>Start Price: {item.starting_price}</p>

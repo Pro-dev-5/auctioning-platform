@@ -1,5 +1,4 @@
 import React from 'react'
-// import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -13,7 +12,7 @@ function Ceramics({ url }) {
 		.then(res=>{
       console.log(res)
 			if(res.ok){
-				res.json().then(setJewellery)
+				res.json().then(setCeramics)
 			}else{
 				toast('Something went wrong with your request')
 			}
@@ -49,16 +48,7 @@ function CeramicsCard({ item }) {
     }
     
   >
-		{/* actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]} */}
-    {/* <Meta
-      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-      title="Card title"
-      description="This is the description"
-    /> */}
+		
 		<h4>{item.name}</h4>
 		<p>Location: {item.location}</p>
 		<p>Start Price: {item.starting_price}</p>
