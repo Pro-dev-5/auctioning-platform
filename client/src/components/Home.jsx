@@ -2,10 +2,13 @@ import React, {useEffect, useState} from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { Col, Row, Card, Divider } from 'antd'
 import { EditOutlined, EllipsisOutlined, SettingOutlined, PhoneOutlined } from '@ant-design/icons';
+import { useNavigate} from 'react-router-dom'
+
 
 const { Meta } = Card;
 
 function Home({ url }) {
+    
     const [category, setCategory] = useState([])
 
     useEffect(()=>{
@@ -41,6 +44,7 @@ function Home({ url }) {
                             <div flex={3} style={{ marginRight: '60px' }}>
                                 <img src="../../public/images/aboutus.svg" alt="" style={{ width: '500px' }} />
                             </div>
+                            
                             <div flex={3} className="about-text">
                                 <img src="../../public/images/ceramic.jpg" alt="" style={{ width: '300px', position: 'absolute', bottom: '10px', right: '200px', zIndex: '-1', opacity: '.1' }}/>
                                 <Meta 

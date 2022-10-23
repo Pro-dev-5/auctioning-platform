@@ -8,6 +8,8 @@ import { Row, Col } from "antd";
 
 function Art({ url }) {
   const [art, setArt] = useState([]);
+  // const navigate = useNavigate()
+  // <button onClick={() => navigate('jewellery')}>View Products</button>
 
   useEffect(() => {
     fetch(`${url}/products`)
