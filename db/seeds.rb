@@ -6,13 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-cat = %w!jewellery art ceramics!
+# cat = %w!jewellery art ceramics!
 location = %w!Nairobi Nakuru Mombasa Eldoret Thika Kiambu!
 
 puts 'Seeding Categories...'
-for i in cat
-	Category.create(name: i)
-end
+Category.create(name: 'Art Collections', description: 'Asian Arts / 5000 Years', image: '../../public/images/art.webp')
+Category.create(name: 'Ceramic Collections', description: 'Persian Qajar Ceramic Polychrome Vases', image: '../../public/images/ceramic.webp')
+Category.create(name: 'Jewel Collections', description: 'Superb Jewels from the "Sunrise Ruby" Collection', image: '../../public/images/jewel.webp')
+
 
 puts 'seeding Sellers...'
 for i in 1..5

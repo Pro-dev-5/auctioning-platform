@@ -3,26 +3,31 @@
 
 .site-layout-content {
     height: auto;
-    padding: 24px;
+    padding: 30px 40px;
 }
 .ant-row-rtl #components-layout-demo-top .logo {
     float: right;
     margin: 16px 0 16px 24px;
 }
 
+.hover-links:hover {
+    color: #A4856D;
+}
+
 .top-header {
-    padding: 4px 50px;
+    padding: 4px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Nunito';
+    background-color: #fff;
 }
 
 .top-header div span {
     margin-right: 8px;
 }
 
-.logo, h1 {
+.logo, h1, .divider {
     font-family: 'Averia Serif Libre';
     font-size: x-large;
     font-weight: 500;
@@ -48,4 +53,29 @@
     font-size: xx-small;
     color: #fff;
     font-weight: 900;
+}
+
+.hero-img {
+    /* background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp"); */
+    background-image: url("../../public/images/bg.jpg");
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Nunito';
+}
+
+.about-text {
+    background-color: rgba(255, 255, 255, 0.63); /* Black w/opacity/see-through */
+    color: #fff;
+    padding: 20px;
+    font-family: 'Nunito';
 }

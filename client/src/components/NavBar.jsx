@@ -1,18 +1,16 @@
 import React from 'react'
-import { Input, Space, Layout, Menu } from 'antd'
+import { Input, Space, Layout, Menu} from 'antd'
 import '../styles/Nav.css'
-import { Link } from 'react-router-dom';
-// import { AudioOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom'
 
-
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
 
 function NavBar() {
     return (
         <div>
-            <Layout className="layout">
+            <div style={{ position: 'fixed', width: '100%', zIndex: '10' }}>
                 <div className='top-header'>
                     <div>
                         <span>Hi!</span>
@@ -26,9 +24,9 @@ function NavBar() {
                         </Space>
                     </div>
                 </div>
-                <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between' }}>
+                <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between', marginLeft: '-12px', marginRight: '-8px' }}>
                 {/* <div className="logo" /> */}
-                <Link to="/">
+                <Link href="/">
                     <div className='logo' style={{ color: '#251E8C', padding: '0px' }}>
                         <span>Bidding</span>
                         <span className='for-container'>
@@ -37,35 +35,33 @@ function NavBar() {
                         <span>Stuffs</span>
                     </div>
                 </Link>
-                <Menu className='menu-fonts'
+                {/* <Menu className='menu-fonts'
                     theme="dark"
                     mode="horizontal"
                     items = {
                         [
                             { label: 'About', key: 'about' },
-                            { label: 'Contact Us', key: 'contact' },
+                        { label: 'Contact Us', key: 'contact' },
                         ]
                     }
-                />
+                /> */}
+                <Menu className='menu-fonts' style={{ display: 'flex', alignItems: 'center', backgroundColor: '#ECC13B' }}>
+                    <div className='hover-links' style={{ marginRight: '40px'}}>
+                        <Link to="/" style={{ color: '#251E8C' }}>Home</Link>
+                    </div>
+                    <div className='hover-links' style={{ marginRight: '40px'}}>
+                        <Link to='#about' style={{ color: '#251E8C' }}>About</Link>
+                    </div>
+                    <div className='hover-links' style={{ marginRight: '4px'}}>
+                        <Link to='#contact' style={{ color: '#251E8C' }}>Contact</Link>
+                    </div>
+                </Menu>
                 </Header>
-                <Content
-                style={{
-                    padding: '0 28px',
-                }}
-                >
-                <div className="site-layout-content" style={{ position: 'relative' }}>
-                    <h1 className="">Categories</h1>
-                    <div style={{ height: '6px', backgroundColor: '#ECC13B', width: '80px', position: 'absolute', top: '60px', left: '60px'}}></div>
+            </div>
+            <div style={{ height: '100%', marginTop: '102px' }}>
+                <div className='hero-img'>
                 </div>
-                </Content>
-                <Footer
-                style={{
-                    textAlign: 'center',
-                }}
-                >
-                    ©2022 Bidding For Stuffs, All Rights Reserved.
-                </Footer>
-            </Layout>
+            </div>
         </div>
     )
 }
