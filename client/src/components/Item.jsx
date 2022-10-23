@@ -1,15 +1,15 @@
-import { Image, Button, Descriptions, PageHeader, Radio , Statistic, Tag, Tabs } from 'antd';
+import { Image, Button, Descriptions, PageHeader, Badge , Statistic, Tag, Tabs } from 'antd';
 import React, { useState } from 'react';
 import '../styles/Item.css'
 const { TabPane } = Tabs;
 const renderContent = (column = 2) => (
     <Descriptions size="small" column={column}>
-        <Descriptions.Item label="Created">Lili Qu</Descriptions.Item>
+        <Descriptions.Item label="Owner">Jane Doe</Descriptions.Item>
         <Descriptions.Item label="Association">
         <a>421421</a>
         </Descriptions.Item>
-        <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
-        <Descriptions.Item label="Effective Time">2017-10-10</Descriptions.Item>
+        <Descriptions.Item label="Start Time">2022-10-13</Descriptions.Item>
+        <Descriptions.Item label="End Time">2022-10-14</Descriptions.Item>
         <Descriptions.Item label="Remarks">
         Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
         </Descriptions.Item>
@@ -24,13 +24,13 @@ const extraContent = (
         }}
     >
         <Statistic
-        title="Status"
-        value="Pending"
+        title="Bidding"
+        value="Ongoing"
         style={{
             marginRight: 32,
         }}
         />
-        <Statistic title="Price" prefix="$" value={568.08} />
+        <Statistic title="Price" prefix="Ksh." value={5000} />
     </div>
 );
 const Content = ({ children, extra }) => (
@@ -50,21 +50,14 @@ function Item() {
                     <PageHeader
                         className="site-page-header-responsive"
                         onBack={() => window.history.back()}
-                        title="Title"
-                        subTitle="This is a subtitle"
+                        title="Item name"
+                        subTitle="Item category"
                         extra={[
-                        <Button key="3">Operation</Button>,
-                        <Button key="2">Operation</Button>,
-                        <Button key="1" type="primary">
-                            Primary
+                        <Button key="3" type="primary">Place Bid</Button>,
+                        <Button key="1" type="danger">
+                            Remove bid
                         </Button>,
                         ]}
-                        footer={
-                        <Tabs defaultActiveKey="1">
-                            <TabPane tab="Details" key="1" />
-                            <TabPane tab="Rule" key="2" />
-                        </Tabs>
-                        }
                     >
                         <Content extra={extraContent}>{renderContent()}</Content>
                     </PageHeader>
@@ -102,39 +95,36 @@ function Item() {
                     
                 </div>
 
-                <div className='child'>
-                    <Descriptions
-                        title="Responsive Descriptions"
-                        bordered
-                        column={{
-                            xxl: 4,
-                            xl: 3,
-                            lg: 3,
-                            md: 3,
-                            sm: 2,
-                            xs: 1,
-                        }}
-                        >
-                        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
-                        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
-                        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
-                        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
-                        <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
-                        <Descriptions.Item label="Official">$60.00</Descriptions.Item>
-                        <Descriptions.Item label="Config Info">
-                            Data disk type: MongoDB
-                            <br />
-                            Database version: 3.4
-                            <br />
-                            Package: dds.mongo.mid
-                            <br />
-                            Storage space: 10 GB
-                            <br />
-                            Replication factor: 3
-                            <br />
-                            Region: East China 1
-                        </Descriptions.Item>
-                    </Descriptions>
+                <div className=''>
+                <Descriptions title="User Info" layout="vertical" bordered>
+    <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+    <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
+    <Descriptions.Item label="Automatic Renewal">YES</Descriptions.Item>
+    <Descriptions.Item label="Order time">2018-04-24 18:00:00</Descriptions.Item>
+    <Descriptions.Item label="Usage Time" span={2}>
+      2019-04-24 18:00:00
+    </Descriptions.Item>
+    <Descriptions.Item label="Status" span={3}>
+      <Badge status="processing" text="Running" />
+    </Descriptions.Item>
+    <Descriptions.Item label="Negotiated Amount">$80.00</Descriptions.Item>
+    <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
+    <Descriptions.Item label="Official Receipts">$60.00</Descriptions.Item>
+    <Descriptions.Item label="Config Info">
+      Data disk type: MongoDB
+      <br />
+      Database version: 3.4
+      <br />
+      Package: dds.mongo.mid
+      <br />
+      Storage space: 10 GB
+      <br />
+      Replication factor: 3
+      <br />
+      Region: East China 1<br />
+    </Descriptions.Item>
+  </Descriptions>
+);
                 </div>
                 </div>
         </div>
