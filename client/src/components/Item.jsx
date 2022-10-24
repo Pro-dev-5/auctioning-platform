@@ -1,7 +1,7 @@
 import { Image, Button, Descriptions, PageHeader, Card , Statistic, Tag, Tabs } from 'antd';
 import React, { useState } from 'react';
 import '../styles/Item.css'
-const { TabPane } = Tabs;
+
 const renderContent = (column = 2) => (
     <Descriptions size="small" column={column}>
         <Descriptions.Item label="Owner">Jane Doe</Descriptions.Item>
@@ -39,6 +39,11 @@ const Content = ({ items, extra }) => (
     <div className="extra">{extra}</div>
   </div>
 );
+const gridStyle = {
+    width: '100%',
+    textAlign: 'center',
+    
+  };
 
 function Item() {
     const [visible, setVisible] = useState(false);
@@ -97,15 +102,15 @@ function Item() {
                 </div>
 
                 <div className='child2'>
-                        <Card
-                            title="Item name"
-                            
-                            style={{
-                                width: 300,
-                            }}
-                            >
-                            <p>Item description</p>
-                        </Card>
+                <Card  title="Item Title" >
+                    <Card.Grid style={gridStyle}>Item category</Card.Grid>
+                    <Card.Grid style={gridStyle}>
+                    Item Price
+                    </Card.Grid>
+                    <Card.Grid style={gridStyle}>Item description</Card.Grid>
+                    <Card.Grid style={gridStyle}>Item contents</Card.Grid>
+ 
+                </Card>
 
                 </div>
                 </div>

@@ -26,7 +26,7 @@ function NavBar() {
                 </div>
                 <Header style={{ backgroundColor: '#ECC13B', display: 'flex', justifyContent: 'space-between', marginLeft: '-12px', marginRight: '-8px' }}>
                 {/* <div className="logo" /> */}
-                <Link href="/">
+                <Link to="/">
                     <div className='logo' style={{ color: '#251E8C', padding: '0px' }}>
                         <span>Bidding</span>
                         <span className='for-container'>
