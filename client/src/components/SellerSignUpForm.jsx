@@ -59,6 +59,7 @@ const SellerSignUpForm = ({ url }) => {
               
                 scrollToFirstError
               >
+                
                 <Form.Item
                   name="username"
                   label="Username"
