@@ -47,7 +47,7 @@ function NavBar() {
                 /> */}
                 <Menu className='menu-fonts' style={{ display: 'flex', alignItems: 'center', backgroundColor: '#ECC13B' }}>
                     <div className='hover-links' style={{ marginRight: '40px'}}>
-                        <Link to="/" style={{ color: '#251E8C' }}>Home</Link>
+                        <a href="/" style={{ color: '#251E8C' }}>Home</a>
                     </div>
                     <div className='hover-links' style={{ marginRight: '40px'}}>
                         <a href='#about' style={{ color: '#251E8C' }}>About</a>
