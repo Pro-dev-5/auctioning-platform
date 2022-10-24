@@ -2,32 +2,13 @@ import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import React from 'react';
 import '../styles/Nav.css'
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
 
-const SellerSignUpForm = ({ url }) => {
-  const [form] = Form.useForm();
-	const navigate = useNavigate()
-  const onFinish = (values) => {
-    fetch(`${url}/sellersignup`,{
-			method: "POST", headers: {"Content-Type":"application/json"},
-			body: JSON.stringify({
-				name: values.username,
-				email: values.email,
-				password: values.password,
-				password_confirmation: values.confirm
-			})
-		})
-		.then(res=>{
-			if(res.ok){
-				toast(`Welcome ${values.username}`)
-				navigate('/')
-			}else{
-				res.json().then(err=>toast(err.errors[0]))
-			}
-		})
-		.catch(err=>toast(err.message))
-		
+  const SellerSignUpForm = () => {
+    const [form] = Form.useForm();
+    const onFinish = (values) => {
+      console.log('Received values of form: ', values);
+    };
+
     return (
 
       // Adding col and row to control the elements. Here the Row will serve as a root element
@@ -158,5 +139,4 @@ const SellerSignUpForm = ({ url }) => {
       </div>
     );
   };
-};
-export default SellerSignUpForm;
+  export default SellerSignUpForm;
