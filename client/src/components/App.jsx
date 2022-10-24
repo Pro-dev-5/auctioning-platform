@@ -11,6 +11,7 @@ import SellerSignup from './SellerSignUpForm'
 import NavBar from './NavBar'
 import Footer from './Footer'
 import '../styles/Nav.css'
+import Ceramics from './Ceramics'
 import Art from './Art'
 // import { Footer } from 'antd/lib/layout/layout'
 
@@ -27,6 +28,7 @@ function App() {
               <Route  path="/" element={<Home url={url}/>} />
               <Route  path="/jewellery" element={<Jewellery url={url} />} />
               <Route  path="/item" element={<Item url={url}/>} />
+              <Route  path="/ceramics" element={<Ceramics url={url}/>} />
               <Route  path="/buyerlogin" element={<BuyerLogin url={url}/>} />
               <Route  path="/buyersignup" element={<BuyerSignup url={url}/>} />
               <Route  path="/sellerlogin" element={<SellerLogin url={url}/>} />

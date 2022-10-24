@@ -2,18 +2,33 @@
     margin-left: 50px;
     margin-top: 50px;
 }
-hr{
+/* hr{
     margin-left: 50px;
     margin-right: 900px;
     background-image: linear-gradient(to right, black, gold);
     height: 10px;
-}
+} */
 
-#myhr{
+.myhr{
     background-image: linear-gradient(to right, black, gold);
-    height: 2px;
-    margin-right: 1700px;
+    height: 3px;
+    margin-right: 1600px;
 }
 Row{
     display: flex;
+}
+
+.cardcontent{
+    text-align: center;
+}
+.my-card{
+    margin: 20px;
+	margin-right: 10px;
+}
+button{
+    background-color: gold;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid gold;
 }
