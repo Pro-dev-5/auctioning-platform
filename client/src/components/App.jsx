@@ -13,6 +13,7 @@ import Footer from './Footer'
 import '../styles/Nav.css'
 import Ceramics from './Ceramics'
 import Art from './Art'
+import SellerHome from './SellerHome'
 // import { Footer } from 'antd/lib/layout/layout'
 
 
@@ -27,13 +28,14 @@ function App() {
           <Routes>
               <Route  path="/" element={<Home url={url}/>} />
               <Route  path="/jewellery" element={<Jewellery url={url} />} />
-              <Route  path="/item" element={<Item url={url}/>} />
+              <Route  path="/item/:id" element={<Item url={url}/>} />
               <Route  path="/ceramics" element={<Ceramics url={url}/>} />
               <Route  path="/buyerlogin" element={<BuyerLogin url={url}/>} />
               <Route  path="/buyersignup" element={<BuyerSignup url={url}/>} />
               <Route  path="/sellerlogin" element={<SellerLogin url={url}/>} />
               <Route  path="/sellersignup" element={<SellerSignup url={url}/>} />
               <Route  path="/art" element={<Art url={url}/>} />
+              <Route  path="/sellerhome" element={<SellerHome url={url}/>} />
           </Routes>
           <div style={{ marginTop: '100px' }}>
 

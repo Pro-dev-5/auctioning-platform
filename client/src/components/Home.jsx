@@ -9,6 +9,8 @@ import Contact from './Contact';
 
 function Home({url}) {
     const [categories, setCategory] = useState([ ]);
+    const path = ['/art', '/ceramics', '/jewellery']
+
 
     useEffect(()=>{
 		fetch(`${url}/categories`)
@@ -23,10 +25,12 @@ function Home({url}) {
         .catch(err=>toast(err.message))
 	},[])
 
-    const allCategories = categories.map(category => {
+    const allCategories = categories.map((category, ind) => {
 
         return (
             <CategoryComponent 
+                path={path}
+                ind={ind}
                 key = {category.id}
                 image = {!category.image ? "../../public/images/art.webp" : category.image}
                 name = {category.name}

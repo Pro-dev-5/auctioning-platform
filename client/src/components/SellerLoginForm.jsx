@@ -1,10 +1,27 @@
 import { Button, Checkbox, Form, Input, Col, Row } from 'antd';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
-const SellerLoginForm = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
+const SellerLoginForm = ({ url }) => {
+	const navigate = useNavigate()
+
+	const onFinish = (values) => {
+    fetch(`${url}/sellerlogin`,{
+			method: "POST",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({name: values.username, password: values.password})
+		})
+		.then(res=>{
+			if(res.ok){
+				toast(`Success logged in as ${values.username}`)
+				navigate('/')
+			}else{
+				res.json().then(err=>toast(err.errors[0]))
+			}
+		})
+		.catch(err=>toast(err.message))
+	}
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
@@ -49,20 +66,14 @@ const SellerLoginForm = () => {
               <Input.Password />
             </Form.Item>
 
-            <Form.Item
-              name="remember"
-              valuePropName="checked"
-            >
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
-            <Form.Item
+						<Form.Item
             >
               <Button type="" htmlType="submit" style={{ backgroundColor: '#ECC13B', color: '#fff' }}>
                 Submit
               </Button>
             </Form.Item>
-          </Form>
+						<ToastContainer/>
+    			</Form>
         </div>
       </Col>
     </Row>
