@@ -1,6 +1,6 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import 'antd/dist/antd.css';
+import { Button, Checkbox, Form, Input, Col, Row } from 'antd';
 import React from 'react';
+
 const SellerLoginForm = () => {
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -9,69 +9,63 @@ const SellerLoginForm = () => {
     console.log('Failed:', errorInfo);
   };
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your username!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+    <Row gutter={{ xs: 8, sm: 16, md: 24}} justify='end' align='middle' style={{ width: '25%', marginRight: 'auto', marginLeft: 'auto' }}>
+      <Col span={24}>
+        <div style={{ padding: '32px 24px', backgroundColor: '#F5F5F5' }}>
+          <Form
+            layout='vertical'
+            size='middle'
+            name="basic"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+          >
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your username!',
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your password!',
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
 
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+            <Form.Item
+              name="remember"
+              valuePropName="checked"
+            >
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
 
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+            <Form.Item
+            >
+              <Button type="" htmlType="submit" style={{ backgroundColor: '#ECC13B', color: '#fff' }}>
+                Submit
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+      </Col>
+    </Row>
   );
 };
 export default SellerLoginForm;

@@ -16,7 +16,8 @@ export default defineConfig({
           '@layout-header-padding': '0px 40px',
           '@menu-item-padding-horizontal': '20px',
           '@divider-color': '#ECC13B',
-          '@tabs-card-active-color': '#000'
+          '@tabs-card-active-color': '#000',
+          '@btn-primary-bg': '#ECC13B'
         }
       },
     },
