@@ -40,7 +40,6 @@ import '../styles/Nav.css'
               
                 scrollToFirstError
               >
-                
                 <Form.Item
                   name="username"
                   label="Username"
@@ -112,17 +111,7 @@ import '../styles/Nav.css'
           
               
           
-                <Form.Item
-                  name="agreement"
-                  valuePropName="checked"
-                  rules={[
-                    {
-                      validator: (_, value) =>
-                        value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
-                    },
-                  ]}
-                  // {...tailFormItemLayout}
-                >
+                <Form.Item>
                   <div style={{ color: '#b8b8b8' }}>
                     Already have an account? <a href="/sellerlogin" style={{ textDecoration: 'underline' }}>Login</a>
                   </div>

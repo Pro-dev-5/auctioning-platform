@@ -88,17 +88,7 @@ import React from 'react';
   
        
   
-        <Form.Item
-          name="agreement"
-          valuePropName="checked"
-          rules={[
-            {
-              validator: (_, value) =>
-                value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
-            },
-          ]}
-          // {...tailFormItemLayout}
-        >
+        <Form.Item>
           <Checkbox>
             I have read the <a href="">agreement</a>
           </Checkbox>
