@@ -50,10 +50,10 @@ function NavBar() {
                         <Link to="/" style={{ color: '#251E8C' }}>Home</Link>
                     </div>
                     <div className='hover-links' style={{ marginRight: '40px'}}>
-                        <Link to='#about' style={{ color: '#251E8C' }}>About</Link>
+                        <a href='#about' style={{ color: '#251E8C' }}>About</a>
                     </div>
                     <div className='hover-links' style={{ marginRight: '4px'}}>
-                        <Link to='#contact' style={{ color: '#251E8C' }}>Contact</Link>
+                        <a href='#contact' style={{ color: '#251E8C' }}>Contact</a>
                     </div>
                 </Menu>
                 </Header>

@@ -6,6 +6,7 @@ import CategoryComponent from './CategoryComponet';
 import About from './About';
 import Contact from './Contact';
 
+
 function Home({url}) {
     const [categories, setCategory] = useState([ ]);
     const path = ['/art', '/ceramics', '/jewellery']
