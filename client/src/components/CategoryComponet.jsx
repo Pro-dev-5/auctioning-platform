@@ -1,9 +1,10 @@
 import { Col, Row, Card, Divider } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
-function CategoryComponent({name, description, image}) {
-
+function CategoryComponent({name, description, image, path, ind}) {
+    const navigate = useNavigate()
     return (
-        <div className='category' style={{ display: 'flex', marginRight: '30px' }}>
+        <div className='category' onClick={()=>navigate(path[ind])} style={{ display: 'flex', marginRight: '30px' }}>
             <div>
                 <img src={image} alt="Hero" className='rounded' />
                 <div style={{ backgroundColor: '#ECECEC' }}>
