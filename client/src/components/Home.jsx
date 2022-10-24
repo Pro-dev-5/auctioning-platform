@@ -30,6 +30,7 @@ function Home({url}) {
                 image = {!category.image ? "../../public/images/art.webp" : category.image}
                 name = {category.name}
                 description = {category.description}
+                // testing comments
             />
         )
     });
