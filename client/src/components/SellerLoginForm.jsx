@@ -67,13 +67,6 @@ const SellerLoginForm = ({ url }) => {
             </Form.Item>
 
 						<Form.Item
-              name="remember"
-              valuePropName="checked"
-            >
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
-						<Form.Item
             >
               <Button type="" htmlType="submit" style={{ backgroundColor: '#ECC13B', color: '#fff' }}>
                 Submit
