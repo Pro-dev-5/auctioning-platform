@@ -5,10 +5,12 @@ import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "../styles/Ceramics.css";
 import { Row, Col } from "antd";
+import { useNavigate } from "react-router-dom";
+
 
 function Ceramics({ url }) {
   const [ceramics, setCeramics] = useState([]);
-  // const navigate = useNavigate()
+  
   // <button onClick={() => navigate('jewellery')}>View Products</button>
 
   useEffect(() => {
@@ -41,6 +43,7 @@ function Ceramics({ url }) {
 }
 
 function CeramicsCard({ item }) {
+  const navigate = useNavigate()
   return (
     <div className="my-card">
       <div className="container">
@@ -65,7 +68,7 @@ function CeramicsCard({ item }) {
                 <p>Location: {item.location}</p>
                 <p>Start Price: {item.starting_price}</p>
                 <p>Time: {item.time}</p>
-                <button>Place Bid</button>
+                <button onClick={()=>navigate(`/item/${item.id}`)}>Bid</button>
               </div>
             </Card>
           </Col>

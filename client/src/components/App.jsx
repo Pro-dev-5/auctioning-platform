@@ -28,7 +28,7 @@ function App() {
           <Routes>
               <Route  path="/" element={<Home url={url}/>} />
               <Route  path="/jewellery" element={<Jewellery url={url} />} />
-              <Route  path="/item" element={<Item url={url}/>} />
+              <Route  path="/item/:id" element={<Item url={url}/>} />
               <Route  path="/ceramics" element={<Ceramics url={url}/>} />
               <Route  path="/buyerlogin" element={<BuyerLogin url={url}/>} />
               <Route  path="/buyersignup" element={<BuyerSignup url={url}/>} />
