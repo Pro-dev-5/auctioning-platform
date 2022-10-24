@@ -75,4 +75,4 @@ const BuyerLoginForm = () => {
     </Form>
   );
 };
-export default BuyerLoginForm;
+export default BuyerLoginForm
