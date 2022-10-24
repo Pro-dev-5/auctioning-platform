@@ -13,6 +13,7 @@ import Footer from './Footer'
 import '../styles/Nav.css'
 import Ceramics from './Ceramics'
 import Art from './Art'
+import SellerHome from './SellerHome'
 // import { Footer } from 'antd/lib/layout/layout'
 
 
