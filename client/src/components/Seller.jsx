@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
-function Seller({url}) {
+function Seller({ url, seller }) {
   const [formData, setFormData] = useState({
     image_1: "",
     image_2: "",
@@ -11,21 +12,30 @@ function Seller({url}) {
     date: "",
     starting_price: 0,
     category_id: 0,
+    seller_id: seller.id
   });
+  const [category, setCategory] = useState([])
+
+  useEffect(()=>{
+    fetch(`${url}/categories`)
+    .then(res=>res.json().then(setCategory))
+    .catch(err=>toast(err.message))
+  }, [])
 
   function handleSubmit(e){
     e.preventDefault()
-    fetch(`${url}/products`,{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(r => r.json())
-    .then(data => {
-        console.log(data)
-    })
+    console.log(formData);
+    // fetch(`${url}/products`,{
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(formData)
+    // })
+    // .then(r => r.json())
+    // .then(data => {
+    //     console.log(data)
+    // })
 
     setFormData({
     image_1: "",
@@ -36,7 +46,7 @@ function Seller({url}) {
     time: "",
     date: "",
     starting_price: "",
-    category_id: ""
+    category_id: 0
     })
 }
 
@@ -115,18 +125,19 @@ function handleChange(e){
           onChange={handleChange}
         />
 
-        <input type="radio" id="art" name="category" value="art" />
-        <label>Art</label>
-        <br />
-
-        <input type="radio" id="ceramics" name="category" value="ceramics" />
-        <label>Ceramics</label>
-        <br />
-
-        <input type="radio" id="jewellery" name="category" value="jewellery" />
-        <label>Jewellery</label>
+        <select>
+          <option value={formData.category_id}>Select--</option>
+          {
+            (Array.isArray(category) ? category : []).map(cat=>{
+              return (
+                <option value={cat.id}>{cat.name}</option>
+              )
+            })
+          }
+        </select>
 
         <button type='submit' onClick={handleSubmit}>Add Product</button>
+        <ToastContainer/>
       </form>
     </>
   );
