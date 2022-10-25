@@ -60,7 +60,7 @@ function CeramicsCard({ item }) {
                       ? "../../src/assets/artwork.jpeg"
                       : item.image_1
                   }
-                />
+                /> 
               }
             >
               <div className="cardcontent">
