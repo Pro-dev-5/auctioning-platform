@@ -19,6 +19,18 @@ class Api::BuyersController < ApplicationController
 		render json: cat, status: :ok
 	end
 
+	# def update
+	# 	bid = find_bid
+	# 	bid.update!(bid_params)
+	# 	render json: bid, status: :accepted
+	# end
+
+	# def destroy
+	# 	bid = find_bid
+	# 	bid.destroy
+	# 	render json: {}, status: :accepted
+	# end
+
 	private
 
 	def buyer_params
