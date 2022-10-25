@@ -81,10 +81,25 @@ function Item({url}) {
             title="Bidding"
             value="Ongoing"
             style={{
-                marginRight: 32,
+                marginRight: 50,
             }}
             />
-            <Statistic title="Price" prefix="Ksh." value={item.starting_price} />
+            <Statistic title="Starting Price" prefix="Ksh." value={item.starting_price} style={{
+                marginRight: 50,
+            }}/>
+            <Statistic title="Current Highest Bid" prefix="Ksh." value={item.current_bid} style={{
+                marginRight: 50,
+            }}/>
+
+            <Statistic title="Bidding Start Time"  value={item.time} style={{
+                marginRight: 50,
+            }}/>
+             <Statistic title="Bidding End Time"  value={item.time} style={{
+                marginRight: 50,
+            }}/>
+             <Statistic title="Timer"  value=" {days * 24 + hours} hr: {minutes} min: {seconds} sec" style={{
+                marginRight: 50,
+            }}/>
         </div>
     );
     const Content = ({ items, extra }) => (
@@ -153,9 +168,7 @@ function Item({url}) {
                 <div className='child2'>
                 <Card  title={item.name} >
                     <Card.Grid style={gridStyle}>Category: {item.category_id}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Starting Price: 
-                    {item.starting_price}
-                    </Card.Grid>
+                    <Card.Grid style={gridStyle}>Current bid price offered: {item.current_bid}</Card.Grid>
                     <Card.Grid style={gridStyle}>Location: {item.location}</Card.Grid>
                     <Card.Grid style={gridStyle}>Start date: {item.date}</Card.Grid>
  
