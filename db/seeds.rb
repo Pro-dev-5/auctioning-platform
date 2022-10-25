@@ -29,7 +29,8 @@ for i in 1..18
 		time: "10:00 a.m",
 		starting_price: rand(100..300),
 		seller_id: rand(1..5),
-		category_id: rand(1..3)
+		category_id: rand(1..3),
+		current_bid: rand(300..400)
 	)
 end
 
