@@ -12,7 +12,7 @@ class Api::BidsController < ApplicationController
 	def create
 		bid = Bid.new(bid_params)
 		prod = Product.find(bid.product_id)
-		if bid.current_bid > prod.starting_price
+		if bid.current_bid > prod.starting_price && bid.current_bid > prod.current_bid
 			bid.save!
 			render json: bid, status: :created
 		else
