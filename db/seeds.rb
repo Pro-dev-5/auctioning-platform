@@ -15,7 +15,7 @@ Category.create(name: 'Ceramic Collections', description: 'Persian Qajar Ceramic
 Category.create(name: 'Jewel Collections', description: 'Superb Jewels from the "Sunrise Ruby" Collection', image: '../../public/images/jewel.webp')
 
 
-puts 'seeding Sellers...'
+puts 'Seeding Sellers...'
 for i in 1..5
 	Seller.create(name: Faker::Name.name, email: "example@gmail.com", password: "#{i}")
 end
@@ -44,8 +44,7 @@ for i in 1..20
 	Bid.create(
 		buyer_id: rand(1..10),
 		product_id: rand(1..18),
-		start_price: rand(50...100),
-		current_bid: rand(100..150)
+		current_bid: rand(300..400)
 	)
 end
 
