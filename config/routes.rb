@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
 	namespace :api do
-  	resources :categories, only: [:index]
+  	resources :categories, only: [:index, :show]
   	resources :sellers, only: [:index, :show]
-  	resources :products, only: [:index, :show]
-		resources :buyers, only: [:index]
-  	resources :bids, only: [:index]
+  	resources :products, only: [:index, :show, :create, :update, :destroy]
+		resources :buyers, only: [:index, :show]
+  	resources :bids, only: [:index, :create]
 		post '/sellersignup', to: 'sellers#create'
 		post '/buyersignup', to: 'buyers#create'
 		# get '/me', to: 'users#show'
