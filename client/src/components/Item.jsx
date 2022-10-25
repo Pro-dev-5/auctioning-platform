@@ -1,52 +1,69 @@
-import { Image, Button, Descriptions, PageHeader, Card , Statistic, Tag, Tabs } from 'antd';
+import { Image, Button, Descriptions, PageHeader, Card , Statistic} from 'antd';
 import React, { useState } from 'react';
 import '../styles/Item.css'
+import { useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { useParams } from 'react-router-dom';
 
-const renderContent = (column = 2) => (
-    <Descriptions size="small" column={column}>
-        <Descriptions.Item label="Owner">Jane Doe</Descriptions.Item>
-        <Descriptions.Item label="Association">
-        <a>Item ID</a>
-        </Descriptions.Item>
-        <Descriptions.Item label="Start Time">2022-10-13</Descriptions.Item>
-        <Descriptions.Item label="End Time">2022-10-14</Descriptions.Item>
-        <Descriptions.Item label="Remarks">
-        In excellent condition
-        </Descriptions.Item>
-    </Descriptions>
-);
-const extraContent = (
-    <div
-        style={{
-        display: 'flex',
-        width: 'max-content',
-        justifyContent: 'flex-end',
-        }}
-    >
-        <Statistic
-        title="Bidding"
-        value="Ongoing"
-        style={{
-            marginRight: 32,
-        }}
-        />
-        <Statistic title="Price" prefix="Ksh." value={5000} />
-    </div>
-);
-const Content = ({ items, extra }) => (
-  <div className="content">
-    <div className="main">{items}</div>
-    <div className="extra">{extra}</div>
-  </div>
-);
+
 const gridStyle = {
     width: '100%',
     textAlign: 'center',
     
   };
 
-function Item() {
+function Item({url}) {
     const [visible, setVisible] = useState(false);
+    const[item, setItem] = useState({})
+    const {id}= useParams();
+
+    useEffect(() => {
+    fetch(`${url}/products/${id}`)
+    .then(response => response.json())
+    .then( data => setItem(data))
+    
+
+    },[])
+        
+    console.log(item)
+
+    const renderContent = (column = 2) => (
+        <Descriptions size="small" column={column}>
+            <Descriptions.Item label="Owner">{item.name}</Descriptions.Item>
+            <Descriptions.Item label="Association">
+            <a>{item.category_id}</a>
+            </Descriptions.Item>
+            <Descriptions.Item label="Start Time">{item.date}</Descriptions.Item>
+            <Descriptions.Item label="End Time">{item.date}</Descriptions.Item>
+            <Descriptions.Item label="Location">
+            {item.location}
+            </Descriptions.Item>
+        </Descriptions>
+    );
+    const extraContent = (
+        <div
+            style={{
+            display: 'flex',
+            width: 'max-content',
+            justifyContent: 'flex-end',
+            }}
+        >
+            <Statistic
+            title="Bidding"
+            value="Ongoing"
+            style={{
+                marginRight: 32,
+            }}
+            />
+            <Statistic title="Price" prefix="Ksh." value={item.starting_price} />
+        </div>
+    );
+    const Content = ({ items, extra }) => (
+      <div className="content">
+        <div className="main">{items}</div>
+        <div className="extra">{extra}</div>
+      </div>
+    );
     
 
     return (
@@ -55,8 +72,9 @@ function Item() {
                     <PageHeader
                         className="site-page-header-responsive"
                         onBack={() => window.history.back()}
-                        title="Item name"
-                        subTitle="Item category"
+                        title={item.name}
+                        subTitle={item.category_id}
+                        
                         extra={[
                         <Button key="3" type="primary">Place Bid</Button>,
                         <Button key="1" type="danger">
@@ -102,13 +120,13 @@ function Item() {
                 </div>
 
                 <div className='child2'>
-                <Card  title="Item Title" >
-                    <Card.Grid style={gridStyle}>Item category</Card.Grid>
-                    <Card.Grid style={gridStyle}>
-                    Item Price
+                <Card  title={item.name} >
+                    <Card.Grid style={gridStyle}>Category: {item.category_id}</Card.Grid>
+                    <Card.Grid style={gridStyle}>Starting Price: 
+                    {item.starting_price}
                     </Card.Grid>
-                    <Card.Grid style={gridStyle}>Item description</Card.Grid>
-                    <Card.Grid style={gridStyle}>Item contents</Card.Grid>
+                    <Card.Grid style={gridStyle}>Location: {item.location}</Card.Grid>
+                    <Card.Grid style={gridStyle}>Start date: {item.date}</Card.Grid>
  
                 </Card>
 
