@@ -3,24 +3,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-const SellerLoginForm = ({ url }) => {
+const SellerLoginForm = ({ url, logInSeller }) => {
 	const navigate = useNavigate()
 
 	const onFinish = (values) => {
-    fetch(`${url}/sellerlogin`,{
-			method: "POST",
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({name: values.username, password: values.password})
-		})
-		.then(res=>{
-			if(res.ok){
-				toast(`Success logged in as ${values.username}`)
-				navigate('/')
-			}else{
-				res.json().then(err=>toast(err.errors[0]))
-			}
-		})
-		.catch(err=>toast(err.message))
+    logInSeller(values)
 	}
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);

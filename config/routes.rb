@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   	resources :bids, only: [:index, :create]
 		post '/sellersignup', to: 'sellers#create'
 		post '/buyersignup', to: 'buyers#create'
-		get '/seller', to: 'seller#show'
-		get '/buyer', to: 'buyer#show'
+		get '/seller', to: 'sellers#show'
+		get '/buyer', to: 'buyers#show'
 		post '/sellerlogin', to: 'sessions#seller_create'
 		delete '/sellerlogout', to: 'sessions#seller_destroy'
 		post '/buyerlogin', to: 'sessions#buyer_create'
