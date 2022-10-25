@@ -23,9 +23,7 @@ button{
 	margin-bottom: 30px;
 }
 
-.cardcontent{
-    text-align: center;
-}
+
 .my-card{
     margin: 30px;
 	margin-right: 10px;
@@ -58,9 +56,7 @@ Row{
     display: flex;
 }
 
-.cardcontent{
-    text-align: center;
-}
+
 .my-card{
     margin: 20px;
 	margin-right: 10px;
