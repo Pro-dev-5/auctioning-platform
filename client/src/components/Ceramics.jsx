@@ -8,6 +8,7 @@ import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
 
+
 function Ceramics({ url }) {
   const [ceramics, setCeramics] = useState([]);
   
