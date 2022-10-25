@@ -1,5 +1,6 @@
 import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom'
 import React from 'react';
 import '../styles/Nav.css'
 
@@ -14,7 +15,7 @@ import '../styles/Nav.css'
       // Adding col and row to control the elements. Here the Row will serve as a root element
       <div>
         <div style={{ position: 'relative', marginBottom: '20px' }}>
-            <h1 style={{ paddingBottom: '20px' }}>SignUp Form</h1>
+            <h1 style={{ paddingBottom: '20px' }}>Seller SignUp Form</h1>
             {/* Underline */}
             <div style={{ height: '4px', backgroundColor: '#ECC13B', width: '80px', position: 'absolute', top: '40px', left: '60px'}} />
         </div>
@@ -25,9 +26,14 @@ import '../styles/Nav.css'
             </div>
           </Col>
           <Col span={6}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
-              <span style={{ marginRight: '8px' }}>Register as </span>
-              <Switch checkedChildren="Buyer" unCheckedChildren="Seller" defaultChecked />
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                  <span style={{ marginRight: '8px', fontFamily: 'Averia Serif Libre', fontSize: '22px' }}>Register as:</span>
+                  <Link to="/buyersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '15px', fontSize: '12px' }}>Buyer</Link>
+                  <Link to="/sellersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '15px', fontSize: '12px' }}>Seller</Link>
+                </div>
+              </div>
             </div>
             <div style={{ padding: '32px 24px', backgroundColor: '#F5F5F5' }}>
               <Form
