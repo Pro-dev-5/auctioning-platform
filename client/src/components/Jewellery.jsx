@@ -5,9 +5,11 @@ import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "../styles/Jewellery.css";
 import { Row, Col } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function Jewellery({ url }) {
   const [jewellery, setJewellery] = useState([]);
+
   console.log(url);
   useEffect(() => {
     fetch(`${url}/products`).then((res) => {
@@ -37,7 +39,9 @@ function Jewellery({ url }) {
   );
 }
 
+
 function JewelleryCard({ item }) {
+  const navigate = useNavigate()
   return (
     <div className="my-card">
       <div className="container-fluid">
@@ -62,7 +66,7 @@ function JewelleryCard({ item }) {
                 <p>Location: {item.location}</p>
                 <p>Start Price: {item.starting_price}</p>
                 <p>Time: {item.time}</p>
-                <button>Place Bid</button>
+                <button onClick={()=>navigate(`/item/${item.id}`)}>Bid</button>
               </div>
             </Card>
           </Col>

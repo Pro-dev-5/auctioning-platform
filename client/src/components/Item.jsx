@@ -1,9 +1,47 @@
-import { Image, Button, Descriptions, PageHeader, Card , Statistic} from 'antd';
+import { Image, Button, Input, Tooltip, PageHeader, Card , Statistic} from 'antd';
 import React, { useState } from 'react';
 import '../styles/Item.css'
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useParams } from 'react-router-dom';
+
+
+const formatNumber = (value) => new Intl.NumberFormat().format(value);
+const NumericInput = (props) => {
+  const { value, onChange } = props;
+  const handleChange = (e) => {
+    const { value: inputValue } = e.target;
+    const reg = /^-?\d*(\.\d*)?$/;
+    if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
+      onChange(inputValue);
+    }
+  };
+
+  // '.' at the end or only '-' in the input box.
+  const handleBlur = () => {
+    let valueTemp = value;
+    if (value.charAt(value.length - 1) === '.' || value === '-') {
+      valueTemp = value.slice(0, -1);
+    }
+    onChange(valueTemp.replace(/0*(\d+)/, '$1'));
+  };
+  const title = value ? (
+    <span className="numeric-input-title">{value !== '-' ? formatNumber(Number(value)) : '-'}</span>
+  ) : (
+    'Bid must be higher than current bid'
+  );
+  return (
+    <Tooltip trigger={['focus']} title={title} placement="topLeft" overlayClassName="numeric-input">
+      <Input
+        {...props}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        placeholder="Input bid"
+        maxLength={16}
+      />
+    </Tooltip>
+  );
+};
 
 
 const gridStyle = {
@@ -14,6 +52,7 @@ const gridStyle = {
 
 function Item({url}) {
     const [visible, setVisible] = useState(false);
+    const [value, setValue] = useState('');
     const[item, setItem] = useState({})
     const {id}= useParams();
 
@@ -27,19 +66,9 @@ function Item({url}) {
         
     console.log(item)
 
-    const renderContent = (column = 2) => (
-        <Descriptions size="small" column={column}>
-            <Descriptions.Item label="Owner">{item.name}</Descriptions.Item>
-            <Descriptions.Item label="Association">
-            <a>{item.category_id}</a>
-            </Descriptions.Item>
-            <Descriptions.Item label="Start Time">{item.date}</Descriptions.Item>
-            <Descriptions.Item label="End Time">{item.date}</Descriptions.Item>
-            <Descriptions.Item label="Location">
-            {item.location}
-            </Descriptions.Item>
-        </Descriptions>
-    );
+    
+
+   
     const extraContent = (
         <div
             style={{
@@ -52,10 +81,25 @@ function Item({url}) {
             title="Bidding"
             value="Ongoing"
             style={{
-                marginRight: 32,
+                marginRight: 50,
             }}
             />
-            <Statistic title="Price" prefix="Ksh." value={item.starting_price} />
+            <Statistic title="Starting Price" prefix="Ksh." value={item.starting_price} style={{
+                marginRight: 50,
+            }}/>
+            <Statistic title="Current Highest Bid" prefix="Ksh." value={item.current_bid} style={{
+                marginRight: 50,
+            }}/>
+
+            <Statistic title="Bidding Start Time"  value={item.time} style={{
+                marginRight: 50,
+            }}/>
+             <Statistic title="Bidding End Time"  value={item.time} style={{
+                marginRight: 50,
+            }}/>
+             <Statistic title="Timer"  value=" {days * 24 + hours} hr: {minutes} min: {seconds} sec" style={{
+                marginRight: 50,
+            }}/>
         </div>
     );
     const Content = ({ items, extra }) => (
@@ -71,18 +115,20 @@ function Item({url}) {
                 <div className='header1'>
                     <PageHeader
                         className="site-page-header-responsive"
-                        onBack={() => window.history.back()}
+                        onBack={() => window.history.back()} 
+                       
                         title={item.name}
                         subTitle={item.category_id}
                         
                         extra={[
+                            <NumericInput style={{ width: 120, }} value={value} onChange={setValue} />,
+
                         <Button key="3" type="primary">Place Bid</Button>,
-                        <Button key="1" type="danger">
-                            Remove bid
-                        </Button>,
+                        
+                       
                         ]}
                     >
-                        <Content extra={extraContent}>{renderContent()}</Content>
+                        <Content extra={extraContent}></Content>
                     </PageHeader>
                 </div>
                 <div className='parent'>
@@ -122,9 +168,7 @@ function Item({url}) {
                 <div className='child2'>
                 <Card  title={item.name} >
                     <Card.Grid style={gridStyle}>Category: {item.category_id}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Starting Price: 
-                    {item.starting_price}
-                    </Card.Grid>
+                    <Card.Grid style={gridStyle}>Current bid price offered: {item.current_bid}</Card.Grid>
                     <Card.Grid style={gridStyle}>Location: {item.location}</Card.Grid>
                     <Card.Grid style={gridStyle}>Start date: {item.date}</Card.Grid>
  

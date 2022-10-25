@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "../styles/ArtPage.css";
 import { Row, Col } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function Art({ url }) {
   const [art, setArt] = useState([]);
@@ -41,6 +42,7 @@ function Art({ url }) {
 }
 
 function ArtCard({ item }) {
+  const navigate = useNavigate()
   return (
     <div className="my-card">
       <div className="container">
@@ -65,7 +67,7 @@ function ArtCard({ item }) {
                 <p>Location: {item.location}</p>
                 <p>Start Price: {item.starting_price}</p>
                 <p>Time: {item.time}</p>
-                <button>Place Bid</button>
+                <button onClick={()=>navigate(`/item/${item.id}`)}>Bid</button>
               </div>
             </Card>
           </Col>
