@@ -16,7 +16,7 @@ class Api::SellersController < ApplicationController
 	end
 
 	def show
-		seller = Seller.find(params[:id])
+		seller = Seller.find(session[:seller_id])
 		render json: seller, status: :ok
 	end
 

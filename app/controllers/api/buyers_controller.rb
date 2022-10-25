@@ -15,8 +15,8 @@ class Api::BuyersController < ApplicationController
 	end
 
 	def show
-		buy = Buyer.find(params[:id])
-		render json: cat, status: :ok
+		buy = Buyer.find(session[:buyer_id])
+		render json: buy, status: :ok
 	end
 
 	# def update
