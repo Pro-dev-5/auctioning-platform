@@ -4,7 +4,6 @@ class Api::SessionsController < ApplicationController
 		seller = Seller.find_by(name: params[:name])
 		if seller&.authenticate(params[:password])
 			session[:seller_id] = seller.id
-			byebug
 			render json: seller, status: :created
 		else
 			render json: {errors: ["Invalid username or password"]}, status: :unauthorized
@@ -23,6 +22,7 @@ class Api::SessionsController < ApplicationController
 
 	def seller_destroy
 		session.delete :seller_id
+		session.delete :buyer_id
 		head :no_content
 	end
 
