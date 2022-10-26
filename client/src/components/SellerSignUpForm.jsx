@@ -1,9 +1,10 @@
-import {Button,Checkbox,Form,Input, Col, Row} from 'antd';
+import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom'
 import React from 'react';
 import '../styles/Nav.css'
-import { toast, ToastContainer } from 'react-toastify'
 
-  const SellerSignUpForm = ({ url, setSeller }) => {
+  const SellerSignUpForm = () => {
     const [form] = Form.useForm();
     const onFinish = (values) => {
       fetch(`${url}/sellersignup`,{
@@ -24,7 +25,7 @@ import { toast, ToastContainer } from 'react-toastify'
 					toast("Something went wrong")
 				}
 			})
-			.catch(err=>console.log(err.message))
+			.catch(err=>toast(err.message))
     };
 
     return (
@@ -32,7 +33,7 @@ import { toast, ToastContainer } from 'react-toastify'
       // Adding col and row to control the elements. Here the Row will serve as a root element
       <div>
         <div style={{ position: 'relative', marginBottom: '20px' }}>
-            <h1 style={{ paddingBottom: '20px' }}>SignUp Form</h1>
+            <h1 style={{ paddingBottom: '20px' }}>Seller SignUp Form</h1>
             {/* Underline */}
             <div style={{ height: '4px', backgroundColor: '#ECC13B', width: '80px', position: 'absolute', top: '40px', left: '60px'}} />
         </div>
@@ -43,6 +44,15 @@ import { toast, ToastContainer } from 'react-toastify'
             </div>
           </Col>
           <Col span={6}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                  <span style={{ marginRight: '8px', fontFamily: 'Averia Serif Libre', fontSize: '22px' }}>Register as:</span>
+                  <Link to="/buyersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Buyer</Link>
+                  <Link to="/sellersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Seller</Link>
+                </div>
+              </div>
+            </div>
             <div style={{ padding: '32px 24px', backgroundColor: '#F5F5F5' }}>
               <Form
                 // {...formItemLayout}
@@ -125,23 +135,13 @@ import { toast, ToastContainer } from 'react-toastify'
           
               
           
-                {/* <Form.Item
-                  name="agreement"
-                  valuePropName="checked"
-                  rules={[
-                    {
-                      validator: (_, value) =>
-                        value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
-                    },
-                  ]}
-                  // {...tailFormItemLayout}
-                >
+                <Form.Item>
                   <div style={{ color: '#b8b8b8' }}>
                     Already have an account? <a href="/sellerlogin" style={{ textDecoration: 'underline' }}>Login</a>
                   </div>
-                </Form.Item> */}
+                </Form.Item>
                 <Form.Item >
-                  <Button type="primary" htmlType="submit">
+                  <Button type="" htmlType="submit" style={{ backgroundColor: '#ECC13B', color: '#fff' }}>
                     Register
                   </Button>
                 </Form.Item>
