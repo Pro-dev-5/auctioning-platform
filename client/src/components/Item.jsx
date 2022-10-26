@@ -90,8 +90,6 @@ function Item({url}) {
         
     console.log(item)
 
-    
-
    
     const extraContent = (
         <div
@@ -105,24 +103,24 @@ function Item({url}) {
             title="Bidding"
             value="Ongoing"
             style={{
-                marginRight: 50,
+                marginRight: 20,
             }}
             />
             <Statistic title="Starting Price" prefix="Ksh." value={item.starting_price} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
             <Statistic title="Current Highest Bid" prefix="Ksh." value={item.current_bid} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
 
             <Statistic title="Bidding Start Time"  value={item.time} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
              <Statistic title="Bidding End Time"  value={item.time} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
-             <Statistic title="Timer"  value=" {days * 24 + hours} hr: {minutes} min: {seconds} sec" style={{
-                marginRight: 50,
+             <Statistic title="Timer"  value="" style={{
+                marginRight: 20,
             }}/>
         </div>
     );
@@ -132,7 +130,7 @@ function Item({url}) {
         <div className="extra"><form >{extra}</form></div>
       </div>
     );
-    
+   
 
     return (
         <div>
@@ -203,6 +201,7 @@ function Item({url}) {
                         </form>
                 </div>
                 </div>
+                
         </div>
     );
 }

@@ -5,18 +5,30 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-Rails.application.config.middleware.insert_before 0, Rack::Cors, debug: true, logger: (-> { Rails.logger }) do
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins '*'
 
-    resource '/cors',
-      :headers => :any,
-      :methods => [:post],
-      :max_age => 0
+    # resource '/cors',
+    #   :headers => :any,
+    #   :methods => [:post],
+    #   :max_age => 0
 
-    resource '*',
-      :headers => :any,
-      :methods => [:get, :post, :delete, :put, :patch, :options, :head],
-      :max_age => 0
+    resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
   end
 end
+# Rails.application.config.middleware.insert_before 0, Rack::Cors, debug: true, logger: (-> { Rails.logger }) do
+#   allow do
+#     origins '*'
+
+#     resource '/cors',
+#       :headers => :any,
+#       :methods => [:post],
+#       :max_age => 0
+
+#     resource '*',
+#       :headers => :any,
+#       :methods => [:get, :post, :delete, :put, :patch, :options, :head],
+#       :max_age => 0
+#   end
+# end
