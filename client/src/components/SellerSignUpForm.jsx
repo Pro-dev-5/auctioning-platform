@@ -1,12 +1,36 @@
-import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Col, Row, Switch } from 'antd';
+// import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Nav.css'
+import { toast, ToastContainer } from 'react-toastify';
 
-  const SellerSignUpForm = () => {
+  const SellerSignUpForm = ({ url, setSeller }) => {
     const [form] = Form.useForm();
+		const navigate = useNavigate()
+
     const onFinish = (values) => {
-      console.log('Received values of form: ', values);
+			fetch(`${url}/sellersignup`,{
+				method: "POST", headers: {"Content-Type":"application/json"},
+				body: JSON.stringify({
+					name: values.username,
+					email: values.email,
+					password: values.password,
+					password_confirmation: values.confirm
+				})
+			})
+			.then(res=>{
+				if(res.ok){
+					res.json().then(data=>{
+						toast(`Welcome ${data.name}`)
+						setSeller(data)
+						navigate('/')
+					})
+				}else{
+					res.json().then(err=>toast(err.errors[0]))
+				}
+			})
+			.catch(err=>toast(err.message))
     };
 
     return (
@@ -124,6 +148,7 @@ import '../styles/Nav.css'
               </Form>
             </div>
           </Col>
+					<ToastContainer/>
       </Row>
       </div>
     );
