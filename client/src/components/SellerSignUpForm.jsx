@@ -1,11 +1,30 @@
 import {Button,Checkbox,Form,Input, Col, Row} from 'antd';
 import React from 'react';
 import '../styles/Nav.css'
+import { toast, ToastContainer } from 'react-toastify'
 
-  const SellerSignUpForm = () => {
+  const SellerSignUpForm = ({ url, setSeller }) => {
     const [form] = Form.useForm();
     const onFinish = (values) => {
-      console.log('Received values of form: ', values);
+      fetch(`${url}/sellersignup`,{
+				method: "POST", headers: {"Content-Type": "application/json"},
+				body: JSON.stringify({
+					name: values.username,
+					password: values.password
+				})
+			})
+			.then(res=>{
+				if(res.ok){
+					res.json().then(data=>{
+						setSeller(data)
+						// sessionStorage.setItem("seller_id", JSON.stringify(data.id))
+					})
+					toast("Successful")
+				}else{
+					toast("Something went wrong")
+				}
+			})
+			.catch(err=>console.log(err.message))
     };
 
     return (
@@ -106,7 +125,7 @@ import '../styles/Nav.css'
           
               
           
-                <Form.Item
+                {/* <Form.Item
                   name="agreement"
                   valuePropName="checked"
                   rules={[
@@ -120,7 +139,7 @@ import '../styles/Nav.css'
                   <div style={{ color: '#b8b8b8' }}>
                     Already have an account? <a href="/sellerlogin" style={{ textDecoration: 'underline' }}>Login</a>
                   </div>
-                </Form.Item>
+                </Form.Item> */}
                 <Form.Item >
                   <Button type="primary" htmlType="submit">
                     Register

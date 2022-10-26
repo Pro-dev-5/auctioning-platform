@@ -16,14 +16,16 @@ const SellerLoginForm = ({ url, setSeller }) => {
 			if(resp.ok){
 				const jsonResp = await resp.json()
 				setSeller(jsonResp)
+				sessionStorage.setItem("seller_id", JSON.stringify(data.id))
 				toast(`Success logged in as ${jsonResp.name}`)
-				// navigate('/')
+				navigate('/')
 			}else{
 				const error = await resp.json()
 				console.log(error)
 			}
 		} catch (error) {
 			toast(error.message)
+			
 		}
 	}
 
