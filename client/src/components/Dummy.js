@@ -26,17 +26,17 @@ function Seller({ url, seller }) {
   function handleSubmit(e){
     e.preventDefault()
     console.log(formData);
-    // fetch(`${url}/products`,{
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(formData)
-    // })
-    // .then(r => r.json())
-    // .then(data => {
-    //     console.log(data)
-    // })
+    fetch(`${url}/products`,{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(r => r.json())
+    .then(data => {
+        console.log(data)
+    })
 
     setFormData({
     image_1: "",
