@@ -26,27 +26,13 @@ function App() {
 
   useEffect(()=>{
     fetch(`${url}/seller`)
-    .then(res=>res.json().then(setSeller))
-    .catch(err=>toast(err.message))
-  },[])
-
-  const logInSeller = (values) =>{
-    fetch(`${url}/sellerlogin`,{
-			method: "POST",
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({name: values.username, password: values.password})
-		})
-		.then(res=>{
+    .then(res=>{
 			if(res.ok){
-				toast(`Success logged in as ${values.username}`)
-        res.json().then(setSeller)
-				navigate('/')
-			}else{
-				res.json().then(err=>toast(err.errors[0]))
+				res.json().then(console.log)
 			}
 		})
-		.catch(err=>toast(err.message))
-  }
+    .catch(err=>toast(err.message))
+  },[])
 
   return (
     <div>
@@ -62,8 +48,8 @@ function App() {
               <Route  path="/seller" element={<Seller url={url} seller={seller}/>} />
               <Route  path="/buyerlogin" element={<BuyerLogin url={url}/>} />
               <Route  path="/buyersignup" element={<BuyerSignup url={url}/>} />
-              <Route  path="/sellerlogin" element={<SellerLogin url={url} logInSeller={logInSeller}/>}/>
-              <Route  path="/sellersignup" element={<SellerSignup url={url}/>} />
+              <Route  path="/sellerlogin" element={<SellerLogin url={url} setSeller={setSeller}/>}/>
+              <Route  path="/sellersignup" element={<SellerSignup url={url} setSeller={setSeller}/>} />
               <Route  path="/art" element={<Art url={url}/>} />
               <Route  path="/sellerhome" element={<SellerHome url={url}/>} />
           </Routes>

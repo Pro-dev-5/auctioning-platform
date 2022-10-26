@@ -3,12 +3,32 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-const SellerLoginForm = ({ url, logInSeller }) => {
+const SellerLoginForm = ({ url, setSeller }) => {
 	const navigate = useNavigate()
 
-	const onFinish = (values) => {
-    logInSeller(values)
+	const onFinish = async (values) => {
+		try {
+			const resp = await fetch(`${url}/sellerlogin`,{
+				method: "POST",
+				headers: {"Content-Type": "application/json"},
+				body: JSON.stringify({name: values.username, password: values.password})
+			})
+			if(resp.ok){
+				const jsonResp = await resp.json()
+				setSeller(jsonResp)
+				sessionStorage.setItem("seller_id", JSON.stringify(data.id))
+				toast(`Success logged in as ${jsonResp.name}`)
+				navigate('/')
+			}else{
+				const error = await resp.json()
+				console.log(error)
+			}
+		} catch (error) {
+			toast(error.message)
+			
+		}
 	}
+
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
