@@ -23,9 +23,7 @@ const SellerLoginForm = ({ url, logInSeller }) => {
             initialValues={{
               remember: true,
             }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
+            
           >
             <Form.Item
               label="Username"
