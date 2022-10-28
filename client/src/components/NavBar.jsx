@@ -2,12 +2,28 @@ import React from 'react'
 import { Input, Space, Layout, Menu} from 'antd'
 import '../styles/Nav.css'
 import { Link } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify';
 
 const { Header } = Layout;
 const { Search } = Input;
 const onSearch = (value) => console.log(value);
 
 function NavBar() {
+
+	const logOut = ()=>{
+		fetch(`/api/logout`,{
+			method: "DELETE"
+		})
+		.then(res=>{
+			if(res.ok){
+				toast('Logout successful')
+			}else{
+				toast('Something went wrong')
+			}
+		})
+		.catch(err=>toast(err.message))
+	}
+
     return (
         <div>
             <div style={{ position: 'fixed', width: '100%', zIndex: '10' }}>
@@ -55,9 +71,13 @@ function NavBar() {
                     <div className='hover-links' style={{ marginRight: '4px'}}>
                         <a href='#contact' style={{ color: '#251E8C' }}>Contact</a>
                     </div>
+										<div className='hover-links' style={{ marginRight: '4px', marginLeft:'3%'}}>
+                        <a onClick={logOut} href='#' style={{ color: '#251E8C' }}>Logout</a>
+                    </div>
                 </Menu>
                 </Header>
             </div>
+						<ToastContainer/>
             <div style={{ height: '100%', marginTop: '102px' }}>
                 <div className='hero-img'>
                 </div>

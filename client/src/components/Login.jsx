@@ -10,23 +10,9 @@ function Login({ setSeller }) {
 		password: ''
 	})
 
-	const logOut = ()=>{
-		fetch(`/api/sellerlogout`,{
-			method: "DELETE"
-		})
-		.then(res=>{
-			if(res.ok){
-				toast('Logout successful')
-			}else{
-				toast('Something went wrong')
-			}
-		})
-		.catch(err=>toast(err.message))
-	}
-
 	const onFinish = async (values) => {
 		try {
-			const resp = await fetch(`/api/sellerlogin`,{
+			const resp = await fetch(`/api/login`,{
 				method: "POST",
 				headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({name: values.username, password: values.password})
