@@ -49,8 +49,8 @@ import { toast, ToastContainer } from 'react-toastify';
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
                   <span style={{ marginRight: '8px', fontFamily: 'Averia Serif Libre', fontSize: '22px' }}>Register as:</span>
-                  <Link to="/buyersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Buyer</Link>
-                  <Link to="/sellersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Seller</Link>
+                  {/* <Link to="/buyersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Buyer</Link>
+                  <Link to="/sellersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Seller</Link> */}
                 </div>
               </div>
             </div>
@@ -138,7 +138,7 @@ import { toast, ToastContainer } from 'react-toastify';
           
                 <Form.Item>
                   <div style={{ color: '#b8b8b8' }}>
-                    Already have an account? <a href="/sellerlogin" style={{ textDecoration: 'underline' }}>Login</a>
+                    Already have an account? <a href="/login" style={{ textDecoration: 'underline' }}>Login</a>
                   </div>
                 </Form.Item>
                 <Form.Item >

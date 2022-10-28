@@ -14,9 +14,9 @@ function NavBar() {
                 <div className='top-header'>
                     <div>
                         <span>Hi!</span>
-                        <span><Link to="/sellerlogin">Login</Link></span>
+                        <span><Link to="/login">Login</Link></span>
                         <span>Or</span>
-                        <span><Link to="sellersignup">Register</Link></span>
+                        <span><Link to="signup">Register</Link></span>
                     </div>
                     <div>
                         <Space direction='vertical'>
