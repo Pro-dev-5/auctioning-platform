@@ -1,7 +1,7 @@
 class Api::CategoriesController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_cat_not_found
 	def index
-		render json: Category.all, status: :ok
+		render json: Category.all, status: 200
 	end
 
 	def show
