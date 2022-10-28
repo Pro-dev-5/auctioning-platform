@@ -22,6 +22,7 @@ class Api::SessionsController < ApplicationController
 
 	def seller_destroy
 		session.delete :seller_id
+		session.delete :buyer_id
 		head :no_content
 	end
 
