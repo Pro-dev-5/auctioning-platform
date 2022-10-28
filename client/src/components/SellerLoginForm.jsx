@@ -21,7 +21,7 @@ const SellerLoginForm = ({ url, setSeller }) => {
 	}
 	const onFinish = async (values) => {
 		try {
-			const resp = await fetch(`${url}/sellerlogin`,{
+			const resp = await fetch(`/api/sellerlogin`,{
 				method: "POST",
 				headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({name: values.username, password: values.password})

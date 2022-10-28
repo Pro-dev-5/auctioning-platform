@@ -5,7 +5,7 @@ import React from 'react';
 import '../styles/Nav.css'
 import { toast, ToastContainer } from 'react-toastify';
 
-  const SellerSignUpForm = ({ url }) => {
+  const SellerSignUpForm = ({ url, setSeller }) => {
     const [form] = Form.useForm();
     const onFinish = (values) => {
       fetch(`${url}/sellersignup`,{
