@@ -13,7 +13,7 @@ function Home({url}) {
 
 
     useEffect(()=>{
-		fetch(`${url}/categories`)
+		fetch(`api/categories`)
 		.then(res=>{
 			if(res.ok){
 				// res.json().then(data => console.log(data))

@@ -25,7 +25,7 @@ function App() {
   const [seller, setSeller] = useState({})
 
   useEffect(()=>{
-    fetch(`${url}/seller`)
+    fetch(`/api/seller`)
     .then(res=>{
 			if(res.ok){
 				res.json().then(console.log)

@@ -1,33 +1,29 @@
-import { Button, Form, Input, Col, Row, Switch } from 'antd';
-// import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom'
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../styles/Nav.css'
 import { toast, ToastContainer } from 'react-toastify';
 
   const SellerSignUpForm = ({ url, setSeller }) => {
     const [form] = Form.useForm();
-		const navigate = useNavigate()
-
     const onFinish = (values) => {
-			fetch(`${url}/sellersignup`,{
-				method: "POST", headers: {"Content-Type":"application/json"},
+      fetch(`${url}/sellersignup`,{
+				method: "POST", headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({
 					name: values.username,
-					email: values.email,
-					password: values.password,
-					password_confirmation: values.confirm
+					password: values.password
 				})
 			})
 			.then(res=>{
 				if(res.ok){
 					res.json().then(data=>{
-						toast(`Welcome ${data.name}`)
 						setSeller(data)
-						navigate('/')
+						toast(`Logged in as ${data.name}`)
+						// sessionStorage.setItem("seller_id", JSON.stringify(data.id))
 					})
 				}else{
-					res.json().then(err=>toast(err.errors[0]))
+					toast("Something went wrong")
 				}
 			})
 			.catch(err=>toast(err.message))
@@ -38,7 +34,7 @@ import { toast, ToastContainer } from 'react-toastify';
       // Adding col and row to control the elements. Here the Row will serve as a root element
       <div>
         <div style={{ position: 'relative', marginBottom: '20px' }}>
-            <h1 style={{ paddingBottom: '20px' }}>SignUp Form</h1>
+            <h1 style={{ paddingBottom: '20px' }}>Seller SignUp Form</h1>
             {/* Underline */}
             <div style={{ height: '4px', backgroundColor: '#ECC13B', width: '80px', position: 'absolute', top: '40px', left: '60px'}} />
         </div>
@@ -49,9 +45,14 @@ import { toast, ToastContainer } from 'react-toastify';
             </div>
           </Col>
           <Col span={6}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
-              <span style={{ marginRight: '8px' }}>Register as </span>
-              <Switch checkedChildren="Buyer" unCheckedChildren="Seller" defaultChecked />
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                  <span style={{ marginRight: '8px', fontFamily: 'Averia Serif Libre', fontSize: '22px' }}>Register as:</span>
+                  <Link to="/buyersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Buyer</Link>
+                  <Link to="/sellersignup" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Seller</Link>
+                </div>
+              </div>
             </div>
             <div style={{ padding: '32px 24px', backgroundColor: '#F5F5F5' }}>
               <Form
@@ -146,9 +147,9 @@ import { toast, ToastContainer } from 'react-toastify';
                   </Button>
                 </Form.Item>
               </Form>
+							<ToastContainer/>
             </div>
           </Col>
-					<ToastContainer/>
       </Row>
       </div>
     );

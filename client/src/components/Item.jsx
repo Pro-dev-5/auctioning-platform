@@ -1,16 +1,16 @@
 import { Image, Button, Input, Tooltip, PageHeader, Card , Statistic} from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Item.css'
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { useParams } from 'react-router-dom';
+import { json, useParams } from 'react-router-dom';
 
 
 const formatNumber = (value) => new Intl.NumberFormat().format(value);
 const NumericInput = (props) => {
   const { value, onChange } = props;
   const handleChange = (e) => {
-    const { value: inputValue } = e.target;
+    const { value: inputValue} = e.target;
     const reg = /^-?\d*(\.\d*)?$/;
     if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
       onChange(inputValue);
@@ -53,8 +53,32 @@ const gridStyle = {
 function Item({url}) {
     const [visible, setVisible] = useState(false);
     const [value, setValue] = useState('');
+    const [value1, setValue1] = useState('');
     const[item, setItem] = useState({})
     const {id}= useParams();
+    const [bid, setBid] = useState('')
+
+    function handleSubmit(e) {
+      e.preventDefault()
+      fetch(`${url}/bids`,{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // buyer_id: buyer.id,
+          product_id: item.id,
+          starting_price: item.starting.price,
+          current_bid: bid
+        })
+      })
+      .then(res => res.json())
+      .then(data => {console.log(data)
+        setBid('')
+      })
+      .catch(err => err.message)
+      document.querySelector("form").reset()
+    }
 
     useEffect(() => {
     fetch(`${url}/products/${id}`)
@@ -65,8 +89,6 @@ function Item({url}) {
     },[])
         
     console.log(item)
-
-    
 
    
     const extraContent = (
@@ -81,34 +103,34 @@ function Item({url}) {
             title="Bidding"
             value="Ongoing"
             style={{
-                marginRight: 50,
+                marginRight: 20,
             }}
             />
             <Statistic title="Starting Price" prefix="Ksh." value={item.starting_price} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
             <Statistic title="Current Highest Bid" prefix="Ksh." value={item.current_bid} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
 
             <Statistic title="Bidding Start Time"  value={item.time} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
              <Statistic title="Bidding End Time"  value={item.time} style={{
-                marginRight: 50,
+                marginRight: 20,
             }}/>
-             <Statistic title="Timer"  value=" {days * 24 + hours} hr: {minutes} min: {seconds} sec" style={{
-                marginRight: 50,
+             <Statistic title="Timer"  value="" style={{
+                marginRight: 20,
             }}/>
         </div>
     );
     const Content = ({ items, extra }) => (
       <div className="content">
         <div className="main">{items}</div>
-        <div className="extra">{extra}</div>
+        <div className="extra"><form >{extra}</form></div>
       </div>
     );
-    
+   
 
     return (
         <div>
@@ -121,9 +143,9 @@ function Item({url}) {
                         subTitle={item.category_id}
                         
                         extra={[
-                            <NumericInput style={{ width: 120, }} value={value} onChange={setValue} />,
+                            <NumericInput style={{ width: 120, }} />,
 
-                        <Button key="3" type="primary">Place Bid</Button>,
+                        <Button key="3" >Place Bid</Button>,
                         
                        
                         ]}
@@ -173,9 +195,13 @@ function Item({url}) {
                     <Card.Grid style={gridStyle}>Start date: {item.date}</Card.Grid>
  
                 </Card>
-
+                        <form onSubmit={handleSubmit}>
+                          <input  value={bid} onChange={(e) => setBid(e.target.value)} />
+                          <button>Submit</button>
+                        </form>
                 </div>
                 </div>
+                
         </div>
     );
 }
