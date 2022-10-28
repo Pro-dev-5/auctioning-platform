@@ -7,13 +7,13 @@ import About from './About';
 import Contact from './Contact';
 
 
-function Home({url}) {
+function Home() {
     const [categories, setCategory] = useState([ ]);
     const path = ['/art', '/ceramics', '/jewellery']
 
 
     useEffect(()=>{
-		fetch(`${url}/categories`)
+		fetch(`/api/categories`)
 		.then(res=>{
 			if(res.ok){
 				// res.json().then(data => console.log(data))

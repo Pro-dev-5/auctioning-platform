@@ -9,13 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 
 
-function Ceramics({ url }) {
+function Ceramics() {
   const [ceramics, setCeramics] = useState([]);
   
   // <button onClick={() => navigate('jewellery')}>View Products</button>
 
   useEffect(() => {
-    fetch(`${url}/products`)
+    fetch(`/api/products`)
       .then((res) => {
         if (res.ok) {
           res.json().then(setCeramics);

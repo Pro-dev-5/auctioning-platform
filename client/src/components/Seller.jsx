@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import "../styles/Seller.css";
+// import "../styles/Seller.css";
 
-function Seller({ url, seller }) {
+function Seller({ seller }) {
   const [formData, setFormData] = useState({
     image_1: "",
     image_2: "",
@@ -18,7 +18,7 @@ function Seller({ url, seller }) {
   const [category, setCategory] = useState([])
 
   useEffect(()=>{
-    fetch(`${url}/categories`)
+    fetch(`/api/categories`)
     .then(res=>res.json().then(setCategory))
     .catch(err=>toast(err.message))
   }, [])
@@ -26,7 +26,7 @@ function Seller({ url, seller }) {
   function handleSubmit(e){
     e.preventDefault()
     console.log(formData);
-    // fetch(`${url}/products`,{
+    // fetch(`/api/products`,{
     //     method: "POST",
     //     headers: {
     //         "Content-Type": "application/json"
