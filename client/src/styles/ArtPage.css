@@ -1,3 +1,25 @@
+.art-img{
+	display: flex;
+	flex-wrap: wrap;
+}
+.card-img{
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+
+.my-card{
+    margin: 30px;
+	margin-right: 10px;
+}
+button{
+    background-color: gold;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid gold;
+}
+
 .jewel{
     margin-left: 50px;
     margin-top: 50px;
@@ -22,6 +44,7 @@ Row{
 .my-card{
     margin: 20px;
 	margin-right: 10px;
+	margin-left: 30px;
 }
 button{
     background-color: gold;
