@@ -8,12 +8,12 @@ import AppFaq from '../home/Faq'
 import AppTeam from '../home/Team'
 import AppContact from '../home/Contact'
 
-function AppHome({url}) {
+function AppHome() {
     const [categories, setCategory] = useState([ ]);
     const path = ['/art', '/ceramics', '/jewellery']
 
     useEffect(()=>{
-		fetch(`${url}/categories`)
+		fetch('http://127.0.0.1:3000/api/categories')
 		.then(res=>{
 			if(res.ok){
 				// res.json().then(data => console.log(data))

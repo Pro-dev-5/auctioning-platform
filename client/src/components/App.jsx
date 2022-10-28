@@ -9,10 +9,12 @@ import AppFooter from './common/Footer';
 import Art from './Art';
 import Item from './Item'
 import Jewellery from './Jewellery'
-import BuyerLogin from './BuyerLoginForm'
-import BuyerSignup from './BuyerSignUpForm'
-import SellerLogin from './SellerLoginForm'
-import SellerSignup from './SellerSignUpForm'
+// import BuyerLogin from './BuyerLoginForm'
+// import BuyerSignup from './BuyerSignUpForm'
+// import SellerLogin from './SellerLoginForm'
+// import SellerSignup from './SellerSignUpForm'
+import Login from './Login';
+import SignUp from './Signup';
 import Ceramics from './Ceramics'
 import SellerHome from './SellerHome'
 import Seller from './Seller'
@@ -22,16 +24,22 @@ import 'antd/dist/antd.css';
 const { Header, Content, Footer } = Layout;
 
 function App() {
-    const url = "http://localhost:3000/api"
+    // const url = "http://localhost:3000/api"
     const [seller, setSeller] = useState({})
 
     useEffect(()=>{
-        fetch(`${url}/seller`)
+        // fetch(`${url}/seller`)
+        fetch('/api/me')
+        // .then(res=>{
+        //         if(res.ok){
+        //             res.json().then(console.log)
+        //         }
+        //     })
         .then(res=>{
-                if(res.ok){
-                    res.json().then(console.log)
-                }
-            })
+			if(res.ok){
+			res.json().then(mes=>console.log('Welcome ', mes))
+			}
+		})
         .catch(err=>toast(err.message))
     },[])
 
@@ -43,7 +51,7 @@ function App() {
                 </Header>
                 <Content>
                     <Routes>
-                        <Route path="/" element={<AppHome url={url}/>}></Route>
+                        {/* <Route path="/" element={<AppHome url={url}/>}></Route>
                         <Route  path="/jewellery" element={<Jewellery url={url} />} />
                         <Route  path="/item/:id" element={<Item url={url}/>} />
                         <Route  path="/ceramics" element={<Ceramics url={url}/>} />
@@ -53,7 +61,18 @@ function App() {
                         <Route  path="/sellerlogin" element={<SellerLogin url={url} setSeller={setSeller}/>}/>
                         <Route  path="/sellersignup" element={<SellerSignup url={url} setSeller={setSeller}/>} />
                         <Route  path="/art" element={<Art url={url}/>} />
-                        <Route  path="/sellerhome" element={<SellerHome url={url}/>} />
+                        <Route  path="/sellerhome" element={<SellerHome url={url}/>} /> */}
+                        <Route  path="/" element={<AppHome />} />
+                        <Route  path="/jewellery" element={<Jewellery  />} />
+                        <Route  path="/item/:id" element={<Item />} />
+                        <Route  path="/ceramics" element={<Ceramics />} />
+                        <Route  path="/seller" element={<Seller  seller={seller}/>} />
+                        <Route  path="/login" element={<Login setSeller={setSeller}/>} />
+                        <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
+                        {/* <Route  path="/sellerlogin" element={<SellerLogin  setSeller={setSeller}/>}/> */}
+                        {/* <Route  path="/sellersignup" element={<SellerSignup  setSeller={setSeller}/>} /> */}
+                        <Route  path="/art" element={<Art />} />
+                        <Route  path="/sellerhome" element={<SellerHome />} />
                     </Routes>
                 </Content>
                 <Footer>
