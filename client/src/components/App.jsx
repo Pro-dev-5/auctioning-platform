@@ -23,16 +23,23 @@ import Login from './Login'
 
 function App() {
 	const [seller, setSeller] = useState({})
-	// const url = "http://localhost:3000/api"
+	
 	useEffect(()=>{
 		fetch('/api/me')
-		.then(res=>{
-			if(res.ok){
-			res.json().then(mes=>console.log('Welcome ', mes))
-			}
-		})
+    .then(res => res.json())
+    .then(data => setSeller(data))
+		// .then(res=>{
+		// 	if(res.ok){
+		// 	res.json()
+    // .then(mes=>
+    //     console.log('Welcome ', mes))
+    //     setSeller()
+		// 	}
+		// })
 		.catch(err=>toast(err.message))
 	},[])
+  console.log(seller)
+  console.log(seller.id)
 
   return (
     <div>
@@ -45,7 +52,7 @@ function App() {
               <Route  path="/jewellery" element={<Jewellery  />} />
               <Route  path="/item/:id" element={<Item />} />
               <Route  path="/ceramics" element={<Ceramics />} />
-              <Route  path="/seller" element={<Seller  seller={seller}/>} />
+              <Route  path="/seller" element={<Seller seller={seller}/>} />
               <Route  path="/login" element={<Login setSeller={setSeller}/>} />
               <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
               {/* <Route  path="/sellerlogin" element={<SellerLogin  setSeller={setSeller}/>}/> */}
