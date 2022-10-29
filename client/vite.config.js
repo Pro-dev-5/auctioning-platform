@@ -9,15 +9,15 @@ export default defineConfig({
       less: {
         javascriptEnabled: true,
         modifyVars: {
-          '@menu-dark-bg': '#ECC13B',
-          '@menu-dark-color': '#251E8C',
-          '@menu-dark-item-hover-bg': '#251E8C',
-          '@layout-body-background': '#fff',
-          '@layout-header-padding': '0px 40px',
-          '@menu-item-padding-horizontal': '20px',
-          '@divider-color': '#ECC13B',
-          '@tabs-card-active-color': '#000',
-          '@btn-primary-bg': '#ECC13B'
+          // '@menu-dark-bg': '#ECC13B',
+          // '@menu-dark-color': '#251E8C',
+          // '@menu-dark-item-hover-bg': '#251E8C',
+          // '@layout-body-background': '#fff',
+          // '@layout-header-padding': '0px 40px',
+          // '@menu-item-padding-horizontal': '20px',
+          // '@divider-color': '#ECC13B',
+          // '@tabs-card-active-color': '#000',
+          // '@btn-primary-bg': '#ECC13B'
         }
       },
     },
