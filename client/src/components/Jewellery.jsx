@@ -12,7 +12,6 @@ function Jewellery() {
 
   useEffect(() => {
     fetch(`/api/products`).then((res) => {
-      console.log(res);
       if (res.ok) {
         res.json().then(setJewellery);
       } else {
