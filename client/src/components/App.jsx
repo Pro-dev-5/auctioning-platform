@@ -13,35 +13,58 @@ import Jewellery from './Jewellery'
 // import BuyerSignup from './BuyerSignUpForm'
 // import SellerLogin from './SellerLoginForm'
 // import SellerSignup from './SellerSignUpForm'
-import Login from './Login';
-import SignUp from './Signup';
+import NavBar from './NavBar'
+import Footer from './Footer'
+import '../styles/Nav.css'
 import Ceramics from './Ceramics'
 import SellerHome from './SellerHome'
 import Seller from './Seller'
-import '../styles/App.css';
-import 'antd/dist/antd.css';
-
-const { Header, Content, Footer } = Layout;
+import { useEffect, useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
+import SignUp from './Signup'
+import Login from './Login'
+// import { Footer } from 'antd/lib/layout/layout'
 
 function App() {
-    // const url = "http://localhost:3000/api"
-    const [seller, setSeller] = useState({})
-
-    useEffect(()=>{
-        // fetch(`${url}/seller`)
-        fetch('/api/me')
-        // .then(res=>{
-        //         if(res.ok){
-        //             res.json().then(console.log)
-        //         }
-        //     })
-        .then(res=>{
+	const [seller, setSeller] = useState({})
+	// const url = "http://localhost:3000/api"
+	useEffect(()=>{
+		fetch('/api/me')
+		.then(res=>{
 			if(res.ok){
 			res.json().then(mes=>console.log('Welcome ', mes))
 			}
 		})
-        .catch(err=>toast(err.message))
-    },[])
+		.catch(err=>toast(err.message))
+	},[])
+
+  return (
+    <div>
+		<BrowserRouter>
+      <Layout className="layout"> {/* Element to revert if otherwise  */}
+        <NavBar/>
+        <div className='site-layout-content' style={{ position: 'absolute', top: '80%', right: '0', left: '0' }}>
+          <Routes>
+              <Route  path="/" element={<Home />} />
+              <Route  path="/jewellery" element={<Jewellery  />} />
+              <Route  path="/item/:id" element={<Item />} />
+              <Route  path="/ceramics" element={<Ceramics />} />
+              <Route  path="/seller" element={<Seller  seller={seller}/>} />
+              <Route  path="/login" element={<Login setSeller={setSeller}/>} />
+              <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
+              {/* <Route  path="/sellerlogin" element={<SellerLogin  setSeller={setSeller}/>}/> */}
+              {/* <Route  path="/sellersignup" element={<SellerSignup  setSeller={setSeller}/>} /> */}
+              <Route  path="/art" element={<Art />} />
+              <Route  path="/sellerhome" element={<SellerHome />} />
+          </Routes>
+          <div style={{ marginTop: '100px' }}>
+
+            <Footer/>
+            <ToastContainer/>
+          </div>
+        </div>
+      </Layout>
+    </BrowserRouter>
 
     return (
         <BrowserRouter>
@@ -81,6 +104,7 @@ function App() {
                 <ToastContainer/>
             </Layout>
         </BrowserRouter>
+        </div>
     );
 }
 

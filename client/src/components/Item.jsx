@@ -1,7 +1,6 @@
 import { Image, Button, Input, Tooltip, PageHeader, Card , Statistic} from 'antd';
 import React, { useState, useEffect } from 'react';
 import '../styles/Item.css'
-// import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { json, useParams } from 'react-router-dom';
 
@@ -50,7 +49,7 @@ const gridStyle = {
     
   };
 
-function Item({url}) {
+function Item() {
     const [visible, setVisible] = useState(false);
     const [value, setValue] = useState('');
     const [value1, setValue1] = useState('');
@@ -60,7 +59,7 @@ function Item({url}) {
 
     function handleSubmit(e) {
       e.preventDefault()
-      fetch(`${url}/bids`,{
+      fetch(`/api/bids`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -81,7 +80,7 @@ function Item({url}) {
     }
 
     useEffect(() => {
-    fetch(`${url}/products/${id}`)
+    fetch(`/api/products/${id}`)
     .then(response => response.json())
     .then( data => setItem(data))
     

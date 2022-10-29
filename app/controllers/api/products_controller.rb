@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_prod_not_found
 	def index
-		prod = Product.all.includes(:bids)
+		prod = Product.all.includes(:bids, :category)
 		render json: prod, each_serializer: ProductShowSerializer, status: :ok
 	end
 

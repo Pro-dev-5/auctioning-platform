@@ -6,9 +6,22 @@ import { toast, ToastContainer } from 'react-toastify';
 const SellerLoginForm = ({ url, setSeller }) => {
 	const navigate = useNavigate()
 
+	const logOut = ()=>{
+		fetch(`${url}/sellerlogout`,{
+			method: "DELETE"
+		})
+		.then(res=>{
+			if(res.ok){
+				toast('Logout successful')
+			}else{
+				toast('Something went wrong')
+			}
+		})
+		.catch(err=>toast(err.message))
+	}
 	const onFinish = async (values) => {
 		try {
-			const resp = await fetch(`${url}/sellerlogin`,{
+			const resp = await fetch(`/api/sellerlogin`,{
 				method: "POST",
 				headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({name: values.username, password: values.password})
@@ -16,7 +29,7 @@ const SellerLoginForm = ({ url, setSeller }) => {
 			if(resp.ok){
 				const jsonResp = await resp.json()
 				setSeller(jsonResp)
-				sessionStorage.setItem("seller_id", JSON.stringify(data.id))
+				sessionStorage.setItem("seller_id", JSON.stringify(jsonResp.id))
 				toast(`Success logged in as ${jsonResp.name}`)
 				navigate('/')
 			}else{
@@ -89,6 +102,7 @@ const SellerLoginForm = ({ url, setSeller }) => {
                   Submit
                 </Button>
               </Form.Item>
+							{/* <button onClick={logOut}>Logout</button> */}
               <ToastContainer/>
             </Form>
           </div>
