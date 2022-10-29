@@ -66,7 +66,7 @@ function App() {
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item />} />
                         <Route  path="/ceramics" element={<Ceramics />} />
-                        <Route  path="/seller" element={<Seller  seller={seller}/>} />
+                        <Route  path="/seller" element={<Seller seller={seller}/>} />
                         <Route  path="/login" element={<Login setSeller={setSeller}/>} />
                         <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
                         {/* <Route  path="/sellerlogin" element={<SellerLogin  setSeller={setSeller}/>}/> */}
