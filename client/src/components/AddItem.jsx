@@ -41,7 +41,7 @@ function Seller({ seller }) {
 					location: formData.location,
 					time: formData.time,
 					date: formData.date,
-					starting_price: formData.date,
+					starting_price: formData.starting_price,
 					category_id: formData.category_id,
 					user_id: seller?.id
 				})
