@@ -1,5 +1,8 @@
 class Api::BidsController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_bid_not_found
+	skip_before_action :authorized_as_seller, only: [:index, :create]
+	skip_before_action :authenticated_user, only: [:index]
+	
 	def index
 		render json: Bid.all, status: :ok
 	end

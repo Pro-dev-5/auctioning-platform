@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Anchor } from 'antd';
+import { toast } from 'react-toastify';
+
 
 const { Link } = Anchor;
 
 function AppHeader() {
     const [visible, setVisible] = useState(false);
+
+		const logOut = ()=>{
+			fetch(`/api/logout`,{
+				method: "DELETE"
+			})
+			.then(res=>{
+				if(res.ok){
+					toast('Logout successful')
+				}
+			})
+			.catch(err=>toast(err.message))
+		}
 
     const showDrawer = () => {
         setVisible(true);
@@ -34,6 +48,7 @@ function AppHeader() {
                     <Link href="/#faq" title="FAQ" />
                     <Link href="/#team" title="Team" />
                     <Link href="/#contact" title="Contact" />
+										{/* <Link href='/'><span onClick={logOut}>Logout</span></Link> */}
                 </Anchor>
             </div>
             <div className="mobileVisible">

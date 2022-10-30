@@ -22,11 +22,11 @@ function AppFaq() {
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
                     </Panel>
-                    <Panel header="When do I pay? What forms of payment do you take?" key="3">
+                    <Panel header="When do I pay? What forms of payment do you take?" key="4">
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
                     </Panel>
-                    <Panel header="I just paid, can I take my item? What if my item doesn’t fit in my car can I get it later?" key="3">
+                    <Panel header="I just paid, can I take my item? What if my item doesn’t fit in my car can I get it later?" key="5">
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
                     </Panel>
