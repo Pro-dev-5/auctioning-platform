@@ -8,6 +8,7 @@ import AppFooter from './common/Footer';
 import Art from './Art';
 import Item from './Item'
 import Jewellery from './Jewellery'
+import AddItem from './AddItem'
 // import BuyerLogin from './BuyerLoginForm'
 // import BuyerSignup from './BuyerSignUpForm'
 // import SellerLogin from './SellerLoginForm'
@@ -16,7 +17,6 @@ import Login from './Login';
 import SignUp from './Signup';
 import Ceramics from './Ceramics'
 import SellerHome from './SellerHome'
-import Seller from './Seller'
 import '../styles/App.css';
 import 'antd/dist/antd.css';
 
@@ -62,7 +62,7 @@ function App() {
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item />} />
                         <Route  path="/ceramics" element={<Ceramics />} />
-                        <Route  path="/seller" element={<Seller  seller={seller}/>} />
+                        <Route  path="/add-item" element={<AddItem seller={seller}/>} />
                         <Route  path="/login" element={<Login setSeller={setSeller}/>} />
                         <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
                         {/* <Route  path="/sellerlogin" element={<SellerLogin  setSeller={setSeller}/>}/> */}

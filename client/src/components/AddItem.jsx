@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import "../styles/Seller.css";
+import "../styles/AddItem.css";
 import { useNavigate } from "react-router-dom";
 
 function Seller({ seller }) {
