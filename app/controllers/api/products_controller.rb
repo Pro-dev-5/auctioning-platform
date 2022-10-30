@@ -38,6 +38,6 @@ class Api::ProductsController < ApplicationController
 	end
 
 	def prod_params
-		params.permit(:image_1, :image_2, :image_3, :name, :location, :date, :time, :starting_price, :seller_id, :category_id, :current_bid)
+		params.permit(:image_1, :image_2, :image_3, :name, :location, :date, :time, :starting_price, :user_id, :category_id, :current_bid)
 	end
 end

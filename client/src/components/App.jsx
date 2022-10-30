@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { toast, ToastContainer } from 'react-toastify'
 import { Layout } from 'antd';
 import AppHeader from './common/Header';
 import AppHome from './views/Home';
@@ -28,19 +27,16 @@ function App() {
     const [seller, setSeller] = useState({})
 
     useEffect(()=>{
-        // fetch(`${url}/seller`)
-        fetch('/api/me')
-        // .then(res=>{
-        //         if(res.ok){
-        //             res.json().then(console.log)
-        //         }
-        //     })
-        .then(res=>{
-			if(res.ok){
-			res.json().then(mes=>console.log('Welcome ', mes))
-			}
-		})
-        .catch(err=>toast(err.message))
+      fetch('/api/me')
+      .then(res=>{
+				if(res.ok){
+					res.json().then(mes=>{
+						setSeller(mes)
+						console.log('Welcome', mes.name)
+					})
+				}
+			})
+      .catch(err=>console.log(err.message))
     },[])
 
     return (
@@ -78,7 +74,6 @@ function App() {
                 <Footer>
                     <AppFooter />
                 </Footer>
-                <ToastContainer/>
             </Layout>
         </BrowserRouter>
     );
