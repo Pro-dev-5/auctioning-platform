@@ -28,7 +28,8 @@ function Seller({ seller }) {
 
   function handleSubmit(e){
     e.preventDefault()
-    fetch(`/api/products`,{
+		try {
+			fetch(`/api/products`,{
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -54,13 +55,9 @@ function Seller({ seller }) {
 				})
 			}
 		})
-    .catch(err => {
-			if(Array.isArray(err)){
-				err.map(error=>toast(error))
-			}else{
-			  toast(err.message)
-			}
-    })
+		} catch (error) {
+			console.log(error.message)
+		}
 
     setFormData({
     image_1: "",
@@ -93,7 +90,7 @@ function Seller({ seller }) {
           {
             (Array.isArray(category) ? category : []).map(cat=>{
               return (
-                <option value={cat.id}>{cat.name}</option>
+                <option value={cat.id} key={cat.id}>{cat.name}</option>
               )
             })
           }

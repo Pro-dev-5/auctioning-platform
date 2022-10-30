@@ -19,6 +19,7 @@ import Ceramics from './Ceramics'
 import SellerHome from './SellerHome'
 import '../styles/App.css';
 import 'antd/dist/antd.css';
+import { ToastContainer } from 'react-toastify';
 
 const { Header, Content, Footer } = Layout;
 
@@ -47,17 +48,6 @@ function App() {
                 </Header>
                 <Content>
                     <Routes>
-                        {/* <Route path="/" element={<AppHome url={url}/>}></Route>
-                        <Route  path="/jewellery" element={<Jewellery url={url} />} />
-                        <Route  path="/item/:id" element={<Item url={url}/>} />
-                        <Route  path="/ceramics" element={<Ceramics url={url}/>} />
-                        <Route  path="/seller" element={<Seller url={url} seller={seller}/>} />
-                        <Route  path="/buyerlogin" element={<BuyerLogin url={url}/>} />
-                        <Route  path="/buyersignup" element={<BuyerSignup url={url}/>} />
-                        <Route  path="/sellerlogin" element={<SellerLogin url={url} setSeller={setSeller}/>}/>
-                        <Route  path="/sellersignup" element={<SellerSignup url={url} setSeller={setSeller}/>} />
-                        <Route  path="/art" element={<Art url={url}/>} />
-                        <Route  path="/sellerhome" element={<SellerHome url={url}/>} /> */}
                         <Route  path="/" element={<AppHome />} />
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item />} />
@@ -65,8 +55,6 @@ function App() {
                         <Route  path="/add-item" element={<AddItem seller={seller}/>} />
                         <Route  path="/login" element={<Login setSeller={setSeller}/>} />
                         <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
-                        {/* <Route  path="/sellerlogin" element={<SellerLogin  setSeller={setSeller}/>}/> */}
-                        {/* <Route  path="/sellersignup" element={<SellerSignup  setSeller={setSeller}/>} /> */}
                         <Route  path="/art" element={<Art />} />
                         <Route  path="/sellerhome" element={<SellerHome />} />
                     </Routes>
@@ -74,6 +62,7 @@ function App() {
                 <Footer>
                     <AppFooter />
                 </Footer>
+								<ToastContainer/>
             </Layout>
         </BrowserRouter>
     );

@@ -1,5 +1,7 @@
 class Api::ProductsController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_prod_not_found
+	skip_before_action :authorized_as_seller, only: [:index, :show, :destroy]
+	skip_before_action :authenticated_user, only: [:index, :show]
 	def index
 		prod = Product.all.includes(:bids, :category)
 		render json: prod, each_serializer: ProductShowSerializer, status: :ok
