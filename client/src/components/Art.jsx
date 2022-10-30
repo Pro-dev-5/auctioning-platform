@@ -13,7 +13,7 @@ function Art() {
   // <button onClick={() => navigate('jewellery')}>View Products</button>
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/api/products')
+    fetch(`/api/products`)
       .then((res) => {
         if (res.ok) {
           res.json().then(setArt);

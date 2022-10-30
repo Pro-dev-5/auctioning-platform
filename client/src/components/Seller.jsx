@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import "../styles/Seller.css";
+// import "../styles/Seller.css";
 
-function Seller({ url, seller }) {
+function Seller({ seller }) {
   const [formData, setFormData] = useState({
     image_1: "",
     image_2: "",
@@ -11,32 +11,35 @@ function Seller({ url, seller }) {
     location: "",
     time: "",
     date: "",
-    starting_price: 0,
-    category_id: 0,
-    seller_id: seller.id
+    starting_price: '',
+    category_id: 1,
+    seller_id: 3
   });
   const [category, setCategory] = useState([])
 
   useEffect(()=>{
-    fetch(`${url}/categories`)
-    .then(res=>res.json().then(setCategory))
+    fetch(`/api/categories`)
+    .then(res=>res.json())
+    .then(data => setCategory(data))
+
     .catch(err=>toast(err.message))
   }, [])
 
   function handleSubmit(e){
     e.preventDefault()
     console.log(formData);
-    // fetch(`${url}/products`,{
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(formData)
-    // })
-    // .then(r => r.json())
-    // .then(data => {
-    //     console.log(data)
-    // })
+    fetch(`/api/products`,{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(r => r.json())
+    .then(data => {
+        console.log(data)
+        handlePosting(data)
+    })
 
     setFormData({
     image_1: "",
@@ -47,7 +50,7 @@ function Seller({ url, seller }) {
     time: "",
     date: "",
     starting_price: "",
-    category_id: 0
+    category_id: 1,
     })
 }
 

@@ -1,5 +1,6 @@
-class Seller < ApplicationRecord
+class User < ApplicationRecord
 	has_many :products
+	has_many :bids
 	has_many :categories, through: :products
 	has_secure_password
 end

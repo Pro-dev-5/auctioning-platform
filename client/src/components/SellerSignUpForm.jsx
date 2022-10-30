@@ -1,10 +1,11 @@
-import {Button,Checkbox,Form,Input, Col, Row} from 'antd';
+import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom'
 import React from 'react';
 import '../styles/Nav.css'
+import { toast, ToastContainer } from 'react-toastify';
 
-  const SellerSignUpForm = () => {
+  const SellerSignUpForm = ({ url, setSeller }) => {
     const [form] = Form.useForm();
     const onFinish = (values) => {
       fetch(`${url}/sellersignup`,{
@@ -18,9 +19,9 @@ import '../styles/Nav.css'
 				if(res.ok){
 					res.json().then(data=>{
 						setSeller(data)
+						toast(`Logged in as ${data.name}`)
 						// sessionStorage.setItem("seller_id", JSON.stringify(data.id))
 					})
-					toast("Successful")
 				}else{
 					toast("Something went wrong")
 				}
@@ -146,6 +147,7 @@ import '../styles/Nav.css'
                   </Button>
                 </Form.Item>
               </Form>
+							<ToastContainer/>
             </div>
           </Col>
       </Row>

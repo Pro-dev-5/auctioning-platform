@@ -7,13 +7,11 @@ import "../styles/Jewellery.css";
 import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
-function Jewellery({ url }) {
+function Jewellery() {
   const [jewellery, setJewellery] = useState([]);
 
-  console.log(url);
   useEffect(() => {
-    fetch(`${url}/products`).then((res) => {
-      console.log(res);
+    fetch(`/api/products`).then((res) => {
       if (res.ok) {
         res.json().then(setJewellery);
       } else {
