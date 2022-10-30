@@ -7,13 +7,13 @@ import "../styles/ArtPage.css";
 import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
-function Art({ url }) {
+function Art() {
   const [art, setArt] = useState([]);
   // const navigate = useNavigate()
   // <button onClick={() => navigate('jewellery')}>View Products</button>
 
   useEffect(() => {
-    fetch(`${url}/products`)
+    fetch('http://127.0.0.1:3000/api/products')
       .then((res) => {
         if (res.ok) {
           res.json().then(setArt);
