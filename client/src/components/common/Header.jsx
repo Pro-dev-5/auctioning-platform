@@ -28,12 +28,12 @@ function AppHeader() {
             </a>
             <div className="mobileHidden">
                 <Anchor targetOffset="65">
-                    <Link href="#hero" title="Home" />
-                    <Link href="#about" title="About" />
-                    <Link href="#sell" title="Sell with us" />
-                    <Link href="#faq" title="FAQ" />
-                    <Link href="#team" title="Team" />
-                    <Link href="#contact" title="Contact" />
+                    <Link href="/#hero" title="Home" />
+                    <Link href="/#about" title="About" />
+                    <Link href="/#sell" title="Sell with us" />
+                    <Link href="/#faq" title="FAQ" />
+                    <Link href="/#team" title="Team" />
+                    <Link href="/#contact" title="Contact" />
                 </Anchor>
             </div>
             <div className="mobileVisible">
@@ -47,12 +47,12 @@ function AppHeader() {
                     visible={visible}
                 >
                 <Anchor targetOffset="65">
-                    <Link href="#hero" title="Home" />
-                    <Link href="#about" title="About" />
-                    <Link href="#sell" title="Sell with us" />
-                    <Link href="#faq" title="FAQ" />
-                    <Link href="#team" title="Team" />
-                    <Link href="#contact" title="Contact" />
+                    <Link href="/#hero" title="Home" />
+                    <Link href="/#about" title="About" />
+                    <Link href="/#sell" title="Sell with us" />
+                    <Link href="/#faq" title="FAQ" />
+                    <Link href="/#team" title="Team" />
+                    <Link href="/#contact" title="Contact" />
                 </Anchor>
             </Drawer>
             </div>
