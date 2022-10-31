@@ -65,16 +65,13 @@ function Item() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          // buyer_id: buyer.id,
           product_id: item.id,
-          starting_price: item.starting.price,
-          current_bid: bid
+          bid_placed: bid,
+          user_id: id
         })
       })
       .then(res => res.json())
-      .then(data => {console.log(data)
-        setBid('')
-      })
+      .then(console.log)
       .catch(err => err.message)
       document.querySelector("form").reset()
     }
@@ -87,7 +84,7 @@ function Item() {
 
     },[])
         
-    console.log(item)
+    // console.log(item)
 
    
     const extraContent = (
@@ -105,7 +102,7 @@ function Item() {
                 marginRight: 20,
             }}
             />
-            <Statistic title="Starting Price" prefix="Ksh." value={item.starting_price} style={{
+            <Statistic title="Starting Price" prefix="Ksh." value={item.bid_placed} style={{
                 marginRight: 20,
             }}/>
             <Statistic title="Current Highest Bid" prefix="Ksh." value={item.current_bid} style={{
