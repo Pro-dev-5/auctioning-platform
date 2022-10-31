@@ -36,7 +36,7 @@ import { toast, ToastContainer } from 'react-toastify';
       // Adding col and row to control the elements. Here the Row will serve as a root element
     <div className='container-fluid'>
         <div className="block aboutBlock">
-            <div className="titleHolder" style={{ marginTop: '40px' }}>
+            <div className="titleHolder" style={{ marginTop: '80px' }}>
                 Seller SignUp Form
             </div>
             <Row gutter={{ xs: 8, sm: 16, md: 24}} justify='space-evenly' align='middle' style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>

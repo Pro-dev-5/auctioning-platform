@@ -317,6 +317,18 @@ text-align: center;
 }
 
 /* 
+Art
+----- 
+*/
+.artBlock {
+text-align: left;
+margin: 0 0 50px;
+color: #766765;
+font-family: 'Nunito';
+}
+
+
+/* 
 how it works
 ------------
 */
