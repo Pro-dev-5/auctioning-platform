@@ -1,6 +1,10 @@
 {
 	"name": "auction-app-rails",
 	"description": "Build scripts for Heroku",
+	"engines": {
+    "node": "16.15.0"
+  },
+
 	"scripts": {
 		"build": "npm install --prefix client && npm run build --prefix client",
 		"clean": "rm -rf public",
