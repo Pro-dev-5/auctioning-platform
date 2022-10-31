@@ -36,7 +36,7 @@ return (
                         />
                     </div>
                         <div flex={3} style={{ marginLeft: '60px' }}>
-                        <img src="../../public/images/contact.svg" alt="" style={{ width: '500px' }} />
+                        <img src="/images/contact.svg" alt="" style={{ width: '500px' }} />
                     </div>
                 </div>
             </div>

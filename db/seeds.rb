@@ -8,9 +8,9 @@
 location = %w!Nairobi Nakuru Mombasa Eldoret Thika Kiambu!
 
 puts 'Seeding Categories...'
-Category.create(name: 'Art Collections', description: 'Asian Arts / 5000 Years', image: '../../public/images/art.webp')
-Category.create(name: 'Ceramic Collections', description: 'Persian Qajar Ceramic Polychrome Vases', image: '../../public/images/ceramic.webp')
-Category.create(name: 'Jewel Collections', description: 'Superb Jewels from the "Sunrise Ruby" Collection', image: '../../public/images/jewel.webp')
+Category.create(name: 'Art Collections', description: 'Asian Arts / 5000 Years', image: '/images/art.webp')
+Category.create(name: 'Ceramic Collections', description: 'Persian Qajar Ceramic Polychrome Vases', image: '/images/ceramic.webp')
+Category.create(name: 'Jewel Collections', description: 'Superb Jewels from the "Sunrise Ruby" Collection', image: '/images/jewel.webp')
 
 
 puts 'Seeding Sellers...'

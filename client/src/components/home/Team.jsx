@@ -10,7 +10,7 @@ function AppTeam() {
                 </div>
                 <Row gutter={[32, 32]} align="middle" justify='space-between' wrap="true">
                     <div style={{ position: 'absolute', top: '-20px', right: '4%', opacity: '.1' }}>
-                        <img src="../../public/images/team.png" alt="" />
+                        <img src="/images/team.png" alt="" />
                     </div>
                     <Col span={12}>
                         <div style={{ width: '90%', color: '#65676d', fontFamily: 'Nunito' }}>
@@ -19,7 +19,7 @@ function AppTeam() {
                     </Col>
                     <Col span={12}>
                         <div>
-                            <img src="../../public/images/team.svg" alt="" style={{ width: '70%' }}/>
+                            <img src="/images/team.svg" alt="" style={{ width: '70%' }}/>
                         </div>
                     </Col>
                 </Row>

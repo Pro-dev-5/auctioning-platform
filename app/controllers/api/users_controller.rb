@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
 
 	def show
 		user = User.find(params[:id])
-		render json: user, status: 200
+		render json: user, serializer: SellerSerializer, status: 200
 	end
 
 	def buyer
