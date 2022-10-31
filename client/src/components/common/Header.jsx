@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Drawer, Anchor } from 'antd';
+import { Button, Drawer, Anchor, Col, Row } from 'antd';
 import { toast } from 'react-toastify';
-
-
+import { useNavigate } from 'react-router-dom'
 const { Link } = Anchor;
 
 function AppHeader() {
     const [visible, setVisible] = useState(false);
+    const navigate = useNavigate()
 
 		const logOut = ()=>{
 			fetch(`/api/logout`,{
@@ -41,38 +41,38 @@ function AppHeader() {
                 </div>
             </a>
             <div className="mobileHidden">
-                <Anchor targetOffset="65">
+            <Anchor targetOffset="65">
                     <Link href="/#hero" title="Home" />
                     <Link href="/#about" title="About" />
                     <Link href="/#sell" title="Sell with us" />
                     <Link href="/#faq" title="FAQ" />
                     <Link href="/#team" title="Team" />
                     <Link href="/#contact" title="Contact" />
-										{/* <Link href='/'><span onClick={logOut}>Logout</span></Link> */}
+										<Link href='/'><span onClick={logOut}>Logout</span></Link>
                 </Anchor>
             </div>
             <div className="mobileVisible">
-                <Button type="primary" onClick={showDrawer} style={{ backgroundColor: '#fff' }}>
-                    <i className="fas fa-bars"></i>
-                </Button>
-                <Drawer
-                    placement="right"
-                    closable={false}
-                    onClose={onClose}
-                    visible={visible}
-                >
-                <Anchor targetOffset="65">
-                    <Link href="/#hero" title="Home" />
-                    <Link href="/#about" title="About" />
-                    <Link href="/#sell" title="Sell with us" />
-                    <Link href="/#faq" title="FAQ" />
-                    <Link href="/#team" title="Team" />
-                    <Link href="/#contact" title="Contact" />
-                </Anchor>
-            </Drawer>
+                        <Button type="primary" onClick={showDrawer} style={{ backgroundColor: '#fff' }}>
+                            <i className="fas fa-bars"></i>
+                        </Button>
+                        <Drawer
+                            placement="right"
+                            closable={false}
+                            onClose={onClose}
+                            visible={visible}
+                        >
+                        <Anchor targetOffset="65">
+                            <Link href="#hero" title="Home" />
+                            <Link href="#about" title="About" />
+                            <Link href="#sell" title="Sell with us" />
+                            <Link href="#faq" title="FAQ" />
+                            <Link href="#team" title="Team" />
+                            <Link href="#contact" title="Contact" />
+                        </Anchor>
+                    </Drawer>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
     )
 }
 
