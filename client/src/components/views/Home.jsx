@@ -32,7 +32,7 @@ function AppHome() {
                 path={path}
                 ind={ind}
                 key = {category.id}
-                image = {!category.image ? "../../public/images/art.webp" : category.image}
+                image = {!category.image ? "/images/art.webp" : category.image}
                 name = {category.name}
                 description = {category.description}
                 // testing comments

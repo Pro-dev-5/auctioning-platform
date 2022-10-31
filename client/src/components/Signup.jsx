@@ -1,19 +1,21 @@
 import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom'
-import React from 'react';
+import React, { useState } from 'react';
 // import '../styles/Nav.css'
 import { toast, ToastContainer } from 'react-toastify';
 
   const SignUp = ({ setSeller }) => {
     const [form] = Form.useForm();
+		const [status, setStatus] = useState(false)
 
     const onFinish = (values) => {
       fetch(`/api/signup`,{
 				method: "POST", headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({
 					name: values.username,
-					password: values.password
+					password: values.password,
+					is_seller: status
 				})
 			})
 			.then(res=>{
@@ -34,13 +36,13 @@ import { toast, ToastContainer } from 'react-toastify';
       // Adding col and row to control the elements. Here the Row will serve as a root element
     <div className='container-fluid'>
         <div className="block aboutBlock">
-            <div className="titleHolder" style={{ marginTop: '40px' }}>
+            <div className="titleHolder" style={{ marginTop: '80px' }}>
                 Seller SignUp Form
             </div>
             <Row gutter={{ xs: 8, sm: 16, md: 24}} justify='space-evenly' align='middle' style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>
                 <Col span={6}>
                 <div>
-                    <img src="../../public/images/signup.svg" alt="" style={{ width: '500px' }} />
+                    <img src="/images/signup.svg" alt="" style={{ width: '500px' }} />
                 </div>
                 </Col>
                 <Col span={6}>
@@ -78,6 +80,13 @@ import { toast, ToastContainer } from 'react-toastify';
                     >
                         <Input />
                     </Form.Item>
+
+										<label>Are you a <strong>buyer</strong> or a <strong>seller</strong>?</label>
+										<select onChange={(e)=>setStatus(e.target.value)} value={status}>
+											<option>SELECT--</option>
+											<option value={false}>Buyer</option>
+											<option value={true}>Seller</option>
+										</select>
                     
                     <Form.Item
                         name="email"
