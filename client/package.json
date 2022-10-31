@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "--noEmit && vite build",
+    "build": "vue-js --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
