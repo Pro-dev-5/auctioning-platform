@@ -15,7 +15,7 @@ client = Mpesa::Client.new(
   key: 'wioMGu4duo7OjAf9vS9KJdjcA9Z3Qv0b', 
   secret: 'wUxhtrYFj5dsbcTU', 
   env: 'sandbox', 
-  shortcode: '',
+  shortcode: '174379',
   pass_key: ''
 )
 
