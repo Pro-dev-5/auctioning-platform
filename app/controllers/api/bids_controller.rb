@@ -15,8 +15,11 @@ class Api::BidsController < ApplicationController
 	def create
 		bid = Bid.new(bid_params)
 		prod = Product.find(bid.product_id)
-		if bid.current_bid > prod.starting_price && bid.current_bid > prod.current_bid
+		
+		if bid.bid_placed > prod.starting_price && bid.bid_placed > prod.current_bid
 			bid.save!
+			prod.current_bid = bid.bid_placed
+			prod.save!
 			render json: bid, status: :created
 		else
 			render json: {errors: "Bid must be more than starting price"}, status: 422
@@ -38,7 +41,7 @@ class Api::BidsController < ApplicationController
 	private
 
 	def bid_params
-		params.permit(:buyer_id, :product_id, :current_bid)
+		params.permit(:user_id, :product_id, :bid_placed)
 	end
 
 	def render_bid_not_found

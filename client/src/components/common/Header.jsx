@@ -29,9 +29,22 @@ function AppHeader() {
     };
 
     return (
+        <div>
+            <div style={{ backgroundColor: '#fff' }}>
+
+<div className='container-fluid'>
+    <div style={{ display: 'flex', alignItems: 'center', padding: '4px 0', fontFamily: 'Nunito' }}>
+        <span style={{ marginRight: '6px' }}>Hi,</span>
+        <span onClick={()=>navigate("/login")} style={{ color: '#f3c180', cursor: 'pointer' }}>Login</span>
+        <span style={{ margin: '0 6px' }}>or</span>
+        <span onClick={()=>navigate("/signup")} style={{ color: '#f3c180', cursor: 'pointer' }}>Register</span>
+    </div>
+</div>
+</div>
+
     <div className='container-fluid'>
         <div className='header'>
-            <a href="/" style={{ color: '#241c12' }}>
+        <a href="/" style={{ color: '#241c12' }}>
                 <div className='logo'>
                     <span>Bidding</span>
                     <span className='for-container'>
@@ -51,6 +64,7 @@ function AppHeader() {
 										<Link href='/'><span onClick={logOut}>Logout</span></Link>
                 </Anchor>
             </div>
+            
             <div className="mobileVisible">
                         <Button type="primary" onClick={showDrawer} style={{ backgroundColor: '#fff' }}>
                             <i className="fas fa-bars"></i>
@@ -73,6 +87,7 @@ function AppHeader() {
                     </div>
                 </div>
             </div>
+         </div>
     )
 }
 
