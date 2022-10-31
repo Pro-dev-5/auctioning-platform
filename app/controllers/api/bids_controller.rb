@@ -38,7 +38,7 @@ class Api::BidsController < ApplicationController
 	private
 
 	def bid_params
-		params.permit(:buyer_id, :product_id, :current_bid)
+		params.permit(:user_id, :product_id, :current_bid)
 	end
 
 	def render_bid_not_found
