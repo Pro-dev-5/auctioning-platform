@@ -29,14 +29,16 @@ function App() {
 
     useEffect(()=>{
       fetch('/api/me')
-      .then(res=>{
-				if(res.ok){
-					res.json().then(mes=>{
-						setSeller(mes)
-						console.log('Welcome', mes.name)
-					})
-				}
-			})
+      .then(res => res.json())
+      .then(data => setSeller(data))
+      // .then(res=>{
+			// 	if(res.ok){
+			// 		res.json().then(mes=>{
+			// 			setSeller(mes)
+			// 			console.log('Welcome', mes.name)
+			// 		})
+			// 	}
+			// })
       .catch(err=>console.log(err.message))
     },[])
 
@@ -56,7 +58,7 @@ function App() {
                         <Route  path="/login" element={<Login setSeller={setSeller}/>} />
                         <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
                         <Route  path="/art" element={<Art />} />
-                        <Route  path="/sellerhome" element={<SellerHome />} />
+                        <Route  path="/sellerhome" element={<SellerHome seller={seller} />} />
                     </Routes>
                 </Content>
                 <Footer>
