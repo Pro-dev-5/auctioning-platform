@@ -1,5 +1,7 @@
 class Api::ProductsController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_prod_not_found
+	skip_before_action :authorized_as_seller, only: [:index, :show, :destroy]
+	skip_before_action :authenticated_user, only: [:index, :show]
 	def index
 		prod = Product.all.includes(:bids, :category)
 		render json: prod, each_serializer: ProductShowSerializer, status: :ok
@@ -38,6 +40,6 @@ class Api::ProductsController < ApplicationController
 	end
 
 	def prod_params
-		params.permit(:image_1, :image_2, :image_3, :name, :location, :date, :time, :starting_price, :seller_id, :category_id, :current_bid)
+		params.permit(:image_1, :image_2, :image_3, :name, :location, :date, :time, :starting_price, :user_id, :category_id, :current_bid)
 	end
 end

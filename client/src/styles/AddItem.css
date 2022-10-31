@@ -1,0 +1,32 @@
+.seller-form-all{
+	margin-top: 80px;
+	text-align: center;
+}
+.seller-form{
+	display: flex;
+	flex-direction: column;
+	max-width: 20%;
+	text-align: center;
+	margin-left: 40%;
+	margin-right: 40%;
+}
+
+input{
+	border-radius: 5px;
+}
+
+@media only screen and (max-width: 991px) {
+	.seller-form{
+		max-width: 40%;
+		margin-left: 30%;
+		margin-right: 30%;
+	}
+	}
+	
+	@media only screen and (max-width: 767px) {
+		.seller-form{
+			max-width: 40%;
+			margin-left: 30%;
+			margin-right: 30%;
+		}
+}
