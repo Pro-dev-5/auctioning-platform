@@ -51,17 +51,6 @@ function App() {
                 </Header>
                 <Content>
                     <Routes>
-                        {/* <Route path="/" element={<AppHome url={url}/>}></Route>
-                        <Route  path="/jewellery" element={<Jewellery url={url} />} />
-                        <Route  path="/item/:id" element={<Item url={url}/>} />
-                        <Route  path="/ceramics" element={<Ceramics url={url}/>} />
-                        <Route  path="/seller" element={<Seller url={url} seller={seller}/>} />
-                        <Route  path="/buyerlogin" element={<BuyerLogin url={url}/>} />
-                        <Route  path="/buyersignup" element={<BuyerSignup url={url}/>} />
-                        <Route  path="/sellerlogin" element={<SellerLogin url={url} setSeller={setSeller}/>}/>
-                        <Route  path="/sellersignup" element={<SellerSignup url={url} setSeller={setSeller}/>} />
-                        <Route  path="/art" element={<Art url={url}/>} />
-                        <Route  path="/sellerhome" element={<SellerHome url={url}/>} /> */}
                         <Route  path="/" element={<AppHome />} />
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item />} />

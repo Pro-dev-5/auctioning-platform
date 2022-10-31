@@ -37,14 +37,12 @@ function Login({ setSeller }) {
     };
 
     return (
-    <div className='container-fluid' style={{ marginTop: '50px' }}>
-        <div className="block contactBlock">
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+    <div className='container-fluid'>
+        <div className="block contactBlock" style={{ marginTop: '80px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div>
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
                         <span style={{ marginRight: '8px', fontFamily: 'Averia Serif Libre', fontSize: '22px' }}>Login as:</span>
-                        {/* <Link to="/buyerlogin" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Buyer</Link>
-                        <Link to="/sellerlogin" style={{ marginRight: '8px', backgroundColor: '#ecc13b', color: '#2e4288', padding: '2px 8px', borderRadius: '5px', fontSize: '12px' }}>Seller</Link> */}
                     </div>
                 </div>
             </div>
