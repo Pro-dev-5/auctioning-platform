@@ -13,7 +13,7 @@ function About() {
                     <Row gutter={[32, 32]} align="middle" justify='space-between' wrap="true">
                         <Col span={12}>
                             <div>
-                                <img src="../../public/images/aboutus.svg" alt="about" style={{ width: '70%' }}/>
+                                <img src="/images/aboutus.svg" alt="about" style={{ width: '70%' }}/>
                             </div>
                         </Col>
                         <Col span={12}>

@@ -11,7 +11,7 @@ function AppContact() {
                 <Row gutter={[32, 32]} align="middle" justify='space-between' wrap="true">
                     <Col span={12}>
                         <div>                            
-                            <img src="../../public/images/contact.svg" alt="" style={{ width: '100%' }} />
+                            <img src="/images/contact.svg" alt="" style={{ width: '100%' }} />
                         </div>
                     </Col>
                     <Col span={12}>
