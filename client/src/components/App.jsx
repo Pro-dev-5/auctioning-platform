@@ -11,7 +11,6 @@ import Update from './Update'
 //import Timer from './Timer'
 import Jewellery from './Jewellery'
 import AddItem from './AddItem'
-import BidsDataDisplay from './BidsDataDisplay';
 // import BuyerLogin from './BuyerLoginForm'
 // import BuyerSignup from './BuyerSignUpForm'
 // import SellerLogin from './SellerLoginForm'
@@ -61,7 +60,6 @@ function App() {
                         <Route  path="/art" element={<Art />} />
                         <Route  path="/update/:id" element={<Update />} />
                         <Route  path="/sellerhome" element={<SellerHome />} />
-                        <Route path="/bidsdatadisplay" element={<BidsDataDisplay />} />
                     </Routes>
                 </Content>
                 <Footer>
