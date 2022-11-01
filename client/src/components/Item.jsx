@@ -170,7 +170,7 @@ function Item({ seller }) {
                             visible: false,
                             }}
                             width={200}
-                            src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
+                            src={item.image_1}
                             onClick={() => setVisible(true)}
                         />
                         <div
@@ -184,9 +184,9 @@ function Item({ seller }) {
                             onVisibleChange: (vis) => setVisible(vis),
                         }}
                         >
-                        <Image src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp" />
-                        <Image src="https://gw.alipayobjects.com/zos/antfincdn/cV16ZqzMjW/photo-1473091540282-9b846e7965e3.webp" />
-                        <Image src="https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp" />
+                        <Image src={item.image_1} />
+                        <Image src={item.image_2} />
+                        <Image src={item.image_3} />
                         </Image.PreviewGroup>
                         </div>
                         <p>Click picture to view</p>
@@ -198,13 +198,6 @@ function Item({ seller }) {
                 </div>
 
                 <div className='child2'>
-                <Card  title={item.name} >
-                    <Card.Grid style={gridStyle}>Category: {item.category_id}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Current bid price offered: {item.current_bid}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Location: {item.location}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Start date: {item.date}</Card.Grid>
- 
-                </Card>
                         <form onSubmit={handleSubmit}>
                           <input  value={bid} onChange={(e) => setBid(e.target.value)} />
                           <button>Submit</button>
