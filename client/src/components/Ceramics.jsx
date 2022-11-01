@@ -58,7 +58,7 @@ function CeramicsCard({ item }) {
                   alt=""
                   src={
                     !item.image_1
-                      ? "../../src/assets/artwork.jpeg"
+                      ? "/images/artwork.jpeg"
                       : item.image_1
                   }
                 /> 
