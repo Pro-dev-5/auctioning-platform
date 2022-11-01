@@ -26,9 +26,14 @@ fetch("https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest", {
   .catch(error => console.log(error));
 function mpesa() {
   return (
-    <div>mpesa</div>
+    // <div>mpesa</div>
+    <div className="row">
+        <div className="logo">
+          <img src= "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.safaricom.co.ke%2Fimages%2FLipanampesa.png&imgrefurl=https%3A%2F%2Fwww.safaricom.co.ke%2Fabout%2Fbrand-toolkit%2Flogos&tbnid=1mlK17z_C9gqmM&vet=12ahUKEwi07YWmxoz7AhUNTRoKHWoDBGMQMygHegUIARDGAQ..i&docid=hUe84UKQw3C5RM&w=1920&h=1080&q=mpesa%20images&hl=en&ved=2ahUKEwi07YWmxoz7AhUNTRoKHWoDBGMQMygHegUIARDGAQ"width="100" height="50" />
+        </div>
+      </div>
+    );
+  }
     
-  )
-}
 
-export default mpesa
+export default mpesa;
