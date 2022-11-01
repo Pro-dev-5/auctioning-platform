@@ -15,6 +15,11 @@ class Api::BidsController < ApplicationController
 	def create
 		bid = Bid.new(bid_params)
 		prod = Product.find(bid.product_id)
+		user = User.find(bid[:user_id])
+		if user.is_seller
+			render json: {errors: ["Seller cannot bid"]}, status: 422
+			return
+		end
 		
 		if bid.bid_placed > prod.starting_price && bid.bid_placed > prod.current_bid
 			bid.save!
@@ -22,7 +27,7 @@ class Api::BidsController < ApplicationController
 			prod.save!
 			render json: bid, status: :created
 		else
-			render json: {errors: "Bid must be more than starting price"}, status: 422
+			render json: {errors: ["Bid must be more than starting price"]}, status: 422
 		end
 	end
 

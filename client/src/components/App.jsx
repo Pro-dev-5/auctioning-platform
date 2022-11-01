@@ -52,7 +52,7 @@ function App() {
                     <Routes>
                         <Route  path="/" element={<AppHome />} />
                         <Route  path="/jewellery" element={<Jewellery  />} />
-                        <Route  path="/item/:id" element={<Item />} />
+                        <Route  path="/item/:id" element={<Item seller={seller}/>} />
                         <Route  path="/ceramics" element={<Ceramics />} />
                         <Route  path="/mpesa" element={<Mpesa />} />
                         <Route  path="/add-item" element={<AddItem seller={seller}/>} />
