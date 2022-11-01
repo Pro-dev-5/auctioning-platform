@@ -10,6 +10,7 @@ import Item from './Item'
 import Update from './Update'
 import Jewellery from './Jewellery'
 import AddItem from './AddItem'
+import Mpesa from './mpesa';
 // import BuyerLogin from './BuyerLoginForm'
 // import BuyerSignup from './BuyerSignUpForm'
 // import SellerLogin from './SellerLoginForm'
@@ -53,6 +54,7 @@ function App() {
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item seller={seller}/>} />
                         <Route  path="/ceramics" element={<Ceramics />} />
+                        <Route  path="/mpesa" element={<Mpesa />} />
                         <Route  path="/add-item" element={<AddItem seller={seller}/>} />
                         <Route  path="/login" element={<Login setSeller={setSeller}/>} />
                         <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
