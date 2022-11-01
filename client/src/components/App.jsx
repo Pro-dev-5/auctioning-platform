@@ -7,7 +7,6 @@ import AppHome from './views/Home';
 import AppFooter from './common/Footer';
 import Art from './Art';
 import Item from './Item'
-import Update from './Update'
 import Jewellery from './Jewellery'
 import AddItem from './AddItem'
 import Mpesa from './mpesa';
@@ -31,15 +30,8 @@ function App() {
 
     useEffect(()=>{
       fetch('/api/me')
-      .then(res=>{
-				if(res.ok){
-					res.json().then(mes=>{
-						setSeller(mes)
-						console.log('Welcome', mes.name)
-					})
-				}
-			})
-      .catch(err=>console.log(err.message))
+      .then(r => r.json())
+      .then(data => setSeller(data)) 
     },[])
 
     return (
@@ -59,7 +51,7 @@ function App() {
                         <Route  path="/login" element={<Login setSeller={setSeller}/>} />
                         <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
                         <Route  path="/art" element={<Art />} />
-                        <Route  path="/update/:id" element={<Update />} />
+                        
                         <Route  path="/sellerhome" element={<SellerHome />} />
                     </Routes>
                 </Content>

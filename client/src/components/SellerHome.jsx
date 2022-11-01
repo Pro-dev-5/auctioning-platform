@@ -6,7 +6,7 @@ import "../styles/SellerHome.css";
 import { Row, Col } from "antd";
 // import { useNavigate } from "react-router-dom";
 import { Button, Modal } from 'antd';
-import Update from "./Update";
+// import Update from "./Update";
 
 function SellerHome({ seller }) {
   const [myProducts, setMyProducts] = useState([]);
@@ -31,7 +31,7 @@ function SellerHome({ seller }) {
       <hr className="myhr"></hr>
       <div className="art-img">
         {(Array.isArray(myProducts) ? myProducts : [])
-          .filter((item) => item.user_id === seller?.id)
+          .filter((product) => product.user_id === seller?.id)
           .map((product) => {
             return <ProductsCard product={product} key={product.id} />;
           })}
