@@ -49,7 +49,7 @@ const gridStyle = {
     
   };
 
-function Item() {
+function Item({ seller }) {
     const [visible, setVisible] = useState(false);
     const[item, setItem] = useState({})
     const {id}= useParams();
@@ -66,7 +66,7 @@ function Item() {
         body: JSON.stringify({
           product_id: item.id,
           bid_placed: bid,
-          user_id: id
+          user_id: seller.id
         })
       })
       .then(res => {
@@ -82,6 +82,9 @@ function Item() {
 				}
 				if(res.status === 500){
 					res.json().then(()=>toast("Field cannot be empty"))
+				}
+				if(res.status === 422){
+					res.json().then((err)=>toast(err.errors[0]))
 				}
 			})
       document.querySelector("form").reset()
