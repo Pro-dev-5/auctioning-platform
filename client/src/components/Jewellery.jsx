@@ -24,7 +24,7 @@ function Jewellery() {
   return (
     <div style={{marginTop: "140px", padding: "0 40px"}}>
     <div className='titleHolder'>
-        Art Collections
+       Jewellery Collections
     </div>
 	  {/* <hr className="myhr"></hr> */}
       <div className="art-img" style={{display: "flex", justifyContent: "space-between", flexWrap: "wrap"}}>
