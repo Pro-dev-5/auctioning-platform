@@ -9,8 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 function Art() {
   const [art, setArt] = useState([]);
-  // const navigate = useNavigate()
-  // <button onClick={() => navigate('jewellery')}>View Products</button>
 
   useEffect(() => {
     fetch(`/api/products`)

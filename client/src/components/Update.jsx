@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "../styles/AddItem.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function AddItem({ seller }) {
+function Update({ seller }) {
 	const navigate = useNavigate();
 	const [category, setCategory] = useState([])
+    const {id} = useParams();
   const [formData, setFormData] = useState({
     image_1: "",
     image_2: "",
@@ -26,11 +27,14 @@ function AddItem({ seller }) {
     .catch(err=>toast(err.message))
   }, [])
 
-  function handleSubmit(e){
+
+
+
+  function handleUpdate(e){
     e.preventDefault()
 		try {
-			fetch(`/api/products`,{
-        method: "POST",
+			fetch(`/api/products/${id}`,{
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
@@ -50,7 +54,7 @@ function AddItem({ seller }) {
     .then(r =>{
 			if(r.ok){
 				r.json().then(()=>{
-					toast("Product added successfully 😊")
+					toast("Product update successfully 😊")
 					// navigate('/')
 				})
 			}
@@ -81,10 +85,9 @@ function AddItem({ seller }) {
   return (
     <>
     <div className="seller-form-all">
-      <div><h2>Add New Product</h2></div>
 			<ToastContainer/>
-      <form className="seller-form" onSubmit={handleSubmit}>
-				<label>Which category?</label>
+      <form className="seller-form" onSubmit={handleUpdate}>
+				<label>Select Category?</label>
 				<select onChange={handleChange} name='category_id' value={formData.category_id}>
           <option >Select--</option>
           {
@@ -170,14 +173,14 @@ function AddItem({ seller }) {
         />
         <br/>
 
-        <input type='submit' />
+        <button onClick={handleUpdate} type="submit">Submit</button>
         
       </form>
-			<button onClick={() => navigate('/sellerhome')}>View My Products</button>
+			
       </div>
 			
     </>
   );
 }
 
-export default AddItem;
+export default Update;
