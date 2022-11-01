@@ -1,53 +1,12 @@
-import { Image, Button, Input, Tooltip, PageHeader, Card , Statistic} from 'antd';
+import { Image, Form, Button,  InputNumber , Tooltip, PageHeader, Card , Statistic} from 'antd';
 import React, { useState, useEffect } from 'react';
 import '../styles/Item.css'
 import { toast, ToastContainer } from "react-toastify";
 import { json, useNavigate, useParams } from 'react-router-dom';
+import 'antd/dist/antd.css';
 
 
-const formatNumber = (value) => new Intl.NumberFormat().format(value);
-const NumericInput = (props) => {
-  const { value, onChange } = props;
-  const handleChange = (e) => {
-    const { value: inputValue} = e.target;
-    const reg = /^-?\d*(\.\d*)?$/;
-    if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
-      onChange(inputValue);
-    }
-  };
 
-  // '.' at the end or only '-' in the input box.
-  const handleBlur = () => {
-    let valueTemp = value;
-    if (value.charAt(value.length - 1) === '.' || value === '-') {
-      valueTemp = value.slice(0, -1);
-    }
-    onChange(valueTemp.replace(/0*(\d+)/, '$1'));
-  };
-  const title = value ? (
-    <span className="numeric-input-title">{value !== '-' ? formatNumber(Number(value)) : '-'}</span>
-  ) : (
-    'Bid must be higher than current bid'
-  );
-  return (
-    <Tooltip trigger={['focus']} title={title} placement="topLeft" overlayClassName="numeric-input">
-      <Input
-        {...props}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        placeholder="Input bid"
-        maxLength={16}
-      />
-    </Tooltip>
-  );
-};
-
-
-const gridStyle = {
-    width: '100%',
-    textAlign: 'center',
-    
-  };
 
 function Item({ seller }) {
     const [visible, setVisible] = useState(false);
@@ -55,6 +14,17 @@ function Item({ seller }) {
     const {id}= useParams();
     const [bid, setBid] = useState('')
 		const navigate = useNavigate()
+
+    var date = new Date();
+    var currentDate = date.getTime();
+    // function filteredDates(){
+    //   parseInt(
+    //     (new Date(`${item.date}`.split("-").join("/")).getTime() -
+    //       currentDate) /
+    //       (1000 * 60 * 60 * 24)
+    //   ) > 0
+    // }
+
 
     function handleSubmit(e) {
       e.preventDefault()
@@ -132,12 +102,14 @@ function Item({ seller }) {
              <Statistic title="Timer"  value="" style={{
                 marginRight: 20,
             }}/>
+           
         </div>
+       
     );
     const Content = ({ items, extra }) => (
       <div className="content">
         <div className="main">{items}</div>
-        <div className="extra"><form >{extra}</form></div>
+        <div className="extra">{extra}</div>
       </div>
     );
    
@@ -148,17 +120,9 @@ function Item({ seller }) {
                     <PageHeader
                         className="site-page-header-responsive"
                         onBack={() => window.history.back()} 
-                       
                         title={item.name}
                         subTitle={item.category_id}
-                        
-                        extra={[
-                            <NumericInput style={{ width: 120, }} />,
-
-                        <Button key="3" >Place Bid</Button>,
-                        
-                       
-                        ]}
+ 
                     >
                         <Content extra={extraContent}></Content>
                     </PageHeader>
@@ -198,12 +162,58 @@ function Item({ seller }) {
                 </div>
 
                 <div className='child2'>
-                        <form onSubmit={handleSubmit}>
+                        {/* <form onSubmit={handleSubmit}>
                           <input  value={bid} onChange={(e) => setBid(e.target.value)} />
                           <button>Submit</button>
-                        </form>
+                        </form> */}
+                         {/* <div >
+                          <Form  onSubmit={handleSubmit}>
+                          <Form.Item
+                            label="Place your bid"
+                            rules={[
+                              {
+                                type: 'integer',
+                                // min: 0,
+                                // max: 200,
+                                message: 'Please input a valid bid.',
+                              },
+                              {
+                                type: 'integer',
+                                // min: 5,
+                                // max: 200,
+                                message: 'Bid needs to be above the current bid.',
+                              },
+                            ]}
+                          >
+                            <InputNumber value={bid} onChange={(e) => setBid(e.target.value)}/>
+                          </Form.Item>
+                                      <Form.Item>
+                                        <Button htmlType="submit">Submit</Button>
+                                      </Form.Item>
+                          </Form>
+                        </div> */}
                 </div>
+               
                 </div>
+
+                
+                <div className='timer'>
+                <Card
+                  title="Bidding Time Remaining"
+                  style={{
+                    width: 300,
+                  }}
+                >
+                   <p style={{color: "#d1410a"}}>{event.time_diff < 0 ?
+                              (<p>Event has passed</p>)
+                              : (
+                                event.time_diff + " days remaining"
+                              )
+                              }
+                            </p>
+                </Card>
+               
+                        </div>
                 
         </div>
     );
