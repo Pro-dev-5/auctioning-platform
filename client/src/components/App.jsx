@@ -8,7 +8,6 @@ import AppFooter from './common/Footer';
 import Art from './Art';
 import Item from './Item'
 import Update from './Update'
-//import Timer from './Timer'
 import Jewellery from './Jewellery'
 import AddItem from './AddItem'
 // import BuyerLogin from './BuyerLoginForm'
