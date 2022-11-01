@@ -2,7 +2,7 @@ import { Image, Button, Input, Tooltip, PageHeader, Card , Statistic} from 'antd
 import React, { useState, useEffect } from 'react';
 import '../styles/Item.css'
 import { toast, ToastContainer } from "react-toastify";
-import { json, useParams } from 'react-router-dom';
+import { json, useNavigate, useParams } from 'react-router-dom';
 
 
 const formatNumber = (value) => new Intl.NumberFormat().format(value);
@@ -51,11 +51,10 @@ const gridStyle = {
 
 function Item() {
     const [visible, setVisible] = useState(false);
-    const [value, setValue] = useState('');
-    const [value1, setValue1] = useState('');
     const[item, setItem] = useState({})
     const {id}= useParams();
     const [bid, setBid] = useState('')
+		const navigate = useNavigate()
 
     function handleSubmit(e) {
       e.preventDefault()
@@ -70,9 +69,21 @@ function Item() {
           user_id: id
         })
       })
-      .then(res => res.json())
-      .then(console.log)
-      .catch(err => err.message)
+      .then(res => {
+				if(res.status === 401){
+					res.json().then(mes=>toast(mes?.errors[0]))
+					navigate('/login')
+				}
+				if(res.ok){
+					res.json().then(()=>{
+						setItem({...item, [item.current_bid]: bid})
+						toast(`Bid placed successfully, and is now ${bid}`)
+					})
+				}
+				if(res.status === 500){
+					res.json().then(()=>toast("Field cannot be empty"))
+				}
+			})
       document.querySelector("form").reset()
     }
 
