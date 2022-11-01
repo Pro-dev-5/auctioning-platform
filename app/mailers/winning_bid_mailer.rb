@@ -9,7 +9,10 @@ class WinningBidMailer < ApplicationMailer
     @bid = bid
 		@person = person
 
-    mail to: @person.email,
-					subject: "Winning bid"
+    mail(
+			from: "Bidding <biddingforstuffsdemo@gmail.com>",
+			to: @person.email,
+			subject: "Winning bid"
+		)
   end
 end
