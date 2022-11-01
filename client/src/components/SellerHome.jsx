@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "../styles/SellerHome.css";
 import { Row, Col } from "antd";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Button, Modal } from 'antd';
 import Update from "./Update";
 
