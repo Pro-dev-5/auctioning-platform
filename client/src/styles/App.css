@@ -20,6 +20,10 @@ width: 100%;
 padding: 0 40px;
 }
 
+.sticky{
+	position: -webkit-sticky;
+}
+
 .for-container {
     position: relative;
     padding: 0 10px;
@@ -92,7 +96,7 @@ header
 ------ 
 */
 .ant-layout-header {
-position: fixed;
+position: sticky;
 left: 0;
 right: 0;
 z-index: 999;
