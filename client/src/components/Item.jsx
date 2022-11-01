@@ -2,7 +2,7 @@ import { Image, Button, Input, Tooltip, PageHeader, Card , Statistic} from 'antd
 import React, { useState, useEffect } from 'react';
 import '../styles/Item.css'
 import { toast, ToastContainer } from "react-toastify";
-import { json, useParams } from 'react-router-dom';
+import { json, useNavigate, useParams } from 'react-router-dom';
 
 
 const formatNumber = (value) => new Intl.NumberFormat().format(value);
@@ -49,13 +49,12 @@ const gridStyle = {
     
   };
 
-function Item() {
+function Item({ seller }) {
     const [visible, setVisible] = useState(false);
-    const [value, setValue] = useState('');
-    const [value1, setValue1] = useState('');
     const[item, setItem] = useState({})
     const {id}= useParams();
     const [bid, setBid] = useState('')
+		const navigate = useNavigate()
 
     function handleSubmit(e) {
       e.preventDefault()
@@ -67,12 +66,27 @@ function Item() {
         body: JSON.stringify({
           product_id: item.id,
           bid_placed: bid,
-          user_id: id
+          user_id: seller.id
         })
       })
-      .then(res => res.json())
-      .then(console.log)
-      .catch(err => err.message)
+      .then(res => {
+				if(res.status === 401){
+					res.json().then(mes=>toast(mes?.errors[0]))
+					navigate('/login')
+				}
+				if(res.ok){
+					res.json().then(()=>{
+						setItem({...item, [item.current_bid]: bid})
+						toast(`Bid placed successfully, and is now ${bid}`)
+					})
+				}
+				if(res.status === 500){
+					res.json().then(()=>toast("Field cannot be empty"))
+				}
+				if(res.status === 422){
+					res.json().then((err)=>toast(err.errors[0]))
+				}
+			})
       document.querySelector("form").reset()
     }
 
@@ -156,7 +170,7 @@ function Item() {
                             visible: false,
                             }}
                             width={200}
-                            src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
+                            src={item.image_1}
                             onClick={() => setVisible(true)}
                         />
                         <div
@@ -170,9 +184,9 @@ function Item() {
                             onVisibleChange: (vis) => setVisible(vis),
                         }}
                         >
-                        <Image src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp" />
-                        <Image src="https://gw.alipayobjects.com/zos/antfincdn/cV16ZqzMjW/photo-1473091540282-9b846e7965e3.webp" />
-                        <Image src="https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp" />
+                        <Image src={item.image_1} />
+                        <Image src={item.image_2} />
+                        <Image src={item.image_3} />
                         </Image.PreviewGroup>
                         </div>
                         <p>Click picture to view</p>
@@ -184,13 +198,6 @@ function Item() {
                 </div>
 
                 <div className='child2'>
-                <Card  title={item.name} >
-                    <Card.Grid style={gridStyle}>Category: {item.category_id}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Current bid price offered: {item.current_bid}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Location: {item.location}</Card.Grid>
-                    <Card.Grid style={gridStyle}>Start date: {item.date}</Card.Grid>
- 
-                </Card>
                         <form onSubmit={handleSubmit}>
                           <input  value={bid} onChange={(e) => setBid(e.target.value)} />
                           <button>Submit</button>

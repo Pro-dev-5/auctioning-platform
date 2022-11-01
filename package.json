@@ -9,7 +9,7 @@
 	"scripts": {
 		"build": "npm install --prefix client --force && npm run build --prefix client",
 		"clean": "rm -rf public",
-		"deploy": "cp -a client/dist/. public/",
+		"deploy": "cp -a client/dist/. public/ && cd public/ && echo > .nojekyll && cd ../",
 		"heroku-postbuild": "npm run clean && npm run build && npm run deploy"
 	}
 }
