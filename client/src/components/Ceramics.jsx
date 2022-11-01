@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 function Ceramics() {
   const [ceramics, setCeramics] = useState([]);
   
-  // <button onClick={() => navigate('jewellery')}>View Products</button>
+  
 
   useEffect(() => {
     fetch(`/api/products`)

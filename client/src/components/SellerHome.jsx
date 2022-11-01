@@ -11,8 +11,6 @@ import Update from "./Update";
 function SellerHome({ seller }) {
   const [myProducts, setMyProducts] = useState([]);
   
-  
-
   useEffect(() => {
     fetch(`/api/products`).then((res) => {
       if (res.ok) {
@@ -21,19 +19,22 @@ function SellerHome({ seller }) {
         toast("Something went wrong with your request");
       }
     });
+    
+
+    
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="start" style={{marginTop: "200px"}}>
+      <div >
         <h1>My Products</h1>
       </div>
       <hr className="myhr"></hr>
       <div className="art-img">
         {(Array.isArray(myProducts) ? myProducts : [])
           .filter((item) => item.user_id === seller?.id)
-          .map((product) => {
-            return <ProductsCard product={product} key={product.id} />;
+          .map((item) => {
+            return <ProductsCard product={item} key={item.id} />;
           })}
         <ToastContainer />
       </div>
