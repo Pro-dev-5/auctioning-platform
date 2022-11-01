@@ -5,7 +5,7 @@ import { DownOutlined } from '@ant-design/icons';
 function About() {
     return (
         <div id='about' className='block aboutBlock'>
-            <div className='container-fluid'>
+            <div className='container-fluid' style={{ }}>
                 <div className='titleHolder'>
                     About Us
                 </div>

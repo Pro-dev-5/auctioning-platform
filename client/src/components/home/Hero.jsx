@@ -33,9 +33,14 @@ function AppHero() {
                                 <div className='btnHolder'>
                                     {/* <Button size='large'>View Categories</Button> */}
                                     <div className='header'>
-                                        <Anchor targetOffset="65" style={{ backgroundColor: '#f3c180', color: '#fff', hover: 'none', padding: '6px 8px', border: 'none' }}>
+                                        {/* <Anchor targetOffset="65" style={{ backgroundColor: '#f3c180', color: '#fff', hover: 'none', padding: '6px 8px', border: 'none' }}>
                                             <Link href="#category" title="View Category" />
-                                        </Anchor>
+                                        </Anchor> */}
+                                        <a href="#category">
+                                            <button style={{ color: "white", fontWeight: "semi-bold", cursor: "pointer", border: "none", borderRadius: "10px" }}>
+                                                View Category
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
