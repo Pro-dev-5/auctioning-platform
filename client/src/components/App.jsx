@@ -31,15 +31,8 @@ function App() {
 
     useEffect(()=>{
       fetch('/api/me')
-      .then(res=>{
-				if(res.ok){
-					res.json().then(mes=>{
-						setSeller(mes)
-						console.log('Welcome', mes.name)
-					})
-				}
-			})
-      .catch(err=>console.log(err.message))
+      .then(r => r.json())
+      .then(data => setSeller(data)) 
     },[])
 
     return (
