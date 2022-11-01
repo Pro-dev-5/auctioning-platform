@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 function Ceramics() {
   const [ceramics, setCeramics] = useState([]);
   
-  
+  // <button onClick={() => navigate('jewellery')}>View Products</button>
 
   useEffect(() => {
     fetch(`/api/products`)
@@ -58,7 +58,7 @@ function CeramicsCard({ item }) {
                   alt=""
                   src={
                     !item.image_1
-                      ? "/images/artwork.jpeg"
+                      ? "../../src/assets/artwork.jpeg"
                       : item.image_1
                   }
                 /> 

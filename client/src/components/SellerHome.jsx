@@ -6,11 +6,13 @@ import "../styles/SellerHome.css";
 import { Row, Col } from "antd";
 // import { useNavigate } from "react-router-dom";
 import { Button, Modal } from 'antd';
-import Update from "./Update";
+// import Update from "./Update";
 
 function SellerHome({ seller }) {
   const [myProducts, setMyProducts] = useState([]);
   
+  
+
   useEffect(() => {
     fetch(`/api/products`).then((res) => {
       if (res.ok) {
@@ -19,22 +21,19 @@ function SellerHome({ seller }) {
         toast("Something went wrong with your request");
       }
     });
-    
-
-    
   }, []);
 
   return (
-    <div className="start" style={{marginTop: "200px"}}>
-      <div >
+    <div>
+      <div>
         <h1>My Products</h1>
       </div>
       <hr className="myhr"></hr>
       <div className="art-img">
         {(Array.isArray(myProducts) ? myProducts : [])
-          .filter((item) => item.user_id === seller?.id)
-          .map((item) => {
-            return <ProductsCard product={item} key={item.id} />;
+          .filter((product) => product.user_id === seller?.id)
+          .map((product) => {
+            return <ProductsCard product={product} key={product.id} />;
           })}
         <ToastContainer />
       </div>
