@@ -1,9 +1,9 @@
 import React from "react";
-import { Card } from "antd";
+import { Card, Button } from "antd";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import "../styles/ArtPage.css";
+// import "../styles/ArtPage.css";
 import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
@@ -22,18 +22,19 @@ function Art() {
       .catch((err) => toast(err.message));
   }, []);
   return (
-    <div style={{marginTop: "140px", padding: "0 40px"}}>
-    <div className='titleHolder'>
-        Art Collections
-    </div>
-	  {/* <hr className="myhr"></hr> */}
-      <div className="art-img" style={{display: "flex", justifyContent: "space-between", flexWrap: "wrap"}}>
-        {(Array.isArray(art) ? art : [])
-          .filter((item) => item.category_id === 1)
-          .map((item) => {
-            return <ArtCard item={item} key={item.id} />;
-          })}
-        <ToastContainer />
+    <div className="block aboutBlock" style={{ margin: '80px 0' }}>
+      <div className="container-fluid">
+        <div className='titleHolder'>
+          Art Collections
+        </div>
+        <div style={{display: "flex", justifyContent: "space-between", flexWrap: "wrap"}}>
+          {(Array.isArray(art) ? art : [])
+            .filter((item) => item.category_id === 1)
+            .map((item) => {
+              return <ArtCard item={item} key={item.id} />;
+            })}
+          <ToastContainer />
+        </div>
       </div>
     </div>
   );
@@ -42,9 +43,9 @@ function Art() {
 function ArtCard({ item }) {
   const navigate = useNavigate()
   return (
-    <div>
-      <div className="my-card">
-        <div className="container">
+    <div style={{ marginBottom: '40px' }}>
+      <div>
+        <div>
           <Row gutter={[40, 40]}>
             <Col span={8}>
               <Card
@@ -66,12 +67,8 @@ function ArtCard({ item }) {
                   <p style={{fontSize: "15px", color: "#333333"}}>Start Price: {item.starting_price}</p>
                   <p style={{fontSize: "12px", color: "#333333"}}>Location: {item.location}</p>
                   <p style={{fontSize: "10px", color: "#333333"}}>Time: {item.time}</p>
-                  {/* <button onClick={()=>navigate(`/item/${item.id}`)}>Bid</button> */}
-                  {/* <a href="#category"> */}
-                  <button onClick={()=>navigate(`/item/${item.id}`)} style={{ color: "white", backgroundColor: "#F3C180", fontWeight: "semi-bold", cursor: "pointer", border: "none", borderRadius: "5px"}}>
-                      BID
-                  </button>
-              {/* </a> */}
+                  
+                  <Button onClick={()=>navigate(`/item/${item.id}`)} href="#category" style={{ color: "#585860", fontWeight: "bold", cursor: "pointer", border: "solid 1px #f3c180", borderRadius: "0px", width: '250px' }}>BID</Button>
                 </div>
               </Card>
             </Col>
