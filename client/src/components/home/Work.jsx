@@ -1,7 +1,10 @@
 import React from 'react'
+import { Button } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
 class AppWork extends React.Component {
     render() {
+        // const navigate = useNavigate()
         return (
             <div id='sell' className='block worksBlock'>
                 <div className='container-fluid'>
@@ -9,6 +12,7 @@ class AppWork extends React.Component {
                         Sell with <span style={{ backgroundColor: '#7b6322', padding: '2px 4px' }}>Bidding for Stuffs</span>
                         <p>Curious to know if your item is suitable for one of our upcoming sales?</p>
                         <p>Provide information and share images to request an online estimate now.</p>
+                        <Button onClick={()=>navigate(`/sellerhome`)} style={{ backgroundColor: '#fff', border: 'none', color: '#100d10', borderRadius: '5px', width: '150px', fontFamily: 'Nunito', fontWeight: '700'  }}>Add product</Button>
                     </div>
                 </div>
             </div>

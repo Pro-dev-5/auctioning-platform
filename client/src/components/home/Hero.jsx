@@ -22,8 +22,8 @@ const items = [
 
 function AppHero() {
     return (
-        <div id='hero' className='heroBlock'>
-            <Carousel>
+        <div id='hero' className='heroBlock' style={{ paddingTop: '70px' }}>
+            <Carousel autoplay>
                 {items.map(item => {
                     return (
                         <div className='container-fluid' key={item.key}>
@@ -31,11 +31,11 @@ function AppHero() {
                                 <h3>{item.title}</h3>
                                 <p>{item.content}</p>
                                 <div className='btnHolder'>
-                                    {/* <Button size='large'>View Categories</Button> */}
                                     <div className='header'>
-                                        <Anchor targetOffset="65" style={{ backgroundColor: '#f3c180', color: '#fff', hover: 'none', padding: '6px 8px', border: 'none' }}>
+                                        {/* <Anchor targetOffset="65" style={{ backgroundColor: '#f3c180', color: '#fff', hover: 'none', padding: '6px 8px', border: 'none' }}>
                                             <Link href="#category" title="View Category" />
-                                        </Anchor>
+                                        </Anchor> */}
+                                        <Button href="#category" style={{ color: "white", fontWeight: "bold", cursor: "pointer", border: "none", borderRadius: "5px", backgroundColor: '#f3c180' }}>View Categories</Button>
                                     </div>
                                 </div>
                             </div>

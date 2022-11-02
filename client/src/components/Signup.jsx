@@ -1,19 +1,21 @@
 import {Button,Checkbox,Form,Input, Col, Row, Switch} from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom'
-import React from 'react';
+import React, { useState } from 'react';
 // import '../styles/Nav.css'
 import { toast, ToastContainer } from 'react-toastify';
 
   const SignUp = ({ setSeller }) => {
     const [form] = Form.useForm();
+		const [status, setStatus] = useState(false)
 
     const onFinish = (values) => {
       fetch(`/api/signup`,{
 				method: "POST", headers: {"Content-Type": "application/json"},
 				body: JSON.stringify({
 					name: values.username,
-					password: values.password
+					password: values.password,
+					is_seller: status
 				})
 			})
 			.then(res=>{

@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails"
+require "uri"
+require "net/http"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -19,7 +21,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module AuctionApp87
+module AuctionAppRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1

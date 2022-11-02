@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_user_not_found
+	skip_before_action :authorized_as_seller, only: [:index, :create, :me, :show, :buyer, :seller]
+	skip_before_action :authenticated_user, only: [:index, :show, :create, :me, :buyer, :seller]
 	def create
 		user = User.create!(user_params)
 		if user.valid?
@@ -17,7 +19,7 @@ class Api::UsersController < ApplicationController
 
 	def show
 		user = User.find(params[:id])
-		render json: user, status: 200
+		render json: user, serializer: SellerSerializer, status: 200
 	end
 
 	def buyer
