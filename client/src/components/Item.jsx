@@ -3,7 +3,7 @@ import { Row, Col, Button, Input } from 'antd'
 
 function Item() {
   return (
-    <div className="block aboutBlock" style={{ margin: 'px 15px' }}>
+    <div className="block aboutBlock" style={{ margin: '0px 15px' }}>
       <div className='container-fluid'>
         <div>
           <Row gutter={[24, 16]} align="middle" style={{ backgroundColor: '' }}>
