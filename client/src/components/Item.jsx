@@ -53,12 +53,8 @@ const [bid, setBid] = useState('')
 
 
   return (
-<<<<<<< HEAD
-    <div className="block aboutBlock" style={{ margin: '0px 15px' }}>
-=======
     <div className='header1'>
     <div className="block aboutBlock" style={{ margin: 'px 15px' }}>
->>>>>>> d04471a9dc2c684c1eda74698b2b35a2969ec1e2
       <div className='container-fluid'>
         <div>
           <Row gutter={[24, 16]} align="middle" style={{ backgroundColor: '' }}>
