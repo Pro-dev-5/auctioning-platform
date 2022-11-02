@@ -54,7 +54,7 @@ function AppHeader() {
                 </div>
             </a>
             <div className="mobileHidden">
-            <Anchor targetOffset="65">
+            <Anchor targetOffset="65" style={{ fontFamily: 'Nunito', fontWeight: '700' }}>
                     <Link href="/#hero" title="Home" />
                     <Link href="/#about" title="About" />
                     <Link href="/#sell" title="Sell with us" />
