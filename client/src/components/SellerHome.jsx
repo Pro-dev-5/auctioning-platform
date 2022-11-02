@@ -6,12 +6,15 @@ import "../styles/SellerHome.css";
 import { Row, Col } from "antd";
 // import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "antd";
+import { useParams } from "react-router-dom";
 // import Update from "./Update";
 
 function SellerHome({ seller }) {
   const [myProducts, setMyProducts] = useState([]);
-  const [category, setCategory] = useState([])
-  const [updateProduct, setUpdateProduct] = useState({
+  const [category, setCategory] = useState([]);
+  const { id } = useParams();
+
+  const [data, setData] = useState({
     image_1: "",
     image_2: "",
     image_3: "",
@@ -20,9 +23,12 @@ function SellerHome({ seller }) {
     time: "",
     date: "",
     starting_price: 0,
-    category_id: 0
-  })
+    category_id: 0,
+  });
 
+  function handleChange(e) {
+    setData({ ...setData, [e.target.id]: e.target.value });
+  }
 
   useEffect(() => {
     fetch(`/api/products`).then((res) => {
@@ -34,11 +40,51 @@ function SellerHome({ seller }) {
     });
 
     fetch(`/api/categories`)
-    .then(res=>res.json())
-    .then(data => setCategory(data))
+      .then((res) => res.json())
+      .then((data) => setCategory(data))
 
-    .catch(err=>toast(err.message))
+      .catch((err) => toast(err.message));
+
+    fetch(`/api/products/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
   }, []);
+
+  useEffect(() => {
+    fetch(`/api/products`).then((res) => {
+      if (res.ok) {
+        res.json().then(setMyProducts);
+      } else {
+        toast("Something went wrong with your request");
+      }
+    });
+
+    fetch(`/api/categories`)
+      .then((res) => res.json())
+      .then((data) => setCategory(data))
+
+      .catch((err) => toast(err.message));
+  }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch(`/api/products/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      });
+  }
 
   function handleDelete(deletedProductId) {
     console.log(deletedProductId);
@@ -52,7 +98,7 @@ function SellerHome({ seller }) {
     });
     setMyProducts(afterDelete);
   }
-  
+
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -60,14 +106,7 @@ function SellerHome({ seller }) {
     setOpen(true);
   };
 
-  function handleEdit(product){
-    showModal()
-    setUpdateProduct(product)
-  }
-
-  function handleUpdate(){
-    console.log(updateProduct)
-  }
+ 
 
   const handleOk = () => {
     setLoading(true);
@@ -87,7 +126,7 @@ function SellerHome({ seller }) {
       <div>
         <h1>My Products</h1>
       </div>
-      
+
       <div className="art-img">
         <div className="my-card">
           <div className="container-fluid">
@@ -101,7 +140,13 @@ function SellerHome({ seller }) {
                         <Card
                           hoverable
                           style={{ width: 300 }}
-                          cover={<img alt="" src={product.image_1}  style={{height: '200px'}}/>}
+                          cover={
+                            <img
+                              alt=""
+                              src={product.image_1}
+                              style={{ height: "200px" }}
+                            />
+                          }
                         >
                           <div className="cardcontent">
                             <h4>{product.name}</h4>
@@ -134,12 +179,14 @@ function SellerHome({ seller }) {
                                   <form
                                     className="seller-form"
                                     // onSubmit={handleSubmit}
+                                    style={{ width: "100%" }}
                                   >
                                     <label>Which category?</label>
                                     <select
                                       // onChange={handleChange}
                                       name="category_id"
                                       value={updateProduct.category_id}
+                                      style={{ width: "100px" }}
                                     >
                                       <option>Select--</option>
                                       {(Array.isArray(category)
