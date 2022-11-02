@@ -3,11 +3,11 @@ import { Card } from 'antd';
 
 function BidsDataDisplay() {
     return (
-        <div style={{ marginTop: "80px" }}>
-            <div className="site-card-border-less-wrapper">
+        <div className='block aboutBlock' style={{ marginTop: "80px", height: "65vh"}}>
+            <div className="site-card-border-less-wrapper container-fluid">
                 <Card
                 title="Card title"
-                bordered={false}
+                bordered={true}
                 style={{
                     width: 300,
                 }}
