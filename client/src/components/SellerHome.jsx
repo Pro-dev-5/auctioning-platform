@@ -12,6 +12,8 @@ import { useParams } from "react-router-dom";
 function SellerHome({ seller }) {
   const [myProducts, setMyProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
   const { id } = useParams();
 
   const [data, setData] = useState({
@@ -54,21 +56,7 @@ function SellerHome({ seller }) {
       .catch((error) => console.log(error));
   }, []);
 
-  useEffect(() => {
-    fetch(`/api/products`).then((res) => {
-      if (res.ok) {
-        res.json().then(setMyProducts);
-      } else {
-        toast("Something went wrong with your request");
-      }
-    });
 
-    fetch(`/api/categories`)
-      .then((res) => res.json())
-      .then((data) => setCategory(data))
-
-      .catch((err) => toast(err.message));
-  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -91,22 +79,17 @@ function SellerHome({ seller }) {
     fetch(`/api/products/${deletedProductId}`, {
       method: "DELETE",
     });
-    // .then((r) => r.json())
-    // .then(() => console.log("deleted!"));
     const afterDelete = myProducts.filter((prod) => {
       return prod.id !== deletedProductId;
     });
     setMyProducts(afterDelete);
   }
 
-  const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  
 
   const showModal = () => {
     setOpen(true);
   };
-
- 
 
   const handleOk = () => {
     setLoading(true);
@@ -120,7 +103,7 @@ function SellerHome({ seller }) {
     setOpen(false);
   };
 
-  // console.log(myProducts);
+  
   return (
     <div style={{ marginTop: "150px" }}>
       <div>
@@ -157,7 +140,7 @@ function SellerHome({ seller }) {
                               <>
                                 <Button
                                   className="crud"
-                                  onClick={() => handleEdit(product)}
+                                  onClick={showModal}
                                   style={{
                                     color: "black",
                                     backgroundColor: "gold",
@@ -178,14 +161,14 @@ function SellerHome({ seller }) {
                                 >
                                   <form
                                     className="seller-form"
-                                    // onSubmit={handleSubmit}
+                                    onSubmit={handleSubmit}
                                     style={{ width: "100%" }}
                                   >
                                     <label>Which category?</label>
                                     <select
                                       // onChange={handleChange}
                                       name="category_id"
-                                      value={updateProduct.category_id}
+                                      value={data.category_id}
                                       style={{ width: "100px" }}
                                     >
                                       <option>Select--</option>
@@ -204,16 +187,16 @@ function SellerHome({ seller }) {
                                     <input
                                       type="text"
                                       name="image_1"
-                                      value={updateProduct.image_1}
-                                      // onChange={handleChange}
+                                      value={data.image_1}
+                                      onChange={handleChange}
                                     />
 
                                     <label>Image 2</label>
                                     <input
                                       type="text"
                                       name="image_2"
-                                      value={updateProduct.image_2}
-                                      // onChange={handleChange}
+                                      value={data.image_2}
+                                      onChange={handleChange}
                                     />
                                     <br />
 
@@ -221,8 +204,8 @@ function SellerHome({ seller }) {
                                     <input
                                       type="text"
                                       name="image_3"
-                                      value={updateProduct.image_3}
-                                      // onChange={handleChange}
+                                      value={data.image_3}
+                                      onChange={handleChange}
                                     />
                                     <br />
 
@@ -230,8 +213,8 @@ function SellerHome({ seller }) {
                                     <input
                                       type="text"
                                       name="name"
-                                      value={updateProduct.name}
-                                      // onChange={handleChange}
+                                      value={data.name}
+                                      onChange={handleChange}
                                       required={true}
                                     />
                                     <br />
@@ -240,8 +223,8 @@ function SellerHome({ seller }) {
                                     <input
                                       type="text"
                                       name="location"
-                                      value={updateProduct.location}
-                                      // onChange={handleChange}
+                                      value={data.location}
+                                      onChange={handleChange}
                                     />
                                     <br />
 
@@ -249,8 +232,8 @@ function SellerHome({ seller }) {
                                     <input
                                       type="time"
                                       name="time"
-                                      value={updateProduct.time}
-                                      // onChange={handleChange}
+                                      value={data.time}
+                                      onChange={handleChange}
                                       required={true}
                                     />
                                     <br />
@@ -259,8 +242,8 @@ function SellerHome({ seller }) {
                                     <input
                                       type="datetime-local"
                                       name="datetime-local"
-                                      value={updateProduct.date}
-                                      // onChange={handleChange}
+                                      value={data.date}
+                                      onChange={handleChange}
                                       // required={true}
                                     />
                                     <br />
@@ -269,8 +252,8 @@ function SellerHome({ seller }) {
                                     <input
                                       type="number"
                                       name="starting_price"
-                                      value={updateProduct.starting_price}
-                                      // onChange={handleChange}
+                                      value={data.starting_price}
+                                      onChange={handleChange}
                                       required={true}
                                     />
                                     <br />
