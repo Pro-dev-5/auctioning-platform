@@ -26,7 +26,7 @@ import { ToastContainer } from 'react-toastify';
 const { Header, Content, Footer } = Layout;
 
 function App() {
-    // const url = "http://localhost:3000/api"
+   //const url = "http://localhost:3000/api"
     const [seller, setSeller] = useState({})
 
     useEffect(()=>{
