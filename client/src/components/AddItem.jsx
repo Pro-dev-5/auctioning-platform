@@ -173,7 +173,6 @@ function AddItem({ seller }) {
         <input type='submit' />
         
       </form>
-      <hr></hr>
 
 			<button onClick={() => navigate('/sellerhome')}>View My Products</button>
       </div>
