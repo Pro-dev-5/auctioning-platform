@@ -9,10 +9,6 @@ class WinningBidMailerTest < ActionMailer::TestCase
 		assert_emails 1 do
 			email.deliver_now
 		end
-
-    assert_equal "Winner", mail.subject
-    # assert_equal ["mickeymurage@gmail.com"], mail.to
-    assert_equal ["mickeymurage@gmail.com"], mail.from
   end
 
 end

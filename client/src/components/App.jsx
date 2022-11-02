@@ -19,7 +19,6 @@ import Login from './Login';
 import SignUp from './Signup';
 import Ceramics from './Ceramics'
 import SellerHome from './SellerHome'
-import Seller from './Seller'
 import '../styles/App.css';
 import 'antd/dist/antd.css';
 import { ToastContainer } from 'react-toastify';
@@ -37,7 +36,6 @@ function App() {
     },[])
 
     return (
-      <div>
         <BrowserRouter>
             <Layout className='mainLayout'>
                 <Header>
@@ -49,7 +47,6 @@ function App() {
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item seller={seller}/>} />
                         <Route  path="/ceramics" element={<Ceramics />} />
-                        <Route  path="/seller" element={<Seller seller={seller}/>} />
                         <Route  path="/mpesa" element={<Mpesa />} />
                         <Route  path="/add-item" element={<AddItem seller={seller}/>} />
                         <Route  path="/login" element={<Login setSeller={setSeller}/>} />
@@ -66,7 +63,6 @@ function App() {
 								<ToastContainer/>
             </Layout>
         </BrowserRouter>
-        </div>
     );
 }
 

@@ -15,7 +15,8 @@ import { toast, ToastContainer } from 'react-toastify';
 				body: JSON.stringify({
 					name: values.username,
 					password: values.password,
-					is_seller: status
+					is_seller: status,
+					email: values.email
 				})
 			})
 			.then(res=>{
