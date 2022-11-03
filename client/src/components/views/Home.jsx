@@ -8,12 +8,12 @@ import AppFaq from '../home/Faq'
 import AppTeam from '../home/Team'
 import AppContact from '../home/Contact'
 
-function AppHome() {
+function AppHome({seller}) {
     const [categories, setCategory] = useState([ ]);
     const path = ['/art', '/ceramics', '/jewellery']
 
     useEffect(()=>{
-		fetch('http://127.0.0.1:3000/api/categories')
+		fetch('/api/categories')
 		.then(res=>{
 			if(res.ok){
 				// res.json().then(data => console.log(data))
@@ -39,11 +39,11 @@ function AppHome() {
             />
         )
     });
-    <ToastContainer/>
 
     return (
         <div className='main'>
             <AppHero />
+	    <ToastContainer />
             {/* <AppCategory /> */}
             <div>
                 <div id='category' className='block featureBlock bgGray'>
