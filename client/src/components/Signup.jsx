@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 // import '../styles/Nav.css'
 import { toast, ToastContainer } from 'react-toastify';
 
-  const SignUp = ({ setSeller }) => {
+  const SignUp = ({ setSeller, setSwitchDisp }) => {
     const [form] = Form.useForm();
 		const [status, setStatus] = useState(false)
 
@@ -24,9 +24,10 @@ import { toast, ToastContainer } from 'react-toastify';
 					res.json().then(data=>{
 						setSeller(data)
 						toast(`Logged in as ${data.name}`)
+						setSwitchDisp(true)
 					})
 				}else{
-					toast("Something went wrong")
+					res.json().then(err=> toast(err.errors[0]))
 				}
 			})
 			.catch(err=>toast(err.message))
