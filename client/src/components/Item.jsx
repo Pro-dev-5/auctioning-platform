@@ -4,14 +4,16 @@ import { Row, Col, Button, Input } from 'antd'
 import { json, useNavigate, useParams } from 'react-router-dom';
 
 import Timer from './Timer'
+import Countdown from 'react-countdown';
 
 
 function Item({ seller }) {
 const[item, setItem] = useState({})
 const {id}= useParams();
 const [bid, setBid] = useState('')
-var date1 = new Date('9/11/2022');
-console.log(Date.now())
+// const [date, setDate] = useState(0)
+
+
      function handleSubmit(e) {
        e.preventDefault()
        fetch(`/api/bids`,{
@@ -49,14 +51,30 @@ console.log(Date.now())
     useEffect(() => {
     fetch(`/api/products/${id}`)
     .then(response => response.json())
-    .then( data => setItem(data))
+    .then( data => {
+      setItem(data)
+    })
     
 
     },[])
 
+    // const dateStr = '04/11/2022';
+    // let date = new Date(dateStr);
+    // let dataa = (Date.parse(item?.date) - Date.now() )/1000
+    // console.log(dataa);
 
+    let date = item?.date
+    let time = date?.slice(11, 16)
+    let date1 = date?.slice(0, 10).split('-').reverse().join('-')
+
+    let description1= item?.description
+    let description2 = description1?.slice(0, 20)
+    
   return (
+    
+
     <div className='header1'>
+      
     <div className="block aboutBlock" style={{ margin: 'px 15px' }}>
       <div className='container-fluid'>
         <div>
@@ -83,19 +101,17 @@ console.log(Date.now())
                     <h3>Current Highest Bid <strong>:</strong></h3>
                     <div>Ksh. {item.current_bid}</div>
                   </div>
+                  </div>
                   
-                </div>
+                
+                <div style={{ padding: '12px 0' }}>
+                  <h3>Bidding Time Ends at: </h3>
+                
+                  <p>Date: {date1}<br/>Time: {time} hrs</p>
+                  {/* <Timer date={ dataa }/> */}
+                  
 
                 <div style={{ padding: '12px 0' }}>
-                  <h3>Bidding Time Remaining </h3>
-                  <p>Days:Hours:Minutes:Seconds</p>
-                  <Timer date={Date.now() +500000000}/>
-                </div>
-
-                <div style={{ padding: '12px 0' }}>
-               
-
-                  
 
                  <form onSubmit={handleSubmit}>
                   <Input.Group compact>
@@ -114,6 +130,7 @@ console.log(Date.now())
                   <Button type="" style={{ backgroundColor: '#c09753', color: '#fff' }}>View all bids</Button> 
                 </div>
               </div>
+              </div>
             </Col>
           </Row>
         </div>
@@ -123,8 +140,9 @@ console.log(Date.now())
               <div>
                 <h2 className='titleHolder'>Descriptions</h2>
               </div>
+            
               <div>
-                <p>French carved wood and upholstered bergère chairs</p>
+                <p>{description2}</p>
                 <p>{item.description}</p>
               </div>
             </Col>
