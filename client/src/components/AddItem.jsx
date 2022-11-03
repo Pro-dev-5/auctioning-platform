@@ -87,17 +87,19 @@ function AddItem({ seller }) {
 
   return (
     <>
+     <div style={{ marginLeft: '50px', marginTop: '100px'}}>
+            <h2>Add New Product</h2>
+          </div>
+          <hr></hr>
       <div className="mother" style={{ display: "flex" }}>
         <div>
           <img
             src="../public/images/undraw_add_post_re_174w.svg"
-            style={{ marginTop: "200px" }}
+            style={{ marginTop: "160px" }}
           />
         </div>
         <div>
-          <div style={{ textAlign: "center" }}>
-            <h2>Add New Product</h2>
-          </div>
+         
           <div className="seller-form-all">
             <ToastContainer />
 
@@ -225,9 +227,18 @@ function AddItem({ seller }) {
                 type="submit"
                 htmlType="submit"
                 onClick={handleSubmit}
-                style={{ backgroundColor: "#c09753", marginRight: "150px" }}
+                style={{ backgroundColor: "#c09753", marginRight: "100px" }}
               >
                 Submit
+              </Button>
+              <Button
+                // type="submit"
+                // htmlType="submit"
+                // onClick={handleSubmit}
+                style={{ backgroundColor: "#c09753", marginRight: "50px" }}
+                onClick={() => navigate("/sellerhome")}
+              >
+                Back
               </Button>
             </form>
           </div>
