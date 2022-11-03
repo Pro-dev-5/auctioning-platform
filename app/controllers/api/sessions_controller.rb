@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
 			session[:user_id] = user.id
 			render json: user, status: 201
 		else
-			render json: {errors: ["Invalid username or password"]}
+			render json: {errors: ["Invalid username or password"]}, status: 404
 		end
 	end
 

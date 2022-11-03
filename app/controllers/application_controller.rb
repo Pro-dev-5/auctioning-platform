@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
 	include ActionController::Cookies
 	before_action :authenticated_user
 	before_action :authorized_as_seller
+	rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable
 
 	private
 	
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::API
 
 	def authenticated_user
 		render json: {errors: ["Not authorized"]}, status: 401 unless session.include? :user_id
+	end
+
+	def render_unprocessable(invalid)
+		render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
 	end
 end
