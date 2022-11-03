@@ -3,45 +3,48 @@ import '../styles/Item.css'
 import { Row, Col, Button, Input } from 'antd'
 import { json, useNavigate, useParams } from 'react-router-dom';
 
+import Timer from './Timer'
+
+
 function Item({ seller }) {
 const[item, setItem] = useState({})
 const {id}= useParams();
 const [bid, setBid] = useState('')
-		
-
-    function handleSubmit(e) {
-      e.preventDefault()
-      fetch(`/api/bids`,{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          product_id: item.id,
-          bid_placed: bid,
-          user_id: seller.id
-        })
-      })
-      .then(res => {
-				if(res.status === 401){
-					res.json().then(mes=>toast(mes?.errors[0]))
-					navigate('/login')
-				}
-				if(res.ok){
-					res.json().then(()=>{
-						setItem({...item, [item.current_bid]: bid})
-						toast(`Bid placed successfully, and is now ${bid}`)
-					})
-				}
-				if(res.status === 500){
-					res.json().then(()=>toast("Field cannot be empty"))
-				}
-				if(res.status === 422){
-					res.json().then((err)=>toast(err.errors[0]))
-				}
-			})
-      document.querySelector("form").reset()
-    }
+var date1 = new Date('9/11/2022');
+console.log(Date.now())
+     function handleSubmit(e) {
+       e.preventDefault()
+       fetch(`/api/bids`,{
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json"
+         },
+         body: JSON.stringify({
+           product_id: item.id,
+           bid_placed: bid,
+           user_id: seller.id
+         })
+       })
+       .then(res => {
+		 		if(res.status === 401){
+		 			res.json().then(mes=>toast(mes?.errors[0]))
+		 			navigate('/login')
+		 		}
+		 		if(res.ok){
+		 			res.json().then(()=>{
+		 				setItem({...item, [item.current_bid]: bid})
+		 				toast(`Bid placed successfully, and is now ${bid}`)
+		 			})
+		 		}
+		 		if(res.status === 500){
+		 			res.json().then(()=>toast("Field cannot be empty"))
+		 		}
+		 		if(res.status === 422){
+		 			res.json().then((err)=>toast(err.errors[0]))
+		 		}
+		 	})
+       document.querySelector("Input.Group").reset()
+     }
 
     useEffect(() => {
     fetch(`/api/products/${id}`)
@@ -80,9 +83,21 @@ const [bid, setBid] = useState('')
                     <h3>Current Highest Bid <strong>:</strong></h3>
                     <div>Ksh. {item.current_bid}</div>
                   </div>
+                  
                 </div>
+
                 <div style={{ padding: '12px 0' }}>
-                  <form onSubmit={handleSubmit}>
+                  <h3>Bidding Time Remaining </h3>
+                  <p>Days:Hours:Minutes:Seconds</p>
+                  <Timer date={Date.now() +500000000}/>
+                </div>
+
+                <div style={{ padding: '12px 0' }}>
+               
+
+                  
+
+                 <form onSubmit={handleSubmit}>
                   <Input.Group compact>
                     <Input
                       style={{
@@ -91,11 +106,12 @@ const [bid, setBid] = useState('')
                       placeholder="Enter amount" 
                       value={bid} onChange={(e) => setBid(e.target.value)}
                     />
-                    <Button  style={{ backgroundColor: '#f3c180', marginRight: '4px' }}>Place Bid</Button>
+                    <Button  style={{ backgroundColor: '#f3c180', marginRight: '4px' }} onClick={handleSubmit}>Place Bid</Button>
                   </Input.Group>
-                  </form>
+                  </form> 
+
                   <br/>
-                  <Button type="" style={{ backgroundColor: '#c09753', color: '#fff' }}>View all bids</Button>
+                  <Button type="" style={{ backgroundColor: '#c09753', color: '#fff' }}>View all bids</Button> 
                 </div>
               </div>
             </Col>
@@ -118,6 +134,7 @@ const [bid, setBid] = useState('')
         </div>
       </div>      
     </div>
+    
     </div>
   )
 }
