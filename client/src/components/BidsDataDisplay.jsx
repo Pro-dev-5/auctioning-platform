@@ -33,68 +33,6 @@ import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
 function BidsDataDisplay() {
-<<<<<<< HEAD
-
-    const navigate = useNavigate();
-	const [product, setProduct] = useState([])
-  const [formData, setFormData] = useState({
-    productName: "",
-    latestBidPrice: "",
-    currentUser: "",
-    category_id: "",
-  });
-
-  useEffect(()=>{
-    fetch(`/api/categories`)
-    .then(res=>res.json())
-    .then(data => setProduct(data))
-
-    .catch(err=>toast(err.message))
-  }, [])
-
-  function handleSubmit(e){
-    e.preventDefault()
-		try {
-			fetch(`/api/products`,{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-					productName: formData.productName,
-					latestBidPrice: formData.latestBidPrice,
-					currentUser: formData.currentUser,
-					category_id: formData.category_id,
-				})
-    })
-    .then(r =>{
-			if(r.ok){
-				r.json().then(()=>{
-					toast("Bid placed successiful")
-					// navigate('/')
-				})
-			}
-		})
-		} catch (error) {
-			console.log(error.message)
-		}
-
-    setFormData({
-    productName: "",
-    latestBidPrice: "",
-    currentUser: "",
-    category_id: "",
-    
-    })
-	}
-	
-	function handleChange(e){
-    setFormData({
-        ...formData, [e.target.name]: e.target.value,
-    });
-	}  
-
-=======
     const [art, setArt] = useState([]);
 
     useEffect(() => {
@@ -129,7 +67,6 @@ function BidsDataDisplay() {
 
     function BidsCard({ item }) {
     const navigate = useNavigate()
->>>>>>> 68ebff3b66e130155bc8d95e31f00546225f3c82
     return (
         <div style={{ marginBottom: '40px' }}>
         <div>
@@ -137,18 +74,6 @@ function BidsDataDisplay() {
             <Row gutter={[40, 40]}>
                 <Col span={8}>
                 <Card
-<<<<<<< HEAD
-                title="Card title"
-                bordered={true}
-                style={{
-                    width: 300,
-                }}
-                >
-                <p>Product Name</p>
-                <p>Latest bid</p>
-                <p>Current User</p>
-                <p>Category</p>
-=======
                     title="Card title"
                     bordered={true}
                     style={{
@@ -166,7 +91,6 @@ function BidsDataDisplay() {
                     <p style={{fontSize: "10px", color: "#333333"}}>Time: {item.time}</p>
                     
                     </div>
->>>>>>> 68ebff3b66e130155bc8d95e31f00546225f3c82
                 </Card>
                 </Col>
             </Row>
