@@ -322,8 +322,4 @@ export default AddItem;
       </form> */
 }
 
-{
-  /* <button onClick={() => navigate("/sellerhome")}>
-          View My Products
-        </button> */
-}
+
