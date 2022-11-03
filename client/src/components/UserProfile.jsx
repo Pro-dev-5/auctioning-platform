@@ -2,20 +2,14 @@ import { Button, Card, Col, Row } from 'antd'
 import React from 'react'
 
 function UserProfile() {
+
 	return (
-		<div style={{marginTop: '7em'}}>
+		<div style={{marginTop: '8em'}}>
 			 <Row gutter={[40, 40]}>
             <Col span={8}>
               <Card
                 hoverable
                 style={{ width: '27em' }}
-                cover={
-                  <img
-                    alt=""
-                    src={"/images/artwork.jpeg"}
-                    style={{height: '200px'}}
-                  />
-                }
               >
                 <div className="cardcontent">
                   <h4 style={{fontSize: "20px", color: "#F3C180"}}>Content</h4>
