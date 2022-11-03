@@ -1,28 +1,3 @@
-// import React from 'react'
-// import { Card } from 'antd';
-
-// function BidsDataDisplay() {
-//     return (
-//         <div className='block aboutBlock' style={{ marginTop: "80px", height: "65vh"}}>
-//             <div className="site-card-border-less-wrapper container-fluid">
-//                 <Card
-//                 title="Card title"
-//                 bordered={true}
-//                 style={{
-//                     width: 300,
-//                 }}
-//                 >
-//                 <p>Card content</p>
-//                 <p>Card content</p>
-//                 <p>Card content</p>
-//                 </Card>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default BidsDataDisplay
-
 import React from "react";
 import { Card } from "antd";
 import { useState } from "react";
@@ -74,21 +49,16 @@ function BidsDataDisplay() {
             <Row gutter={[40, 40]}>
                 <Col span={8}>
                 <Card
-                    title="Card title"
+                    title={item.name}
                     bordered={true}
                     style={{
                         width: 300,
                     }}
                     >
-                    <p>Card content</p>
-                    <p>Card content</p>
-                    <p>Card content</p>
-{/* //                 </Card> */}
                     <div className="cardcontent">
-                    <h4 style={{fontSize: "20px", color: "#F3C180"}}>{item.name}</h4>
-                    <p style={{fontSize: "15px", color: "#333333"}}>Start Price: {item.starting_price}</p>
-                    <p style={{fontSize: "12px", color: "#333333"}}>Location: {item.location}</p>
-                    <p style={{fontSize: "10px", color: "#333333"}}>Time: {item.time}</p>
+                    <h4 style={{fontSize: "20px", color: "#F3C180"}}>Item category</h4>
+                    <p style={{fontSize: "12px", color: "#333333"}}>Latest highest bid: {}</p>
+                    <p style={{fontSize: "10px", color: "#333333"}}>Bid placed: {}</p>
                     
                     </div>
                 </Card>

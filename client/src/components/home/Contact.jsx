@@ -16,7 +16,15 @@ function AppContact() {
                     </Col>
                     <Col span={12}>
                         <div style={{ width: '100%', fontFamily: 'Nunito', color: '#65676d' }}>                            
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, totam dolor nemo vero laudantium quam? Quisquam vero facilis dignissimos aliquam consequatur! Velit necessitatibus quaerat, alias ipsum corrupti deleniti ad consequuntur.</p>
+                            <p>
+                                Thank you for your interest in our online bidding website.
+                                If you have any questions or concerns regarding our online bidding process,
+                                please do not hesitate to contact us.
+                                We would be more than happy to assist you.
+                                Thank you for your interest in our online bidding process.
+                                If you have any questions or comments, please feel free to contact us.
+                                We look forward to hearing from you soon.
+                            </p>
                             <Row gutter={[32, 32]} align="middle" justify='space-between' wrap="true">
                                 <Col span={8}>
                                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
