@@ -24,6 +24,7 @@ import 'antd/dist/antd.css';
 import { ToastContainer } from 'react-toastify';
 import UserProfile from './UserProfile';
 import Update from './Update';
+import ProfileForm from './ProfileForm';
 
 const { Header, Content, Footer } = Layout;
 
@@ -66,6 +67,7 @@ function App() {
                         <Route  path="/bidsdatadisplay" element={<BidsDataDisplay />} />
                         <Route  path="/profile" element={<UserProfile />} />
                         <Route  path="/update/:id" element={<Update seller={seller}/>} />
+												<Route  path="/profileform" element={<ProfileForm />} />
                     </Routes>
                 </Content>
                 <Footer>
