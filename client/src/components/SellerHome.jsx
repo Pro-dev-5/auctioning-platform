@@ -6,7 +6,6 @@ import "../styles/SellerHome.css";
 import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
-
 function SellerHome({ seller }) {
   const [myProducts, setMyProducts] = useState([]);
   const navigate = useNavigate();
@@ -35,64 +34,75 @@ function SellerHome({ seller }) {
   }
 
   return (
-    <div style={{ marginTop: "150px" }}>
-      <div>
-        <button onClick={()=>navigate('/add-item')}>Add New Products</button>
-        <h1>My Products</h1>
+    <>
+      <div style={{ float: "right", marginTop: "100px" }}>
+        <div>
+          <button
+            style={{ backgroundColor: "gold", marginRight: '20px' }}
+            onClick={() => navigate("/add-item")}
+          >
+            Add New Products
+          </button>
+        </div>
+        {/* <div>
+          <img src="../public/images/add.svg" style={{ height: "150px" }} />
+        </div> */}
       </div>
-
-      <div className="art-img">
-        <div className="my-card">
-          <div className="container-fluid">
-            <Row gutter={[40, 40]}>
-              {(Array.isArray(myProducts) ? myProducts : [])
-                .filter((product) => product.user_id === seller?.id)
-                .map((product) => {
-                  return (
-                    <>
-                      <Col span={8}>
-                        <Card
-                          hoverable
-                          style={{ width: 300 }}
-                          cover={
-                            <img
-                              alt=""
-                              src={product.image_1}
-                              style={{ height: "200px" }}
-                            />
-                          }
-                        >
-                          <div className="cardcontent">
-                            <h4>{product.name}</h4>
-                            <p>Location: {product.location}</p>
-                            <p>Start Price: {product.starting_price}</p>
-                            <p>Time: {product.time}</p>
-                            <p>Description: {product.description}</p>
-                            <div>
-                              <button
-                                className="crud"
-                                onClick={() => navigate("/update")}
-                              >
-                                Edit Product Details
-                              </button>
-                              <button
-                                className="crud"
-                                onClick={() => handleDelete(product.id)}
-                              >
-                                Delete
-                              </button>
+      <hr></hr>
+      <div style={{ marginTop: "150px", marginBottom: "50px" }}>
+        <div className="art-img">
+          <div className="my-card">
+            <div className="container-fluid">
+              <Row gutter={[40, 40]}>
+                {(Array.isArray(myProducts) ? myProducts : [])
+                  .filter((product) => product.user_id === seller?.id)
+                  .map((product) => {
+                    return (
+                      <>
+                        <Col span={8}>
+                          <Card
+                            hoverable
+                            style={{ width: 300 }}
+                            cover={
+                              <img
+                                alt=""
+                                src={product.image_1}
+                                style={{ height: "200px" }}
+                              />
+                            }
+                          >
+                            <div className="cardcontent">
+                              <h4>{product.name}</h4>
+                              <p>Location: {product.location}</p>
+                              <p>Start Price: {product.starting_price}</p>
+                              <p>Time: {product.time}</p>
+                              <p>Description: {product.description}</p>
+                              <div>
+                                <button
+                                  className="crud"
+                                  onClick={() => navigate("/update")}
+                                >
+                                  Edit Product Details
+                                </button>
+                                <button
+                                  className="crud"
+                                  onClick={() => handleDelete(product.id)}
+                                >
+                                  Delete
+                                </button>
+                              </div>
                             </div>
-                          </div>
-                        </Card>
-                      </Col>
-                    </>
-                  );
-                })}
-            </Row>
+                          </Card>
+                        </Col>
+                      </>
+                    );
+                  })}
+              </Row>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
