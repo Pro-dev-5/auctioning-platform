@@ -59,6 +59,7 @@ function ArtCard({ item }) {
                         ? "/images/artwork.jpeg"
                         : item.image_1
                     }
+                    style={{height: '200px'}}
                   />
                 }
               >
