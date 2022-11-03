@@ -10,25 +10,27 @@ function AppFaq() {
                     Frequently Asked Questions
                 </div>
                 <Collapse defaultActiveKey={[1]} style={{ width: '98.3%', color: '#65676d', fontFamily: 'Nunito' }}>
-                    <Panel header="How is the stuff sold? Can I just buy stuff outright? How do I bid?" key="1">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate repellendus laborum eligendi numquam quaerat tempora ex, delectus ipsa unde quibusdam.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate repellendus laborum eligendi numquam quaerat tempora ex, delectus ipsa unde quibusdam.</p>
+                    <Panel header="How are the products sold? Can I just buy products outright? How do I bid?" key="1">
+                        <p>Bidding products are sold through a bidding process. This process allows customers to place bids on products that they are interested in. The highest bidder wins the product.</p>
+                        <p>In our application, it is generally recommended that you do not buy the product outright so as to enhance security and better customer service.
+                            You can try to buy outright, but the seller may not be willing to sell the item outside of the auction.
+                        </p>
                     </Panel>
                     <Panel header="What do I need to do, and what does “register or login” mean?" key="2">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, suscipit. Maxime eligendi placeat a minus, minima dolorem in ab ea.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, suscipit. Maxime eligendi placeat a minus, minima dolorem in ab ea.</p>
+                        <p>You will need to create an account on our website in order to purchase products, access your order history, and manage your account information. Creating an account is quick, easy, and free!</p>
+                        <p>"Register or login" means that the visitor needs to either register for the website, or login if they have already registered.</p>
                     </Panel>
-                    <Panel header="Where does all the stuff come from?" key="3">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
+                    <Panel header="Where does all the products come from?" key="3">
+                        <p>The products come from different parts of the country, depending on the seller's location.</p>
+                        {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p> */}
                     </Panel>
                     <Panel header="When do I pay? What forms of payment do you take?" key="4">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
+                        <p>After the sale closes, we will send you an invoice by email. Payment is due within 3 days of the close of the sale. We take credit cards, cash, checks and money orders.</p>
+                        {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p> */}
                     </Panel>
-                    <Panel header="I just paid, can I take my item? What if my item doesn’t fit in my car can I get it later?" key="5">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum reiciendis asperiores maiores voluptates nesciunt. Unde mollitia perferendis tempore voluptate architecto.</p>
+                    <Panel header="I am new to online bidding. How does the process work?" key="6">
+                        <p>Registering to bid is quick and easy. Simply click on the 'Register to Bid' link at the top of the page and fill out the registration form. Once your registration is complete and approved, you will be ready to start bidding!</p>
+                        <p>To bid on an item, simply click the 'Bid Now' button on the item page. Enter your bid amount in the box and click 'Confirm Bid'. Your bid is not complete until you click 'Confirm Bid'.</p>
                     </Panel>
                 </Collapse>
             </div>

@@ -10,6 +10,7 @@ import Item from './Item'
 import Jewellery from './Jewellery'
 import AddItem from './AddItem'
 import Mpesa from './mpesa';
+import BidsDataDisplay from './BidsDataDisplay';
 // import BuyerLogin from './BuyerLoginForm'
 // import BuyerSignup from './BuyerSignUpForm'
 // import SellerLogin from './SellerLoginForm'
@@ -25,7 +26,7 @@ import { ToastContainer } from 'react-toastify';
 const { Header, Content, Footer } = Layout;
 
 function App() {
-    // const url = "http://localhost:3000/api"
+   //const url = "http://localhost:3000/api"
     const [seller, setSeller] = useState({})
 
     useEffect(()=>{
@@ -38,11 +39,11 @@ function App() {
         <BrowserRouter>
             <Layout className='mainLayout'>
                 <Header>
-                    <AppHeader />
+                    <AppHeader seller={seller} />
                 </Header>
                 <Content>
                     <Routes>
-                        <Route  path="/" element={<AppHome />} />
+                        <Route  path="/" element={<AppHome seller={seller} />} />
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item seller={seller}/>} />
                         <Route  path="/ceramics" element={<Ceramics />} />
@@ -53,6 +54,7 @@ function App() {
                         <Route  path="/art" element={<Art />} />
                         
                         <Route  path="/sellerhome" element={<SellerHome />} />
+                        <Route  path="/bidsdatadisplay" element={<BidsDataDisplay />} />
                     </Routes>
                 </Content>
                 <Footer>

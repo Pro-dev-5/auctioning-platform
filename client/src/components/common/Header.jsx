@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
 const { Link } = Anchor;
 
-function AppHeader() {
+function AppHeader({seller}) {
     const [visible, setVisible] = useState(false);
     const navigate = useNavigate()
 
@@ -27,13 +27,15 @@ function AppHeader() {
     const onClose = () => {
         setVisible(false);
     };
+	const switchDisp = seller ? "none" : "flex"
+	const switchLogout = seller ? "block" : "none"
 
     return (
         <div>
             <div style={{ backgroundColor: '#fff' }}>
 
 <div className='container-fluid'>
-    <div style={{ display: 'flex', alignItems: 'center', padding: '4px 0', fontFamily: 'Nunito' }}>
+    <div style={{ display: {switchDisp}, alignItems: 'center', padding: '4px 0', fontFamily: 'Nunito' }}>
         <span style={{ marginRight: '6px' }}>Hi,</span>
         <span onClick={()=>navigate("/login")} style={{ color: '#f3c180', cursor: 'pointer' }}>Login</span>
         <span style={{ margin: '0 6px' }}>or</span>
@@ -61,7 +63,7 @@ function AppHeader() {
                     <Link href="/#faq" title="FAQ" />
                     <Link href="/#team" title="Team" />
                     <Link href="/#contact" title="Contact" />
-										<Link href='/'><span onClick={logOut}>Logout</span></Link>
+										<Link href='/'><span style={{display: {switchLogout}}} onClick={logOut}>Logout</span></Link>
                 </Anchor>
             </div>
             
@@ -82,6 +84,7 @@ function AppHeader() {
                             <Link href="/#faq" title="FAQ" />
                             <Link href="/#team" title="Team" />
                             <Link href="/#contact" title="Contact" />
+	                    <Link href='/'><span style={{display: {switchLogout}}} onClick={logOut}>Logout</span></Link>
                         </Anchor>
                     </Drawer>
                     </div>
