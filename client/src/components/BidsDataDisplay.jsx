@@ -1,10 +1,5 @@
-import React from "react";
-import { Card } from "antd";
-import { useState } from "react";
-import { useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import { Row, Col } from "antd";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { Card } from 'antd';
 
 function BidsDataDisplay() {
     const [BidsDataDisplay, setBidsDataDisplay] = useState([]);
@@ -43,11 +38,8 @@ function BidsDataDisplay() {
     const navigate = useNavigate()
     const [BidsCard, setBidsCard] = useState([]);
     return (
-        <div style={{ marginBottom: '40px' }}>
-        <div>
-            <div>
-            <Row gutter={[40, 40]}>
-                <Col span={8}>
+        <div className='block aboutBlock' style={{ marginTop: "80px", height: "65vh"}}>
+            <div className="site-card-border-less-wrapper container-fluid">
                 <Card
                 title={item.name}
                 bordered={true}
@@ -84,11 +76,8 @@ function BidsDataDisplay() {
                   {/* <Button onClick={()=>navigate(`/item/${item.id}`)} href="#category" style={{ color: "#585860", fontWeight: "bold", cursor: "pointer", border: "solid 1px #f3c180", borderRadius: "0px", width: '250px' }}>BID</Button> */}
                 </div>
                 </Card>
-                </Col>
-            </Row>
             </div>
         </div>
-        </div>
-    );
+    )
 }
-export default BidsDataDisplay;
+export default BidsDataDisplay

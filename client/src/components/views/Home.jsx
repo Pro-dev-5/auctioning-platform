@@ -58,7 +58,7 @@ function AppHome({seller}) {
                 </div>
             </div>
             <About />
-            <AppWork />
+            <AppWork seller={seller}/>
             <AppFaq />
             <AppTeam />
             <AppContact />
