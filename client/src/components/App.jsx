@@ -53,7 +53,7 @@ function App() {
                         <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
                         <Route  path="/art" element={<Art />} />
                         
-                        <Route  path="/sellerhome" element={<SellerHome />} />
+                        <Route  path="/sellerhome" element={<SellerHome seller={seller}/>} />
                         <Route  path="/bidsdatadisplay" element={<BidsDataDisplay />} />
                     </Routes>
                 </Content>
