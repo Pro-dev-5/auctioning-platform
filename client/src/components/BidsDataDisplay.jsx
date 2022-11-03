@@ -3,7 +3,6 @@ import { Card } from "antd";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-// import "../styles/ArtPage.css";
 import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
