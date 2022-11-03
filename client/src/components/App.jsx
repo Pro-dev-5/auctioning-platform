@@ -26,13 +26,8 @@ import { ToastContainer } from 'react-toastify';
 const { Header, Content, Footer } = Layout;
 
 function App() {
-<<<<<<< HEAD
   // const url = "http://localhost:3000/api"
   const [seller, setSeller] = useState({});
-=======
-   //const url = "http://localhost:3000/api"
-    const [seller, setSeller] = useState({})
->>>>>>> 23f76472b5aad50638f0b5fb23ffd34f12a2ddb9
 
     useEffect(()=>{
       fetch('/api/me')
