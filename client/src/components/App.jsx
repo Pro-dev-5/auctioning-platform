@@ -39,11 +39,11 @@ function App() {
         <BrowserRouter>
             <Layout className='mainLayout'>
                 <Header>
-                    <AppHeader />
+                    <AppHeader seller={seller} />
                 </Header>
                 <Content>
                     <Routes>
-                        <Route  path="/" element={<AppHome />} />
+                        <Route  path="/" element={<AppHome seller={seller} />} />
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item seller={seller}/>} />
                         <Route  path="/ceramics" element={<Ceramics />} />
