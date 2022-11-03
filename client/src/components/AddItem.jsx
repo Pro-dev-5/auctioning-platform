@@ -152,7 +152,7 @@ function AddItem({ seller }) {
 
         <label>Date</label>
         <input
-          type="date"
+          type="datetime-local"
           name="date"
           value={formData.date}
           onChange={handleChange}
@@ -173,6 +173,7 @@ function AddItem({ seller }) {
         <input type='submit' />
         
       </form>
+
 			<button onClick={() => navigate('/sellerhome')}>View My Products</button>
       </div>
 			
