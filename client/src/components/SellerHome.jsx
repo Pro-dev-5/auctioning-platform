@@ -7,11 +7,11 @@ import { Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 
 function SellerHome({ seller }) {
-  const [myProducts, setMyProducts] = useState([]);
+  const [myProducts, setMyProducts] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`/api/products`)
+    fetch(`/api/users/${seller.id}`)
       .then((res) => {
         if (res.ok) {
           res.json().then(setMyProducts);
@@ -32,6 +32,10 @@ function SellerHome({ seller }) {
     });
     setMyProducts(afterDelete);
   }
+
+	function closeBid(id){
+	
+	}
 
   return (
     <>
@@ -54,9 +58,7 @@ function SellerHome({ seller }) {
           <div className="my-card">
             <div className="container-fluid">
               <Row gutter={[40, 40]}>
-                {(Array.isArray(myProducts) ? myProducts : [])
-                  .filter((product) => product.user_id === seller?.id)
-                  .map((product) => {
+                {(Array.isArray(myProducts.products) ? myProducts.products : []).map((product) => {
                     return (
                       <>
                         <Col span={8}>
@@ -84,6 +86,9 @@ function SellerHome({ seller }) {
                                 >
                                   Edit Product Details
                                 </button>
+			    <button onClick={()=>closeBid(product.id)}>
+			    Close bid
+			    </button>
                                 <button
                                   className="crud"
                                   onClick={() => handleDelete(product.id)}

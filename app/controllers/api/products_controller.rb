@@ -30,7 +30,16 @@ class Api::ProductsController < ApplicationController
 	end
 
 	def sell
-		prod
+          prod = Product.find(params[:product_id])
+          bids = Bid.where("product_id=?", prod.id)
+          if bid != []
+            winning_bid = bid.last
+            winner = User.find(winning_bid.user_id)
+            prod.sold_to = winner.email
+          else
+            prod.sold_to = "failed"
+          end
+          render json: {Success: "Bidding complete"}, status: 200
 	end
 
 	private
