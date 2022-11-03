@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-function Login({ setSeller }) {
+function Login({ setSeller, setSwitchDisp }) {
 	const navigate = useNavigate()
 	const [form, setForm] = useState({
 		name: '',
@@ -22,9 +22,11 @@ function Login({ setSeller }) {
 				setSeller(jsonResp)
 				toast(`Success logged in as ${jsonResp.name}`)
 				navigate('/')
+				setSwitchDisp(true)
+				
 			}else{
 				const error = await resp.json()
-				console.log(error)
+				toast(error.errors[0])
 			}
 		} catch (error) {
 			toast(error.message)
@@ -38,7 +40,7 @@ function Login({ setSeller }) {
 
 	return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', marginTop: '10em' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
             <span style={{ marginRight: '8px', fontFamily: 'Averia Serif Libre', fontSize: '22px' }}>Login as:</span>

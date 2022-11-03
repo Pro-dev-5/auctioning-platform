@@ -26,31 +26,38 @@ import { ToastContainer } from 'react-toastify';
 const { Header, Content, Footer } = Layout;
 
 function App() {
-   //const url = "http://localhost:3000/api"
-    const [seller, setSeller] = useState({})
+  // const url = "http://localhost:3000/api"
+  const [seller, setSeller] = useState({});
+		const [switchDisp, setSwitchDisp] = useState(false)
 
     useEffect(()=>{
       fetch('/api/me')
-      .then(r => r.json())
-      .then(data => setSeller(data)) 
+      .then(r => {
+				if(r.ok){
+					r.json().then(setSeller)
+					setSwitchDisp(true)
+				}else{
+					setSwitchDisp(false)
+				}
+			})
     },[])
 
     return (
         <BrowserRouter>
             <Layout className='mainLayout'>
                 <Header>
-                    <AppHeader />
+                    <AppHeader switchDisp={switchDisp} setSwitchDisp={setSwitchDisp} />
                 </Header>
                 <Content>
                     <Routes>
-                        <Route  path="/" element={<AppHome />} />
+                        <Route  path="/" element={<AppHome seller={seller} />} />
                         <Route  path="/jewellery" element={<Jewellery  />} />
                         <Route  path="/item/:id" element={<Item seller={seller}/>} />
                         <Route  path="/ceramics" element={<Ceramics />} />
                         <Route  path="/mpesa" element={<Mpesa />} />
                         <Route  path="/add-item" element={<AddItem seller={seller}/>} />
-                        <Route  path="/login" element={<Login setSeller={setSeller}/>} />
-                        <Route  path="/signup" element={<SignUp setSeller={setSeller}/>} />
+                        <Route  path="/login" element={<Login setSeller={setSeller} setSwitchDisp={setSwitchDisp}/>} />
+                        <Route  path="/signup" element={<SignUp setSeller={setSeller} setSwitchDisp={setSwitchDisp}/>} />
                         <Route  path="/art" element={<Art />} />
                         
                         <Route  path="/sellerhome" element={<SellerHome />} />
