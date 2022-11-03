@@ -23,6 +23,7 @@ import '../styles/App.css';
 import 'antd/dist/antd.css';
 import { ToastContainer } from 'react-toastify';
 import UserProfile from './UserProfile';
+import ProfileForm from './ProfileForm';
 
 const { Header, Content, Footer } = Layout;
 
@@ -64,6 +65,7 @@ function App() {
                         <Route  path="/sellerhome" element={<SellerHome />} />
                         <Route  path="/bidsdatadisplay" element={<BidsDataDisplay />} />
                         <Route  path="/profile" element={<UserProfile />} />
+                        <Route  path="/profileform" element={<ProfileForm />} />
                     </Routes>
                 </Content>
                 <Footer>

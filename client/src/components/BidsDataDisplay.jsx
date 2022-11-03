@@ -55,9 +55,9 @@ function BidsDataDisplay() {
                     }}
                     >
                     <div className="cardcontent">
-                    <h4 style={{fontSize: "20px", color: "#F3C180"}}>Item category</h4>
-                    <p style={{fontSize: "12px", color: "#333333"}}>Latest highest bid: {}</p>
-                    <p style={{fontSize: "10px", color: "#333333"}}>Bid placed: {}</p>
+                    <h4 style={{fontSize: "20px", color: "#F3C180"}}>Item category:</h4>
+                    <p style={{fontSize: "12px", color: "#333333"}}>Latest highest bid:</p>
+                    <p style={{fontSize: "10px", color: "#333333"}}>Bid placed:</p>
                     
                     </div>
                 </Card>
