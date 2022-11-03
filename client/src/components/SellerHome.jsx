@@ -1,25 +1,27 @@
 import { Card } from "antd";
 import { useState } from "react";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "../styles/SellerHome.css";
 import { Row, Col } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function SellerHome({ seller }) {
-  const [myProducts, setMyProducts] = useState([]);
+function SellerHome() {
+  const [myProducts, setMyProducts] = useState({});
   const navigate = useNavigate();
+	const {id} = useParams()
 
   useEffect(() => {
-    fetch(`/api/products`)
-      .then((res) => {
-        if (res.ok) {
-          res.json().then(setMyProducts);
-        } else {
-          toast("Something went wrong with your request");
-        }
-      })
-      .catch((error) => console.log(error));
+			fetch(`/api/users/${id}`)
+				.then((res) => {
+					if (res.ok) {
+						res.json().then(setMyProducts);
+					} else {
+						res.json().then(err=> toast((err.errors[0] || err.message)))
+					}
+				})
+				.catch((error) => console.log(error));
+    
   }, []);
 
   function handleDelete(deletedProductId) {
@@ -33,12 +35,29 @@ function SellerHome({ seller }) {
     setMyProducts(afterDelete);
   }
 
+	function closeBid(id){
+		fetch('/api/sell',{
+			method: "POST", headers:{"content-type": "application/json"}, 
+			body: JSON.stringify({
+				product_id: id
+			})
+		})
+		.then(res=>{
+			if(res.ok){
+				res.json().then(stat=> toast(stat.Success))
+			}else{
+				res.json().then(err=> toast(err.errors[0]))
+			}
+		})
+		.catch(err=> toast(err.message))
+	}
+
   return (
     <>
       <div style={{ float: "right", marginTop: "100px" }}>
         <div>
           <button
-            style={{ backgroundColor: "gold", marginRight: '20px' }}
+            style={{ color: "#f3c180", marginRight: '20px', backgroundColor: "#fff", fontWeight: 800 }}
             onClick={() => navigate("/add-item")}
           >
             Add New Products
@@ -54,11 +73,9 @@ function SellerHome({ seller }) {
           <div className="my-card">
             <div className="container-fluid">
               <Row gutter={[40, 40]}>
-                {(Array.isArray(myProducts) ? myProducts : [])
-                  .filter((product) => product.user_id === seller?.id)
-                  .map((product) => {
+                {(Array.isArray(myProducts.products) ? myProducts.products : []).map((product) => {
                     return (
-                      <>
+                      <div key={product.id}>
                         <Col span={8}>
                           <Card
                             hoverable
@@ -75,26 +92,30 @@ function SellerHome({ seller }) {
                               <h4>{product.name}</h4>
                               <p>Location: {product.location}</p>
                               <p>Start Price: {product.starting_price}</p>
-                              <p>Time: {product.time}</p>
-                              <p>Description: {product.description}</p>
-                              <div>
-                                <button
+															<p>Date: {product.time.slice(0, 10).split('-').reverse().join('-')}</p>
+                              <p>Time: {product.time.slice(11)}</p>
+                              <div style={{display: 'flex', flexDirection: 'column'}}>
+                                <a
                                   className="crud"
-                                  onClick={() => navigate("/update")}
+                                  href={`/update/${product.id}`}
                                 >
                                   Edit Product Details
-                                </button>
+                                </a>
+			    											<button onClick={()=>closeBid(product.id)}>
+			    											Close bid
+			    											</button>
                                 <button
                                   className="crud"
                                   onClick={() => handleDelete(product.id)}
                                 >
                                   Delete
                                 </button>
+																<ToastContainer/>
                               </div>
                             </div>
                           </Card>
                         </Col>
-                      </>
+                      </div>
                     );
                   })}
               </Row>

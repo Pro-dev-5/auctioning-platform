@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 
-function Update() {
+function Update({ seller }) {
 const navigate = useNavigate();
   const [category, setCategory] = useState([]);
   const { id } = useParams();
@@ -25,7 +25,7 @@ const navigate = useNavigate();
   useEffect(() => {
     fetch(`/api/products`).then((res) => {
       if (res.ok) {
-        res.json().then(setMyProducts);
+        res.json().then(console.log);
       } else {
         toast("Something went wrong with your request");
       }
@@ -65,7 +65,7 @@ const navigate = useNavigate();
   return (
     <>
       <div>Update</div>
-      <button onClick={() => navigate("/sellerhome")}>Back</button>
+      <button onClick={() => navigate(`/sellerhome/${seller.id}`)}>Back</button>
     </>
   );
 }

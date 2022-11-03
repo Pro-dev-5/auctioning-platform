@@ -56,7 +56,7 @@ function AddItem({ seller }) {
         if (r.ok) {
           r.json().then(() => {
             toast("Product added successfully 😊");
-            navigate("/sellerhome");
+            navigate(`/sellerhome/${seller.id}`);
           });
         }
       });
@@ -177,17 +177,6 @@ function AddItem({ seller }) {
               />
               <br />
 
-              <label>Bid Start Date: </label>
-              <input
-                type="datetime-local"
-                name="time"
-                value={formData.time}
-                onChange={handleChange}
-                required={true}
-                style={{ width: "70%", marginTop: "20px" }}
-              />
-              <br />
-
               <label>Bid End Date: </label>
               <input
                 type="datetime-local"
@@ -227,7 +216,7 @@ function AddItem({ seller }) {
                 type="submit"
                 htmlType="submit"
                 onClick={handleSubmit}
-                style={{ backgroundColor: "#c09753", marginRight: "100px" }}
+                style={{ backgroundColor: "#f3c180", marginRight: "100px" }}
               >
                 Submit
               </Button>
@@ -235,8 +224,8 @@ function AddItem({ seller }) {
                 // type="submit"
                 // htmlType="submit"
                 // onClick={handleSubmit}
-                style={{ backgroundColor: "#c09753", marginRight: "50px" }}
-                onClick={() => navigate("/sellerhome")}
+                style={{ backgroundColor: "#f3c180", marginRight: "50px" }}
+                onClick={() => navigate(`/sellerhome/${seller.id}`)}
               >
                 Back
               </Button>
