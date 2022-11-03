@@ -29,6 +29,10 @@ class Api::ProductsController < ApplicationController
 		render json: {}, status: :accepted
 	end
 
+	def sell
+		prod
+	end
+
 	private
 
 	def find_prod
