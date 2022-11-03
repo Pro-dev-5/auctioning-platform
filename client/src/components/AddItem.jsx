@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "../styles/AddItem.css";
 import { useNavigate } from "react-router-dom";
-import { Button, Form} from "antd";
+import { Button } from "antd";
 
 function AddItem({ seller }) {
   const layout = {
@@ -56,7 +56,7 @@ function AddItem({ seller }) {
         if (r.ok) {
           r.json().then(() => {
             toast("Product added successfully 😊");
-            navigate('/sellerhome')
+            navigate("/sellerhome");
           });
         }
       });
@@ -76,7 +76,6 @@ function AddItem({ seller }) {
       category_id: 0,
       description: "",
     });
-    
   }
 
   function handleChange(e) {
@@ -88,146 +87,157 @@ function AddItem({ seller }) {
 
   return (
     <>
-      <div className="seller-form-all">
+      <div className="mother" style={{ display: "flex" }}>
         <div>
-          <h2>Add New Product</h2>
+          <img
+            src="../public/images/undraw_add_post_re_174w.svg"
+            style={{ marginTop: "200px" }}
+          />
         </div>
-        <ToastContainer />
+        <div>
+          <div style={{ textAlign: "center" }}>
+            <h2>Add New Product</h2>
+          </div>
+          <div className="seller-form-all">
+            <ToastContainer />
 
-        <Form onSubmit={handleSubmit}>
-          <Form.Item>
-            <label>Select category?</label>
-            <select
-              onChange={handleChange}
-              name="category_id"
-              value={formData.category_id}
-              style={{ width: "20%" }}
+            <form
+              onSubmit={handleSubmit}
+              style={{ marginLeft: "200px", textAlign: "right" }}
             >
-              <option>Select--</option>
-              {(Array.isArray(category) ? category : []).map((cat) => {
-                return (
-                  <option value={cat.id} key={cat.id}>
-                    {cat.name}
-                  </option>
-                );
-              })}
-            </select>
-          </Form.Item>
-          <Form.Item>
-            <label>Image 1</label>
-            <input
-              type="text"
-              name="image_1"
-              value={formData.image_1}
-              onChange={handleChange}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
+              <label>Select category: </label>
 
-          <Form.Item>
-            <label>Image 2</label>
-            <input
-              type="text"
-              name="image_2"
-              value={formData.image_2}
-              onChange={handleChange}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
-          <Form.Item>
-            <label>Image 3</label>
-            <input
-              type="text"
-              name="image_3"
-              value={formData.image_3}
-              onChange={handleChange}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
-          <Form.Item>
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required={true}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
-          <Form.Item>
-            <label>Location</label>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
-          <Form.Item>
-            <label>Bid Start Date</label>
-            <input
-              type="datetime-local"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              required={true}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
+              <select
+                onChange={handleChange}
+                name="category_id"
+                value={formData.category_id}
+                style={{ width: "70%" }}
+              >
+                <option>Select--</option>
+                {(Array.isArray(category) ? category : []).map((cat) => {
+                  return (
+                    <option value={cat.id} key={cat.id}>
+                      {cat.name}
+                    </option>
+                  );
+                })}
+              </select>
+              <br />
 
-          <Form.Item>
-            <label>Bid End Date</label>
-            <input
-              type="datetime-local"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required={true}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
+              <label>Image 1: </label>
+              <input
+                type="text"
+                name="image_1"
+                value={formData.image_1}
+                onChange={handleChange}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+              <br />
 
-          <Form.Item>
-            <label>Starting Price</label>
-            <input
-              type="number"
-              name="starting_price"
-              value={formData.starting_price}
-              onChange={handleChange}
-              required={true}
-              style={{ width: "20%" }}
-            />
-          </Form.Item>
+              <label>Image 2: </label>
+              <input
+                type="text"
+                name="image_2"
+                value={formData.image_2}
+                onChange={handleChange}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+              <br />
 
-          <Form.Item>
-            <label>Description</label>
-            <textarea
-              rows="4"
-              cols="50"
-              name="description"
-              form="usrform"
-              onChange={handleChange}
-              style={{ width: "20%" }}
-              value={formData.description}
-            >
-              Enter text here...
-            </textarea>
-          </Form.Item>
-          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-            <Button type="submit" htmlType="submit" onClick={handleSubmit}>
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
+              <label>Image 3: </label>
+              <input
+                type="text"
+                name="image_3"
+                value={formData.image_3}
+                onChange={handleChange}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+              <br />
+
+              <label>Name: </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required={true}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+              <br />
+
+              <label>Location: </label>
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+              <br />
+
+              <label>Bid Start Date: </label>
+              <input
+                type="datetime-local"
+                name="time"
+                value={formData.time}
+                onChange={handleChange}
+                required={true}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+              <br />
+
+              <label>Bid End Date: </label>
+              <input
+                type="datetime-local"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}
+                required={true}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+
+              <br />
+              <label>Starting Price: </label>
+              <input
+                type="number"
+                name="starting_price"
+                value={formData.starting_price}
+                onChange={handleChange}
+                required={true}
+                style={{ width: "70%", marginTop: "20px" }}
+              />
+              <br />
+
+              <label>Description: </label>
+              <textarea
+                rows="4"
+                cols="50"
+                name="description"
+                form="usrform"
+                onChange={handleChange}
+                style={{ width: "70%", marginTop: "20px" }}
+                value={formData.description}
+              >
+                Enter text here...
+              </textarea>
+              <br />
+              <Button
+                type="submit"
+                htmlType="submit"
+                onClick={handleSubmit}
+                style={{ backgroundColor: "#c09753", marginRight: "150px" }}
+              >
+                Submit
+              </Button>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );
 }
 
 export default AddItem;
-
 
 {
   /* <form className="seller-form" onSubmit={handleSubmit}>
@@ -321,5 +331,3 @@ export default AddItem;
         
       </form> */
 }
-
-
