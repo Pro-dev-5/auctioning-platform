@@ -15,16 +15,6 @@ import BidsDataDisplay from "./BidsDataDisplay";
 // import BuyerSignup from './BuyerSignUpForm'
 // import SellerLogin from './SellerLoginForm'
 // import SellerSignup from './SellerSignUpForm'
-<<<<<<< HEAD
-import Login from "./Login";
-import SignUp from "./Signup";
-import Ceramics from "./Ceramics";
-import SellerHome from "./SellerHome";
-import "../styles/App.css";
-import "antd/dist/antd.css";
-import { ToastContainer } from "react-toastify";
-import UserProfile from "./UserProfile";
-=======
 import Login from './Login';
 import SignUp from './Signup';
 import Ceramics from './Ceramics'
@@ -35,7 +25,6 @@ import { ToastContainer } from 'react-toastify';
 import UserProfile from './UserProfile';
 import Update from './Update';
 import ProfileForm from './ProfileForm';
->>>>>>> e8e7f1f461aad3ef2baf663acf36ad9b9edbfb8a
 
 const { Header, Content, Footer } = Layout;
 
@@ -55,48 +44,6 @@ function App() {
     });
   }, []);
 
-<<<<<<< HEAD
-  return (
-    <BrowserRouter>
-      <Layout className="mainLayout">
-        <Header>
-          <AppHeader switchDisp={switchDisp} setSwitchDisp={setSwitchDisp} />
-        </Header>
-        <Content>
-          <Routes>
-            <Route path="/" element={<AppHome seller={seller} />} />
-            <Route path="/jewellery" element={<Jewellery />} />
-            <Route path="/item/:id" element={<Item seller={seller} />} />
-            <Route path="/ceramics" element={<Ceramics />} />
-            <Route path="/mpesa" element={<Mpesa />} />
-            <Route path="/add-item" element={<AddItem seller={seller} />} />
-            <Route
-              path="/login"
-              element={
-                <Login setSeller={setSeller} setSwitchDisp={setSwitchDisp} />
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                <SignUp setSeller={setSeller} setSwitchDisp={setSwitchDisp} />
-              }
-            />
-            <Route path="/art" element={<Art />} />
-
-            <Route path="/sellerhome" element={<SellerHome />} />
-            <Route path="/bidsdatadisplay" element={<BidsDataDisplay />} />
-            <Route path="/profile" element={<UserProfile />} />
-          </Routes>
-        </Content>
-        <Footer>
-          <AppFooter />
-        </Footer>
-        <ToastContainer />
-      </Layout>
-    </BrowserRouter>
-  );
-=======
     return (
         <BrowserRouter>
             <Layout className='mainLayout'>
@@ -129,7 +76,6 @@ function App() {
             </Layout>
         </BrowserRouter>
     );
->>>>>>> e8e7f1f461aad3ef2baf663acf36ad9b9edbfb8a
 }
 
 export default App;
