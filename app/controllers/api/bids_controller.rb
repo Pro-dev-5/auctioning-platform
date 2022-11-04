@@ -21,6 +21,11 @@ class Api::BidsController < ApplicationController
 			return
 		end
 		
+		if prod.sold_to
+			render json: {errors: ["Product has already been sold"]}, status: 422
+			return
+		end
+
 		if bid.bid_placed > prod.starting_price && bid.bid_placed > prod.current_bid
 			bid.save!
 			prod.current_bid = bid.bid_placed

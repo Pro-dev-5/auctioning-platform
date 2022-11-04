@@ -49,7 +49,7 @@ function App() {
         <BrowserRouter>
             <Layout className='mainLayout'>
                 <Header>
-                    <AppHeader switchDisp={switchDisp} setSwitchDisp={setSwitchDisp} />
+                    <AppHeader switchDisp={switchDisp} setSwitchDisp={setSwitchDisp} seller={seller}/>
                 </Header>
                 <Content>
                     <Routes>
@@ -64,7 +64,7 @@ function App() {
                         <Route  path="/art" element={<Art />} />
                         
                         <Route  path="/sellerhome/:id" element={<SellerHome />} />
-                        <Route  path="/bidsdatadisplay" element={<BidsDataDisplay />} />
+                        <Route  path="/bidsdatadisplay" element={<BidsDataDisplay seller={seller}/>} />
                         <Route  path="/profile" element={<UserProfile />} />
                         <Route  path="/update/:id" element={<Update seller={seller}/>} />
 												<Route  path="/profileform" element={<ProfileForm />} />

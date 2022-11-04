@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 		post '/signup', to: 'users#create'
 		get '/auth', to: "auth#authorize"
 		post '/sell', to: "products#sell"
+		get '/showbuyer', to: "users#show_buyer"
 	end
 
 	get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

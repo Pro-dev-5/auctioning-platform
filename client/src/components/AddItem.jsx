@@ -24,6 +24,14 @@ function AddItem({ seller }) {
   });
 
   useEffect(() => {
+		fetch('/api/auth')
+		.then(res=>{
+			if(res.status === 401 || res.status === 404){
+				navigate('/')
+				res.json().then(err=> toast(err.errors[0]))
+			}
+		})
+
     fetch(`/api/categories`)
       .then((res) => res.json())
       .then((data) => setCategory(data))
@@ -87,33 +95,25 @@ function AddItem({ seller }) {
 
   return (
     <>
-     <div style={{ marginLeft: '50px', marginTop: '100px'}}>
+     <div style={{ marginTop: '10em'}}>
             <h2>Add New Product</h2>
           </div>
           <hr></hr>
-      <div className="mother" style={{ display: "flex" }}>
-        <div>
-          <img
-            src="../public/images/undraw_add_post_re_174w.svg"
-            style={{ marginTop: "160px" }}
-          />
-        </div>
-        <div>
          
           <div className="seller-form-all">
-            <ToastContainer />
+            
 
             <form
               onSubmit={handleSubmit}
-              style={{ marginLeft: "200px", textAlign: "right" }}
+							style={{ display: "flex", flexDirection: 'column', alignItems: 'center'}}
             >
               <label>Select category: </label>
-
+							
               <select
                 onChange={handleChange}
                 name="category_id"
                 value={formData.category_id}
-                style={{ width: "70%" }}
+
               >
                 <option>Select--</option>
                 {(Array.isArray(category) ? category : []).map((cat) => {
@@ -132,7 +132,7 @@ function AddItem({ seller }) {
                 name="image_1"
                 value={formData.image_1}
                 onChange={handleChange}
-                style={{ width: "70%", marginTop: "20px" }}
+								className="seller-form"
               />
               <br />
 
@@ -142,7 +142,7 @@ function AddItem({ seller }) {
                 name="image_2"
                 value={formData.image_2}
                 onChange={handleChange}
-                style={{ width: "70%", marginTop: "20px" }}
+								className="seller-form"
               />
               <br />
 
@@ -152,7 +152,7 @@ function AddItem({ seller }) {
                 name="image_3"
                 value={formData.image_3}
                 onChange={handleChange}
-                style={{ width: "70%", marginTop: "20px" }}
+								className="seller-form"
               />
               <br />
 
@@ -163,7 +163,7 @@ function AddItem({ seller }) {
                 value={formData.name}
                 onChange={handleChange}
                 required={true}
-                style={{ width: "70%", marginTop: "20px" }}
+								className="seller-form"
               />
               <br />
 
@@ -173,7 +173,7 @@ function AddItem({ seller }) {
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-                style={{ width: "70%", marginTop: "20px" }}
+								className="seller-form"
               />
               <br />
 
@@ -184,7 +184,7 @@ function AddItem({ seller }) {
                 value={formData.date}
                 onChange={handleChange}
                 required={true}
-                style={{ width: "70%", marginTop: "20px" }}
+								className="seller-form"
               />
 
               <br />
@@ -195,43 +195,27 @@ function AddItem({ seller }) {
                 value={formData.starting_price}
                 onChange={handleChange}
                 required={true}
-                style={{ width: "70%", marginTop: "20px" }}
+								className="seller-form"
               />
               <br />
 
               <label>Description: </label>
-              <textarea
-                rows="4"
-                cols="50"
-                name="description"
-                form="usrform"
+              <input
                 onChange={handleChange}
-                style={{ width: "70%", marginTop: "20px" }}
                 value={formData.description}
-              >
-                Enter text here...
-              </textarea>
+								className="seller-form"
+              />
               <br />
               <Button
                 type="submit"
                 htmlType="submit"
                 onClick={handleSubmit}
-                style={{ backgroundColor: "#f3c180", marginRight: "100px" }}
+                style={{ backgroundColor: "#f3c180"}}
               >
                 Submit
               </Button>
-              <Button
-                // type="submit"
-                // htmlType="submit"
-                // onClick={handleSubmit}
-                style={{ backgroundColor: "#f3c180", marginRight: "50px" }}
-                onClick={() => navigate(`/sellerhome/${seller.id}`)}
-              >
-                Back
-              </Button>
             </form>
-          </div>
-        </div>
+						<ToastContainer />
       </div>
     </>
   );

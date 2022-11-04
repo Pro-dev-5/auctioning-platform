@@ -1,71 +1,83 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
-function BidsDataDisplay() {
+function BidsDataDisplay({ seller }) {
 
     const navigate = useNavigate();
-	const [product, setProduct] = useState([])
-  const [formData, setFormData] = useState({
-    productName: "",
-    latestBidPrice: "",
-    currentUser: "",
-    category_id: "",
-  });
+	const [pers, setPers] = useState('')
+	const [data, setData] = useState({})
+  // const [formData, setFormData] = useState({
+  //   productName: "",
+  //   latestBidPrice: "",
+  //   currentUser: "",
+  //   category_id: "",
+  // });
 
   useEffect(()=>{
-    fetch(`/api/categories`)
-    .then(res=>res.json())
-    .then(data => setProduct(data))
+    fetch(`/api/showbuyer`)
+    .then(res=>{
+			if(res.ok){
+				res.json().then(console.log)
+			}
+			
+		})
 
     .catch(err=>toast(err.message))
   }, [])
 
-  function handleSubmit(e){
-    e.preventDefault()
-		try {
-			fetch(`/api/products`,{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-					productName: formData.productName,
-					latestBidPrice: formData.latestBidPrice,
-					currentUser: formData.currentUser,
-					category_id: formData.category_id,
-				})
-    })
-    .then(r =>{
-			if(r.ok){
-				r.json().then(()=>{
-					toast("Bid placed successiful")
-					// navigate('/')
-				})
-			}
-		})
-		} catch (error) {
-			console.log(error.message)
-		}
+	useEffect(()=>{
+		// fetch(`/api/`)
+	}, [])
 
-    setFormData({
-    productName: "",
-    latestBidPrice: "",
-    currentUser: "",
-    category_id: "",
+  // function handleSubmit(e){
+  //   e.preventDefault()
+	// 	try {
+	// 		fetch(`/api/products`,{
+  //       method: "POST",
+  //       headers: {
+  //           "Content-Type": "application/json"
+  //       },
+  //       body: JSON.stringify({
+	// 				productName: formData.productName,
+	// 				latestBidPrice: formData.latestBidPrice,
+	// 				currentUser: formData.currentUser,
+	// 				category_id: formData.category_id,
+	// 			})
+  //   })
+  //   .then(r =>{
+	// 		if(r.ok){
+	// 			r.json().then(()=>{
+	// 				toast("Bid placed successiful")
+	// 				// navigate('/')
+	// 			})
+	// 		}
+	// 	})
+	// 	} catch (error) {
+	// 		console.log(error.message)
+	// 	}
 
-    })
-	}
+  //   setFormData({
+  //   productName: "",
+  //   latestBidPrice: "",
+  //   currentUser: "",
+  //   category_id: "",
 
-	function handleChange(e){
-    setFormData({
-        ...formData, [e.target.name]: e.target.value,
-    });
-	}  
+  //   })
+	// }
+
+	// function handleChange(e){
+  //   setFormData({
+  //       ...formData, [e.target.name]: e.target.value,
+  //   });
+	// }  
 
     return (
         <div className='block aboutBlock' style={{ marginTop: "80px", height: "65vh"}}>
             <div className="site-card-border-less-wrapper container-fluid">
-                <Card
+                <ToastContainer/>
+								<Card
                 title="Card title"
                 bordered={true}
                 style={{

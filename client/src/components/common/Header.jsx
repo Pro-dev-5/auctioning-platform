@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
 const { Link } = Anchor;
 
-function AppHeader({ switchDisp, setSwitchDisp }) {
+function AppHeader({ switchDisp, setSwitchDisp, seller }) {
     const [visible, setVisible] = useState(false);
     const navigate = useNavigate()
 
@@ -64,7 +64,7 @@ function AppHeader({ switchDisp, setSwitchDisp }) {
                     <Link href="/#faq" title="FAQ" />
                     <Link href="/#team" title="Team" />
                     <Link href="/#contact" title="Contact" />
-										<Link href='/'><span style={{display: toggleLogOut}} onClick={logOut}>Logout</span></Link>
+										<Link href='/'><span style={{display: toggleLogOut}} title={seller.name} onClick={logOut}>Logout</span></Link>
                 </Anchor>
             </div>
             
@@ -85,7 +85,7 @@ function AppHeader({ switchDisp, setSwitchDisp }) {
                             <Link href="/#faq" title="FAQ" />
                             <Link href="/#team" title="Team" />
                             <Link href="/#contact" title="Contact" />
-	                    <Link href='/'><span style={{display: toggleLogOut}} onClick={logOut}>Logout</span></Link>
+	                    <Link href='/'><span style={{display: toggleLogOut}} title={seller.name} onClick={logOut}>Logout</span></Link>
                         </Anchor>
                     </Drawer>
                     </div>

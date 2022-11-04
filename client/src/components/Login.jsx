@@ -21,7 +21,7 @@ function Login({ setSeller, setSwitchDisp }) {
 				const jsonResp = await resp.json()
 				setSeller(jsonResp)
 				toast(`Success logged in as ${jsonResp.name}`)
-				navigate('/')
+				history.back()
 				setSwitchDisp(true)
 				
 			}else{
