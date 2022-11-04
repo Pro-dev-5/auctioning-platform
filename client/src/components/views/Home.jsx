@@ -51,7 +51,7 @@ function AppHome({seller}) {
                         <div className='titleHolder'>
                             Categories
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div className='categoryBlock'>
                             { allCategories }
                         </div>
                     </div>
