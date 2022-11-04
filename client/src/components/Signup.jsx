@@ -43,7 +43,7 @@ import { toast, ToastContainer } from 'react-toastify';
                 <Row gutter={{ xs: 8, sm: 16, md: 24}} justify='space-evenly' align='middle' style={{ width: '100%', marginRight: 'auto', marginLeft: 'auto' }}>
                     <Col span={6}>
                         <div>
-                            <img src="../../public/images/signup.svg" alt="" style={{ width: '500px' }} />
+                            <img src="/images/signup.svg" alt="" style={{ width: '500px' }} />
                         </div>
                     </Col>
                     <Col span={6}>
