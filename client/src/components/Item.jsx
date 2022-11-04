@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Item.css'
 import { Row, Col, Button, Input } from 'antd'
 import { json, useNavigate, useParams } from 'react-router-dom';
-
+import { toast, ToastContainer } from 'react-toastify'
 import Timer from './Timer'
+import Countdown from 'react-countdown';
 
 
 function Item({ seller }) {
 const[item, setItem] = useState({})
 const {id}= useParams();
 const [bid, setBid] = useState('')
-var date1 = new Date('9/11/2022');
-console.log(Date.now())
+const status = (Date.now() + 10800000) >= Date.parse(item?.date)
+const [currentBid, setCurrentBid] = useState(null)
+
+
      function handleSubmit(e) {
        e.preventDefault()
        fetch(`/api/bids`,{
@@ -21,7 +24,7 @@ console.log(Date.now())
          },
          body: JSON.stringify({
            product_id: item.id,
-           bid_placed: bid,
+           bid_placed: parseInt(bid),
            user_id: seller.id
          })
        })
@@ -31,8 +34,9 @@ console.log(Date.now())
 		 			navigate('/login')
 		 		}
 		 		if(res.ok){
-		 			res.json().then(()=>{
+		 			res.json().then((data)=>{
 		 				setItem({...item, [item.current_bid]: bid})
+						setCurrentBid(data?.bid_placed)
 		 				toast(`Bid placed successfully, and is now ${bid}`)
 		 			})
 		 		}
@@ -49,14 +53,53 @@ console.log(Date.now())
     useEffect(() => {
     fetch(`/api/products/${id}`)
     .then(response => response.json())
-    .then( data => setItem(data))
+    .then( data => {
+      setItem(data)
+			setCurrentBid(data?.current_bid)
+    })
     
-
     },[])
 
+		useEffect(()=>{
+			(function(){
+				if (item.sold_to === null) {
+					if (status) {
+						fetch('/api/sell',{
+							method: "POST",
+							headers: {"content-type": "application/json"},
+							body: JSON.stringify({
+								product_id: item?.id
+							})
+						})
+						.then(res=>{
+							if (res.ok) {
+								res.json().then(stat=>toast(stat.Success))
+							}else{
+								res.json().then(err=>toast(err.errors[0] || err.message))
+							}
+						})
+					}
+				}
+			}())
+		}, [status])
 
+
+    let date = item?.date
+    let time = date?.slice(11, 16)
+    let date1 = date?.slice(0, 10).split('-').reverse().join('-')
+
+    let description1= item?.description
+    let description2 = description1?.slice(0, 20)
+
+		const switchTime = status ? "none" : "block"
+		const switchOver = status ? "block" : "none"
+
+    // console.log(Date.now(), '  ', Date.parse(item.date));
   return (
+    
+
     <div className='header1'>
+      
     <div className="block aboutBlock" style={{ margin: 'px 15px' }}>
       <div className='container-fluid'>
         <div>
@@ -81,23 +124,21 @@ console.log(Date.now())
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h3>Current Highest Bid <strong>:</strong></h3>
-                    <div>Ksh. {item.current_bid}</div>
+                    <div>Ksh. {currentBid}</div>
+                  </div>
                   </div>
                   
-                </div>
-
+                
                 <div style={{ padding: '12px 0' }}>
-                  <h3>Bidding Time Remaining </h3>
-                  <p>Days:Hours:Minutes:Seconds</p>
-                  <Timer date={Date.now() +500000000}/>
-                </div>
-
-                <div style={{ padding: '12px 0' }}>
-               
-
+                  <h3>Bidding Time Ends at: </h3>
+                
+                  <p style={{display: switchTime}}>Date: {date1}<br/>Time: {time} hrs</p>
+									<p style={{display: switchOver}}>Bidding is over</p>
                   
 
-                 <form onSubmit={handleSubmit}>
+                <div style={{ padding: '12px 0' }}>
+
+                 <form onSubmit={handleSubmit} style={{display: switchTime}}>
                   <Input.Group compact>
                     <Input
                       style={{
@@ -111,8 +152,9 @@ console.log(Date.now())
                   </form> 
 
                   <br/>
-                  <Button type="" style={{ backgroundColor: '#c09753', color: '#fff' }}>View all bids</Button> 
+                  {/* <Button type="" style={{ backgroundColor: '#c09753', color: '#fff' }}>View all bids</Button>  */}
                 </div>
+              </div>
               </div>
             </Col>
           </Row>
@@ -123,8 +165,8 @@ console.log(Date.now())
               <div>
                 <h2 className='titleHolder'>Descriptions</h2>
               </div>
+            
               <div>
-                <p>French carved wood and upholstered bergère chairs</p>
                 <p>{item.description}</p>
               </div>
             </Col>

@@ -12,6 +12,14 @@ function SellerHome() {
 	const {id} = useParams()
 
   useEffect(() => {
+		fetch('/api/auth')
+		.then(res=>{
+			if(res.status === 401 || res.status === 404){
+				navigate('/')
+				res.json().then(err=> toast(err.errors[0]))
+			}
+		})
+
 			fetch(`/api/users/${id}`)
 				.then((res) => {
 					if (res.ok) {
@@ -28,7 +36,14 @@ function SellerHome() {
     console.log(deletedProductId);
     fetch(`/api/products/${deletedProductId}`, {
       method: "DELETE",
-    });
+    })
+		.then(res=>{
+			if(res.ok){
+				toast("Product has been deleted successfully")
+			}else{
+				res.json().then(err=> toast(err.errors[0]))
+			}
+		})
     const afterDelete = myProducts.filter((prod) => {
       return prod.id !== deletedProductId;
     });
@@ -74,6 +89,7 @@ function SellerHome() {
             <div className="container-fluid">
               <Row gutter={[40, 40]}>
                 {(Array.isArray(myProducts.products) ? myProducts.products : []).map((product) => {
+									console.log(product);
                     return (
                       <div key={product.id}>
                         <Col span={8}>
@@ -92,23 +108,25 @@ function SellerHome() {
                               <h4>{product.name}</h4>
                               <p>Location: {product.location}</p>
                               <p>Start Price: {product.starting_price}</p>
-															<p>Date: {product.time.slice(0, 10).split('-').reverse().join('-')}</p>
-                              <p>Time: {product.time.slice(11)}</p>
-                              <div style={{display: 'flex', flexDirection: 'column'}}>
-                                <a
+															<p>Date: {product.date.slice(0, 10).split('-').reverse().join('-')}</p>
+                              <p>Time: {product.date.slice(11, 16)}</p>
+															<p>Winner: {!product.sold_to ? "Still in bid" : product.sold_to}</p>
+                              <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                {/* <a
                                   className="crud"
                                   href={`/update/${product.id}`}
                                 >
                                   Edit Product Details
-                                </a>
-			    											<button onClick={()=>closeBid(product.id)}>
+                                </a> */}
+			    											<button onClick={()=>closeBid(product.id)} style={{color: "#f3c180", backgroundColor: "#fff", fontWeight: 800}}>
 			    											Close bid
-			    											</button>
+			    											</button><br/>
                                 <button
                                   className="crud"
                                   onClick={() => handleDelete(product.id)}
+																	style={{color: "#f3c180", backgroundColor: "#fff", fontWeight: 800}}
                                 >
-                                  Delete
+																	Delete
                                 </button>
 																<ToastContainer/>
                               </div>

@@ -296,6 +296,29 @@ padding: 60px 0;
 border-bottom: 1px solid #d9d9d9;
 }
 
+
+/* 
+categories
+----- 
+*/
+.block {
+padding: 60px 0;
+border-bottom: 1px solid #d9d9d9;
+}
+
+.categoryBlock {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.categoryCard {
+    width: 340px;
+    overflow: hidden;
+}
+
+
 /* 
 about
 ----- 
@@ -316,6 +339,11 @@ margin: 0 0 10px;
 .aboutBlock .content {
 text-align: center;
 }
+
+.aboutDesktopHidden {
+    display: none;
+}
+
 
 /* 
 Art
@@ -391,6 +419,14 @@ margin: 0 10px 0 0;
 }
 
 /* 
+Team
+-------------
+*/
+.teamDesktopHidden {
+    display: none;
+}
+
+/* 
 pricing block
 -------------
 */
@@ -433,6 +469,16 @@ margin: auto;
 .contactBlock .ant-form textarea {
 min-height: 120px;
 height: 120px;
+}
+
+.contactWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contactDesktopHidden {
+    display: none;
 }
 
 /* 
@@ -495,7 +541,30 @@ display: none;
 display: block;
 }
 
+/*
+Login
+*/
+.loginWrapper {
+    width: 25%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.loginImage {
+    background: url('/images/bglogin.png') no-repeat;
+    background-position: 50% 100%;
+    background-size: cover;
+    height: 100vh;
+    }
+
+/*
+Register
+*/
+.registerMobileShow {
+    display: none;
+}
 /* 
+
 responsive
 ----------
 */
@@ -503,9 +572,17 @@ responsive
 .pricingBlock .ant-row > div:nth-child(2) .ant-list-item {
     transform: scale(1.14);
 }
+
+.heroBlock {
+    height: auto;
 }
 
-@media only screen and (max-width: 767px) {
+.heroBlock .content {
+    padding-top: 80px;
+}
+}
+
+@media only screen and (max-width: 768px) {
 .pricingBlock .ant-row > div:nth-child(2) .ant-list-item {
     transform: scale(1);
 }
@@ -516,5 +593,67 @@ responsive
 
 .mobileHidden {
     display: none;
+}
+
+.heroBlock {
+    height: auto;
+}
+
+.heroBlock .content {
+    padding-top: 80px;
+}
+
+.categoryBlock {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.categoryCard {
+    width: 200px;
+    overflow: hidden;
+}
+
+.aboutMobileHidden {
+    display: none;
+}
+
+.aboutDesktopHidden {
+    display: block;
+}
+
+.teamMobileHidden {
+    display: none;
+}
+
+.teamDesktopHidden {
+    display: block;
+}
+
+.contactWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contactDesktopHidden {
+    display: block;
+}
+
+.contactMobileHidden {
+    display: none;
+}
+
+.loginWrapper {
+    width: 80%;
+}
+
+.registerDesktopShow {
+    display: none;
+}
+
+.registerMobileShow {
+    display: block;
 }
 }
