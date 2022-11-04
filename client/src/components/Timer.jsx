@@ -65,6 +65,11 @@ class Timer extends Component{
   // }
   
 
+  // componentDidMount(){
+  //   fetch(`/api/products/${id}`)
+  //   .then(response => response.json())
+  //   .then( data => setItem(data))
+  // }
 
 
   render() {

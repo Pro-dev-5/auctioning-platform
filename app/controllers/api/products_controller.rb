@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
 	rescue_from ActiveRecord::RecordNotFound, with: :render_prod_not_found
-	skip_before_action :authorized_as_seller, only: [:index, :show, :destroy]
+	skip_before_action :authorized_as_seller, only: [:index, :show, :destroy, :sell]
 	skip_before_action :authenticated_user, only: [:index, :show]
 	def index
 		prod = Product.all.includes(:bids, :category)
@@ -13,7 +13,9 @@ class Api::ProductsController < ApplicationController
 	end
 
 	def create
-		prod = Product.create!(prod_params)
+		prod = Product.new(prod_params)
+		prod.current_bid = prod.starting_price
+		prod.save!
 		render json: prod, status: :created
 	end
 
@@ -30,7 +32,18 @@ class Api::ProductsController < ApplicationController
 	end
 
 	def sell
-		prod
+    prod = Product.find(params[:product_id])
+    bids = Bid.where("product_id=?", prod.id)
+    if bids != []
+      winning_bid = bids.last
+      winner = User.find(winning_bid.user_id)
+      prod.sold_to = winner.email
+			prod.save
+    else
+      prod.sold_to = "failed"
+			prod.save
+    end
+    render json: {Success: "Bidding complete"}, status: 200
 	end
 
 	private

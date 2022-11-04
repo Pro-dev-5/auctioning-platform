@@ -24,6 +24,7 @@ import { toast, ToastContainer } from 'react-toastify';
 					res.json().then(data=>{
 						setSeller(data)
 						toast(`Logged in as ${data.name}`)
+						history.back()
 					})
 				}else{
 					res.json().then(err=>toast(err.errors[0]))
