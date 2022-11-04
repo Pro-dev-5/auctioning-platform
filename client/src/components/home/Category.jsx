@@ -12,7 +12,7 @@ function AppCategory({name, description, image, path, ind}) {
             <Row gutter={[48, 16]} justify="space-between" align='middle'>
                 <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }} onClick={()=>navigate(path[ind])}>
                     <Card
-                        style={{ width: '30vw' }}
+                        className='categoryCard'
                         hoverable
                         cover={<img alt="example" src={ image } />}
                     >
