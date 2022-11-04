@@ -110,6 +110,7 @@ function SellerHome() {
                               <p>Start Price: {product.starting_price}</p>
 															<p>Date: {product.date.slice(0, 10).split('-').reverse().join('-')}</p>
                               <p>Time: {product.date.slice(11, 16)}</p>
+															<p>Winner: {!product.sold_to ? "Still in bid" : product.sold_to}</p>
                               <div style={{display: 'flex', justifyContent: 'space-between'}}>
                                 {/* <a
                                   className="crud"
