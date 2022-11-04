@@ -38,17 +38,6 @@ function mpesa() {
       }
     });
 
-    //   .then(r =>{
-    // 		if(r.ok){
-    // 			r.json().then(()=>{
-    // 				toast("Product added successfully 😊")
-    // 				// navigate('/')
-    // 			})
-    // 		}
-    // 	})
-    // 	} catch (error) {
-    // 		console.log(error.message)
-    // 	}
   }
   // ​useEffect(() => {
   // fetch("https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest", {
