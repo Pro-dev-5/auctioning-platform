@@ -1,5 +1,6 @@
 # README
 <h1>Bidding for stuff</h1>
+<hr><p><span style="margin-right: 30px;"></span><a href="https://auction-app-rails.herokuapp.com/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 10%;"></a></p>
 <hr><p>This is an online platform where users are allowed to create profiles and login either as buyers or users.A buyer can see all products with open bids:open bids have an active window till and expires with time.</p><h2>General Information</h2>
 <hr><ul>
 <li>One can only bid online
@@ -40,5 +41,3 @@ More information about items.</p><ul>
 <li>online payments</li>
 </ul><ul>
 <li>file upload and open window</li>
-</ul><h2>Contact</h2>
-<hr><p><span style="margin-right: 30px;"></span><a href="https://auction-app-rails.herokuapp.com/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 10%;"></a></p>
