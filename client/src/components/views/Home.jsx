@@ -60,7 +60,7 @@ function AppHome({seller}) {
             <About />
             <AppWork seller={seller}/>
             <AppFaq />
-            <AppTeam />
+            {/* <AppTeam /> */}
             <AppContact />
 
         </div>
