@@ -100,12 +100,13 @@ function AddItem({ seller }) {
           </div>
           <hr></hr>
          
-          <div className="seller-form-all">
+          <div className="seller-form-all container">
             
 
             <form
               onSubmit={handleSubmit}
-							style={{ display: "flex", flexDirection: 'column', alignItems: 'center'}}
+							style={{ display: "flex", flexDirection: 'column', alignItems: 'center', backgroundColor: '#f5f5f5'}}
+							className='rounded py-3 mb-3'
             >
               <label>Select category: </label>
 							
@@ -113,7 +114,7 @@ function AddItem({ seller }) {
                 onChange={handleChange}
                 name="category_id"
                 value={formData.category_id}
-
+				className="form-control seller-form"
               >
                 <option>Select--</option>
                 {(Array.isArray(category) ? category : []).map((cat) => {
@@ -132,7 +133,7 @@ function AddItem({ seller }) {
                 name="image_1"
                 value={formData.image_1}
                 onChange={handleChange}
-								className="seller-form"
+								className="seller-form form-control"
               />
               <br />
 
@@ -142,7 +143,7 @@ function AddItem({ seller }) {
                 name="image_2"
                 value={formData.image_2}
                 onChange={handleChange}
-								className="seller-form"
+								className="seller-form form-control"
               />
               <br />
 
@@ -152,7 +153,7 @@ function AddItem({ seller }) {
                 name="image_3"
                 value={formData.image_3}
                 onChange={handleChange}
-								className="seller-form"
+								className="seller-form form-control"
               />
               <br />
 
@@ -163,7 +164,7 @@ function AddItem({ seller }) {
                 value={formData.name}
                 onChange={handleChange}
                 required={true}
-								className="seller-form"
+								className="seller-form form-control"
               />
               <br />
 
@@ -173,7 +174,7 @@ function AddItem({ seller }) {
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-								className="seller-form"
+								className="seller-form form-control"
               />
               <br />
 
@@ -184,7 +185,7 @@ function AddItem({ seller }) {
                 value={formData.date}
                 onChange={handleChange}
                 required={true}
-								className="seller-form"
+								className="seller-form form-control"
               />
 
               <br />
@@ -195,7 +196,7 @@ function AddItem({ seller }) {
                 value={formData.starting_price}
                 onChange={handleChange}
                 required={true}
-								className="seller-form"
+								className="seller-form form-control"
               />
               <br />
 
@@ -203,7 +204,7 @@ function AddItem({ seller }) {
               <input
                 onChange={handleChange}
                 value={formData.description}
-								className="seller-form"
+								className="seller-form form-control"
               />
               <br />
               <Button
@@ -222,96 +223,3 @@ function AddItem({ seller }) {
 }
 
 export default AddItem;
-
-{
-  /* <form className="seller-form" onSubmit={handleSubmit}>
-				<label>Select category?</label>
-				<select onChange={handleChange} name='category_id' value={formData.category_id}>
-          <option >Select--</option>
-          {
-            (Array.isArray(category) ? category : []).map(cat=>{
-              return (
-                <option value={cat.id} key={cat.id}>{cat.name}</option>
-              )
-            })
-          }
-        </select>
-        <label>Image 1</label>
-        <input
-          type="text"
-          name="image_1"
-          value={formData.image_1}
-          onChange={handleChange}
-        />
-
-        <label>Image 2</label>
-        <input
-          type="text"
-          name="image_2"
-          value={formData.image_2}
-          onChange={handleChange}
-        />
-        <br/>
-
-        <label>Image 3</label>
-        <input
-          type="text"
-          name="image_3"
-          value={formData.image_3}
-          onChange={handleChange}
-        />
-        <br/>
-
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-					required={true}
-        />
-        <br/>
-
-        <label>Location</label>
-        <input
-          type="text"
-          name="location"
-          value={formData.location}
-          onChange={handleChange}
-        />
-        <br/>
-
-        <label>Time</label>
-        <input
-          type="time"
-          name="time"
-          value={formData.time}
-          onChange={handleChange}
-					required={true}
-        />
-        <br/>
-
-        <label>Date</label>
-        <input
-          type="datetime-local"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-					required={true}
-        />
-        <br/>
-
-        <label>Starting Price</label>
-        <input
-          type="number"
-          name="starting_price"
-          value={formData.starting_price}
-          onChange={handleChange}
-					required={true}
-        />
-        <br/>
-
-        <input type='submit' />
-        
-      </form> */
-}

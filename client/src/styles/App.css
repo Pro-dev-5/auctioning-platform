@@ -7,17 +7,19 @@ general
 
 body {
     font-size: 16px;
-    line-height: 1.6;
-    color: #333;
+    line-height: 1.6 !important;
+    color: #333 !important;
     overflow-x: hidden;
-    font-family: 'Nunito';
+    font-family: 'Nunito' !important; 
+	font-variant: tabular-nums;
+	font-feature-settings: "tnum";
 }
 
 .container-fluid {
-margin: 0 auto;
+margin: 0 auto !important;
 /* max-width: 1200px; */
-width: 100%;
-padding: 0 40px;
+width: 100% !important;
+padding: 0 40px !important;
 }
 
 .for-container {
@@ -34,7 +36,7 @@ padding: 0 40px;
     font-size: xx-small;
     color: #fff;
     font-weight: 900;
-    font-family: 'Nunito';
+    font-family: 'Nunito' !important;
 }
 
 .ant-layout {
@@ -45,12 +47,12 @@ background: #fff !important;
 background: #f3c180;
 padding: 0;
 height: auto;
-line-height: 1.6;
+line-height: 1.6 !important;
 }
 
 p {
-font-size: 16px;
-line-height: 1.6;
+font-size: 16px !important;
+line-height: 1.6 !important;
 }
 
 .bgGray {
@@ -66,7 +68,7 @@ text-align: left;
 position: relative;
 padding: 0 0 20px;
 margin: 0 0 40px;
-font-family: 'Averia Serif Libre';
+font-family: 'Averia Serif Libre' !important;
 font-weight: 500;
 font-size: x-large;
 color: #585860;
@@ -109,7 +111,7 @@ padding: 15px 0;
 font-size: 22px;
 text-transform: uppercase;
 font-weight: 400;
-font-family: 'Averia Serif Libre';
+font-family: 'Averia Serif Libre' !important;
 }
 
 .header .logo .fas {
@@ -262,7 +264,7 @@ padding: 0 0 70px;
 font-size: 30px;
 line-height: 1.2;
 margin: 0 0 30px;
-font-family: 'Averia Serif Libre';
+font-family: 'Averia Serif Libre' !important;
 color: #FFD38B;
 }
 
@@ -327,7 +329,7 @@ about
 text-align: left;
 margin: 0 0 50px;
 color: #766765;
-font-family: 'Nunito';
+font-family: 'Nunito' !important;
 }
 
 .aboutBlock .icon {
@@ -353,7 +355,7 @@ Art
 text-align: left;
 margin: 0 0 50px;
 color: #766765;
-font-family: 'Nunito';
+font-family: 'Nunito' !important;
 }
 
 
@@ -656,4 +658,7 @@ responsive
 .registerMobileShow {
     display: block;
 }
+}
+a{
+	text-decoration: none !important;
 }

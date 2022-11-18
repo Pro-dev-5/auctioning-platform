@@ -24,7 +24,7 @@
 }
 
 .top-header div span {
-    margin-right: 8px;
+    margin-right: 8px !important;
 }
 
 .logo, h1, .divider {

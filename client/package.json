@@ -11,6 +11,7 @@
   "dependencies": {
     "@craco/craco": "^6.4.3",
     "antd": "^4.23.6",
+    "bootstrap": "^5.2.2",
     "craco-antd": "^2.0.0",
     "craco-less": "^2.0.0",
     "less-loader": "^11.1.0",
