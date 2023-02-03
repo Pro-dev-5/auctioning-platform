@@ -1,6 +1,20 @@
 # README
 <h1>Auctioning Platform</h1>
-<hr><p>This is an online platform where users are allowed to create profiles and login either as buyers or users.A buyer can see all products with open bids:open bids have an active window till and expires with time.</p><h2>General Information</h2>
+
+<img src='public/images/screenshot1.png' width='320px' height='200' alt='first screenshot'/>
+<img src='public/images/screenshot2.png' width='320px' height='200' alt='second screenshot'/>
+<img src='public/images/screenshot3.png' width='320px' height='200' alt='third screenshot'/>
+<img src='public/images/screenshot4.png' width='320px' height='200' alt='forth screenshot'/>
+<img src='public/images/screenshot5.png' width='320px' height='200' alt='fifth screenshot'/>
+<img src='public/images/screenshot6.png' width='320px' height='200' alt='sixth screenshot'/>
+<img src='public/images/screenshot7.png' width='320px' height='200' alt='seventh screenshot'/>
+<img src='public/images/screenshot8.png' width='320px' height='200' alt='eighth screenshot'/>
+<img src='public/images/screenshot9.png' width='320px' height='200' alt='nineth screenshot'/>
+<img src='public/images/screenshot10.png' width='320px' height='200' alt='tenth screenshot'/>
+
+
+<hr>
+<p>This is an online platform where users are allowed to create profiles and login either as buyers or users.A buyer can see all products with open bids:open bids have an active window till and expires with time.</p><h2>General Information</h2>
 <hr><ul>
 <li>One can only bid online
 Payments can only be done online
