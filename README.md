@@ -38,13 +38,30 @@ More information about items.</p><ul>
 </ul><ul>
 <li>JavaScript</li>
 </ul><ul>
-<li>Ruby on Rails</li>
+<li>Rails (API)</li>
 </ul><ul>
 <li>Vite React</li>
 </ul><ul>
 <li>Postgresql</li>
+</ul><ul>
+<li>Ant Design</li>
 </ul><h2>Setup</h2>
-<hr><p>A system where the products or goods can be purchased or sold through bidding. Generally, the bidding has a start price and no customer can bid less than the start price. Sellers should be able to add a product together with its start price and buyers should join a bid and suggest their prices, starting from the start price.</p><h5>Steps</h5><ul>
-<li>Bundle install to add all dependancies then npm install to aquire all the gems.Since we are using Vite reacts use npm run dev to run the server on the client side and for the backend server just run rails s from the terminal</li>
-</ul><h2>Project Status</h2>
+<hr><p>A system where the products or goods can be purchased or sold through bidding. Generally, the bidding has a start price and no customer can bid less than the start price. Sellers should be able to add a product together with its start price and buyers should join a bid and suggest their prices, starting from the start price.</p><h5>Steps</h5>
+
+<i>The following procedure presumes you have `npm`, `ruby` and `rails` gem installed already</i>
+
+On the terminal, run the following:
+
+```
+bundle install
+npm install
+npm run dev
+rails s
+```
+
+`bundle install` installs all ruby dependencies,
+`npm install` installs all the javascript dependencies for the client side, `npm run dev` runs the server on the client side, 
+`rails s` runs the backend server
+
+<h2>Project Status</h2>
 <hr><p>The project is complete.</p>
